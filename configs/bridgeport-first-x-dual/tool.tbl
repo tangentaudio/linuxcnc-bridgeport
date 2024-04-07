@@ -1,0 +1,4 @@
+T1 P1 Z0.511 D0.125 ;1/8 end mill Sample Tool
+T2 P2 Z0.1 D0.0625 ;1/16 end mill Sample Tool
+T3 P3 Z1.273 D0.201 ;#7 tap drill Sample Tool
+T4 P4 Z0 D2 ; 2 inch mill Sample Tool

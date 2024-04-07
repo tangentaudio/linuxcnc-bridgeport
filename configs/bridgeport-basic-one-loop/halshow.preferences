@@ -1,0 +1,29 @@
+# Halshow settings
+# This file is generated automatically.
+wm geometry . 700x475+63+134
+placeFrames 0.3
+set ::ratio 0.3
+set ::old_w_leftf 160
+set ::watchlist {
+    param+hm2_7i43.0.pwmgen.00.offset-mode
+    param+hm2_7i43.0.pwmgen.00.output-type
+    param+hm2_7i43.0.pwmgen.00.scale
+    param+hm2_7i43.0.pwmgen.00.enable
+    param+hm2_7i43.0.pwmgen.00.enable.invert_output
+    param+hm2_7i43.0.pwmgen.00.enable.is_opendrain
+    param+hm2_7i43.0.pwmgen.00.out0.invert_output
+    param+hm2_7i43.0.encoder.00.counter-mode
+    param+hm2_7i43.0.encoder.00.filter
+    param+hm2_7i43.0.encoder.00.index-invert
+    param+hm2_7i43.0.encoder.00.index-mask
+    param+hm2_7i43.0.encoder.00.index-mask-invert
+    param+hm2_7i43.0.encoder.00.scale
+    param+hm2_7i43.0.encoder.00.vel-timeout
+}
+set ::workmode watchhal
+set ::watchInterval 100
+set ::col1_width 100
+set ::ffmts 
+set ::ifmts 
+set ::alwaysOnTop 0
+set ::autoSaveWatchlist 1

@@ -1,0 +1,32 @@
+# Halshow settings
+# This file is generated automatically.
+wm geometry . 700x475+97+53
+placeFrames 0.3
+set ::ratio 0.3
+set ::old_w_leftf 160
+set ::watchlist {
+    pin+pid.vx.Pgain
+    pin+pid.vx.Igain
+    pin+pid.vx.Dgain
+    pin+pid.vx.FF0
+    pin+pid.vx.FF1
+    pin+pid.vx.FF2
+    pin+pid.vx.FF3
+    pin+pid.vx.command
+    pin+pid.vx.error
+    pin+pid.vx.feedback
+    pin+pid.vx.output
+    pin+pid.px.Pgain
+    pin+pid.px.Igain
+    pin+pid.px.Dgain
+    pin+pid.px.command
+    pin+pid.px.error
+    pin+pid.px.feedback
+}
+set ::workmode watchhal
+set ::watchInterval 100
+set ::col1_width 100
+set ::ffmts 
+set ::ifmts 
+set ::alwaysOnTop 0
+set ::autoSaveWatchlist 1
