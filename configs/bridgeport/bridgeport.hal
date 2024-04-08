@@ -1,5 +1,5 @@
 # Bridgeport ProtoTrak Plus Conversion
-# April 2024 - S. Richardson
+# April 2024 - tangentaudio@gmail.com
 
 loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
@@ -29,16 +29,20 @@ addf [HMOT](CARD0).write         servo-thread
 
 
 
-# external output signals
-
-# external input signals
 
 #*******************
 #  AXIS X JOINT 0
 #*******************
 
+# PWM Generator
+# The ProtoTrak Plus servo drives use offset mode PWM, 50% duty = off, 0% duty = -100%, 100% duty = +100%
+# HostMot2 PWM generator supports this natively by setting offset-mode to true
+setp   [HMOT](CARD0).pwmgen.00.output-type 1
+setp   [HMOT](CARD0).pwmgen.00.offset-mode true
+setp   [HMOT](CARD0).pwmgen.00.scale  [JOINT_0]OUTPUT_SCALE
+
+# Velocity Loop (P, D, FF1)
 setp   pid.vx.Pgain     [JOINT_0]P
-#setp   pid.vx.Igain     [JOINT_0]I
 setp   pid.vx.Igain     0
 setp   pid.vx.Dgain     [JOINT_0]D
 setp   pid.vx.bias      [JOINT_0]BIAS
@@ -47,8 +51,9 @@ setp   pid.vx.FF1       [JOINT_0]FF1
 setp   pid.vx.FF2       [JOINT_0]FF2
 setp   pid.vx.deadband  [JOINT_0]DEADBAND
 setp   pid.vx.maxoutput [JOINT_0]MAX_OUTPUT
-#setp   pid.vx.error-previous-target true
+setp   pid.vx.error-previous-target true
 
+# Position Loop (I only)
 setp   pid.px.Pgain     0
 setp   pid.px.Igain     [JOINT_0]I
 setp   pid.px.Dgain     0
@@ -58,37 +63,20 @@ setp   pid.px.FF1       0
 setp   pid.px.FF2       0
 setp   pid.px.deadband  [JOINT_0]DEADBAND
 setp   pid.px.maxoutput [JOINT_0]MAX_OUTPUT
-#setp   pid.px.error-previous-target true
+setp   pid.px.error-previous-target true
 
-net x-index-enable  =>  pid.vx.index-enable
-net x-enable        =>  pid.vx.enable
-#net x-pos-cmd       =>  pid.vx.command
-#net x-pos-fb        =>  pid.vx.feedback
+# PID & PWM Enables
+net x-enable joint.0.amp-enable-out => [HMOT](CARD0).pwmgen.00.enable pid.vx.enable pid.px.enable
 
-net x-output-motor pid.vx.output sum2.x.in0
-net x-output-linear pid.px.output sum2.x.in1 
+# Commanded value from the joint
+net x-pos-cmd joint.0.motor-pos-cmd => pid.vx.command pid.px.command 
 
-#net x-output        <=  pid.vx.output
-net x-output sum2.x.out 
+# Sum output of the two PID loops together to produce the PWM output signal
+net x-output-motor pid.vx.output <= sum2.x.in0
+net x-output-linear pid.px.output <= sum2.x.in1 
+net x-output <= sum2.x.out => [HMOT](CARD0).pwmgen.00.value
 
-# ---PWM Generator signals/setup---
-
-setp   [HMOT](CARD0).pwmgen.00.output-type 1
-setp   [HMOT](CARD0).pwmgen.00.offset-mode true
-setp   [HMOT](CARD0).pwmgen.00.scale  [JOINT_0]OUTPUT_SCALE
-
-net x-output                             => [HMOT](CARD0).pwmgen.00.value
-
-#net x-pos-cmd    joint.0.motor-pos-cmd
-net x-pos-cmd joint.0.motor-pos-cmd pid.vx.command pid.px.command 
-
-
-#net x-enable     joint.0.amp-enable-out  => [HMOT](CARD0).pwmgen.00.enable
-net x-enable joint.0.amp-enable-out pid.vx.enable pid.px.enable [HMOT](CARD0).pwmgen.00.enable
-
-
-# ---Encoder feedback signals/setup---
-
+# Motor encoder
 setp    [HMOT](CARD0).encoder.00.counter-mode 0
 setp    [HMOT](CARD0).encoder.00.filter 1
 setp    [HMOT](CARD0).encoder.00.index-invert 0
@@ -96,28 +84,27 @@ setp    [HMOT](CARD0).encoder.00.index-mask 0
 setp    [HMOT](CARD0).encoder.00.index-mask-invert 0
 setp    [HMOT](CARD0).encoder.00.scale  [JOINT_0]ENCODER_MOTOR_SCALE
 
+# Axis scale encoder
 setp    [HMOT](CARD0).encoder.02.counter-mode 0
 setp    [HMOT](CARD0).encoder.02.filter 1
 setp    [HMOT](CARD0).encoder.02.index-invert 0
 setp    [HMOT](CARD0).encoder.02.index-mask 0
 setp    [HMOT](CARD0).encoder.02.index-mask-invert 0
-setp    [HMOT](CARD0).encoder.02.scale  [JOINT_0]ENCODER_AXIS_SCALE
+setp    [HMOT](CARD0).encoder.02.scale  [JOINT_0]ENCODER_LINEAR_SCALE
 
-#net x-pos-fb               <=  [HMOT](CARD0).encoder.00.position
-net x-linear-pos-fb pid.px.feedback [HMOT](CARD0).encoder.02.position 
-net x-motor-pos-fb  pid.vx.feedback [HMOT](CARD0).encoder.00.position
+# Neither of the ProtoTrak encoders have index signals, should this always be forced off?
+net x-index-enable	   => pid.vx.index-enable pid.px.index-enable
+net x-index-enable    	   joint.0.index-enable  <=>  [HMOT](CARD0).encoder.00.index-enable [HMOT](CARD0).encoder.02.index-enable
 
-net x-vel-fb               <=  [HMOT](CARD0).encoder.00.velocity
-net x-motor-pos-fb               =>  joint.0.motor-pos-fb
-#net x-pos-fb               =>  joint.0.motor-pos-fb
-net x-index-enable    joint.0.index-enable  <=>  [HMOT](CARD0).encoder.00.index-enable
-net x-pos-rawcounts        <=  [HMOT](CARD0).encoder.02.rawcounts
+# Velocity and position feedback into the PIDs 
+net x-vel-fb 	      	   pid.vx.feedback <= [HMOT](CARD0).encoder.00.velocity
+net x-pos-fb 	      	   pid.px.feedback <= [HMOT](CARD0).encoder.02.position => joint.0.motor-pos-fb
 
-# ---setup home / limit switch signals---
+# Home / limit switch signals - none yet.
+net x-home-sw         	    => joint.0.home-sw-in
+net x-neg-limit		    => joint.0.neg-lim-sw-in
+net x-pos-limit		    => joint.0.pos-lim-sw-in
 
-net x-home-sw     =>  joint.0.home-sw-in
-net x-neg-limit     =>  joint.0.neg-lim-sw-in
-net x-pos-limit     =>  joint.0.pos-lim-sw-in
 
 #*******************
 #  AXIS Y JOINT 1

@@ -1,6 +1,6 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 955x475+929+196
+wm geometry . 955x475+916+62
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
@@ -32,9 +32,18 @@ set ::watchlist {
     sig+estop-out
     sig+machine-is-on
     sig+machine-is-enabled
-    pin+axisui.error
-    pin+axisui.notifications-clear-error
-    sig+x-neg-limit
+    pin+halui.mode.auto
+    pin+halui.mode.mdi
+    pin+halui.mode.manual
+    pin+halui.mode.is-teleop
+    pin+halui.mode.is-auto
+    pin+halui.mode.is-joint
+    pin+halui.mode.is-manual
+    pin+halui.mode.is-mdi
+    pin+halui.mode.teleop
+    pin+iocontrol.0.user-enable-out
+    pin+iocontrol.0.user-request-enable
+    pin+axisui.notifications-clear
 }
 set ::workmode watchhal
 set ::watchInterval 100
