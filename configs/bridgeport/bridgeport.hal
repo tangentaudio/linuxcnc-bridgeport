@@ -11,7 +11,11 @@ setp    [HMOT](CARD0).watchdog.timeout_ns 5000000
 loadrt pid names=pid.vx,pid.px,pid.y,pid.z,pid.s
 loadrt sum2 names=sum2.x
 
+loadusr -W lcec_conf ethercat-conf.xml
+loadrt lcec
+
 addf [HMOT](CARD0).read          servo-thread
+addf lcec.read-all servo-thread
 addf motion-command-handler   	 servo-thread
 addf motion-controller        	 servo-thread
 addf pid.vx.do-pid-calcs       	 servo-thread
@@ -20,7 +24,10 @@ addf sum2.x			 servo-thread
 addf pid.y.do-pid-calcs       	 servo-thread
 addf pid.z.do-pid-calcs       	 servo-thread
 addf pid.s.do-pid-calcs       	 servo-thread
+addf lcec.write-all servo-thread
 addf [HMOT](CARD0).write         servo-thread
+
+
 
 # external output signals
 
