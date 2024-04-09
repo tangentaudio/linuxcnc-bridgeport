@@ -14,6 +14,7 @@ loadrt sum2 names=sum2.x
 loadusr -W lcec_conf ethercat-conf.xml
 loadrt lcec
 
+
 addf [HMOT](CARD0).read          servo-thread
 addf lcec.read-all servo-thread
 addf motion-command-handler   	 servo-thread
@@ -26,8 +27,6 @@ addf pid.z.do-pid-calcs       	 servo-thread
 addf pid.s.do-pid-calcs       	 servo-thread
 addf lcec.write-all servo-thread
 addf [HMOT](CARD0).write         servo-thread
-
-
 
 
 #*******************
@@ -64,13 +63,6 @@ setp   pid.px.FF2       0
 setp   pid.px.deadband  [JOINT_0]DEADBAND
 setp   pid.px.maxoutput [JOINT_0]MAX_OUTPUT
 setp   pid.px.error-previous-target true
-
-# PID & PWM Enables
-net x-enable joint.0.amp-enable-out => [HMOT](CARD0).pwmgen.00.enable pid.vx.enable pid.px.enable
-
-# Commanded value from the joint
-net x-pos-cmd joint.0.motor-pos-cmd => pid.vx.command pid.px.command 
-
 # Sum output of the two PID loops together to produce the PWM output signal
 net x-output-motor pid.vx.output <= sum2.x.in0
 net x-output-linear pid.px.output <= sum2.x.in1 
@@ -93,12 +85,12 @@ setp    [HMOT](CARD0).encoder.02.index-mask-invert 0
 setp    [HMOT](CARD0).encoder.02.scale  [JOINT_0]ENCODER_LINEAR_SCALE
 
 # Neither of the ProtoTrak encoders have index signals, should this always be forced off?
-net x-index-enable	   => pid.vx.index-enable pid.px.index-enable
 net x-index-enable    	   joint.0.index-enable  <=>  [HMOT](CARD0).encoder.00.index-enable [HMOT](CARD0).encoder.02.index-enable
+net x-index-enable	   => pid.vx.index-enable pid.px.index-enable
 
 # Velocity and position feedback into the PIDs 
-net x-vel-fb 	      	   pid.vx.feedback <= [HMOT](CARD0).encoder.00.velocity
-net x-pos-fb 	      	   pid.px.feedback <= [HMOT](CARD0).encoder.02.position => joint.0.motor-pos-fb
+net x-motor-fb 	      	   pid.vx.feedback <= [HMOT](CARD0).encoder.00.position => joint.0.motor-pos-fb
+net x-linear-fb	      	   pid.px.feedback <= [HMOT](CARD0).encoder.02.position
 
 # Home / limit switch signals - none yet.
 net x-home-sw         	    => joint.0.home-sw-in
@@ -298,7 +290,7 @@ net machine-is-enabled        <=  motion.motion-enabled
 
 #  ---estop signals---
 
-net estop-out     <=  iocontrol.0.user-enable-out
+net estop-out     <=  iocontrol.0.user-enable-out 
 net estop-out     =>  iocontrol.0.emc-enable-in
 
 #  ---manual tool change signals---
