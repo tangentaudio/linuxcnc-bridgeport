@@ -5,7 +5,7 @@
 loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
-loadrt hm2_7i43 ioaddr=0x378 ioaddr_hi=0 epp_wide=0 config="firmware=hm2/7i43-4/SV8.BIT num_encoders=8 num_pwmgens=8 num_stepgens=0" 
+loadrt hm2_7i43 ioaddr=0x378 ioaddr_hi=0 epp_wide=0 config="firmware=hm2/7i43-4/SV8.BIT num_encoders=4 num_pwmgens=3 num_stepgens=0" 
 setp    [HMOT](CARD0).pwmgen.pwm_frequency 15000
 setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
 setp    [HMOT](CARD0).watchdog.timeout_ns 5000000
@@ -30,25 +30,25 @@ setp   pid.x-inner.Pgain     [JOINT_0]P
 setp   pid.x-inner.Igain     0
 setp   pid.x-inner.Dgain     [JOINT_0]D
 setp   pid.x-inner.bias      [JOINT_0]BIAS
-setp   pid.x-inner.FF0       0
-setp   pid.x-inner.FF1       0
-setp   pid.x-inner.FF2       0
-setp   pid.x-inner.deadband  [JOINT_0]DEADBAND
-setp   pid.x-inner.maxoutput [JOINT_0]MAX_OUTPUT
-setp   pid.x-inner.error-previous-target true
-net x-inner-pos-fb        =>  pid.x-inner.feedback
-
-
-setp   pid.x-inner.Pgain     0
-setp   pid.x-inner.Igain     [JOINT_0]I
-setp   pid.x-inner.Dgain     0
-setp   pid.x-inner.bias      [JOINT_0]BIAS
 setp   pid.x-inner.FF0       [JOINT_0]FF0
 setp   pid.x-inner.FF1       [JOINT_0]FF1
 setp   pid.x-inner.FF2       [JOINT_0]FF2
 setp   pid.x-inner.deadband  [JOINT_0]DEADBAND
 setp   pid.x-inner.maxoutput [JOINT_0]MAX_OUTPUT
 setp   pid.x-inner.error-previous-target true
+net x-inner-pos-fb        =>  pid.x-inner.feedback
+
+
+setp   pid.x-outer.Pgain     0
+setp   pid.x-outer.Igain     [JOINT_0]I
+setp   pid.x-outer.Dgain     0
+setp   pid.x-outer.bias      [JOINT_0]BIAS
+setp   pid.x-outer.FF0       0
+setp   pid.x-outer.FF1       0
+setp   pid.x-outer.FF2       0
+setp   pid.x-outer.deadband  [JOINT_0]DEADBAND
+setp   pid.x-outer.maxoutput [JOINT_0]MAX_OUTPUT
+setp   pid.x-outer.error-previous-target true
 net x-outer-pos-fb        =>  pid.x-outer.feedback
 
 # both PIDs share enables
@@ -101,9 +101,13 @@ net x-index-enable    joint.0.index-enable  <=>  [HMOT](CARD0).encoder.02.index-
 
 # ---setup home / limit switch signals---
 
-net x-home-sw     =>  joint.0.home-sw-in
-net x-neg-limit     =>  joint.0.neg-lim-sw-in
+#net x-home-sw     =>  joint.0.home-sw-in
+net x-neg-limit     =>  joint.0.neg-lim-sw-in joint.0.home-sw-in
 net x-pos-limit     =>  joint.0.pos-lim-sw-in
+
+net x-neg-limit <= [HMOT](CARD0).gpio.025.in
+net x-pos-limit <= [HMOT](CARD0).gpio.024.in
+
 
 #*******************
 #  AXIS Y JOINT 1
@@ -132,9 +136,9 @@ setp   [HMOT](CARD0).pwmgen.01.output-type 1
 setp   [HMOT](CARD0).pwmgen.01.offset-mode true
 setp   [HMOT](CARD0).pwmgen.01.scale  [JOINT_1]OUTPUT_SCALE
 
-net y-output                             => [HMOT](CARD0).pwmgen.01.value
+#net y-output                             => [HMOT](CARD0).pwmgen.01.value
 net y-pos-cmd    joint.1.motor-pos-cmd
-net y-enable     joint.1.amp-enable-out  => [HMOT](CARD0).pwmgen.01.enable
+#net y-enable     joint.1.amp-enable-out  => [HMOT](CARD0).pwmgen.01.enable
 
 # ---Encoder feedback signals/setup---
 
@@ -147,7 +151,7 @@ setp    [HMOT](CARD0).encoder.01.scale  [JOINT_1]ENCODER_SCALE
 
 net y-pos-fb               <=  [HMOT](CARD0).encoder.01.position
 net y-vel-fb               <=  [HMOT](CARD0).encoder.01.velocity
-net y-pos-fb               =>  joint.1.motor-pos-fb
+#net y-pos-fb               =>  joint.1.motor-pos-fb
 net y-index-enable    joint.1.index-enable  <=>  [HMOT](CARD0).encoder.01.index-enable
 net y-pos-rawcounts        <=  [HMOT](CARD0).encoder.01.rawcounts
 
@@ -180,27 +184,27 @@ net z-output        <=  pid.z.output
 
 # ---PWM Generator signals/setup---
 
-setp   [HMOT](CARD0).pwmgen.05.output-type 1
-setp   [HMOT](CARD0).pwmgen.05.scale  [JOINT_2]OUTPUT_SCALE
+setp   [HMOT](CARD0).pwmgen.02.output-type 1
+setp   [HMOT](CARD0).pwmgen.02.scale  [JOINT_2]OUTPUT_SCALE
 
-net z-output                             => [HMOT](CARD0).pwmgen.05.value
+net z-output                             => [HMOT](CARD0).pwmgen.02.value
 net z-pos-cmd    joint.2.motor-pos-cmd
-net z-enable     joint.2.amp-enable-out  => [HMOT](CARD0).pwmgen.05.enable
+net z-enable     joint.2.amp-enable-out  => [HMOT](CARD0).pwmgen.02.enable
 
 # ---Encoder feedback signals/setup---
 
-setp    [HMOT](CARD0).encoder.05.counter-mode 0
-setp    [HMOT](CARD0).encoder.05.filter 1
-setp    [HMOT](CARD0).encoder.05.index-invert 0
-setp    [HMOT](CARD0).encoder.05.index-mask 0
-setp    [HMOT](CARD0).encoder.05.index-mask-invert 0
-setp    [HMOT](CARD0).encoder.05.scale  [JOINT_2]ENCODER_SCALE
+#setp    [HMOT](CARD0).encoder.05.counter-mode 0
+#setp    [HMOT](CARD0).encoder.05.filter 1
+#setp    [HMOT](CARD0).encoder.05.index-invert 0
+#setp    [HMOT](CARD0).encoder.05.index-mask 0
+#setp    [HMOT](CARD0).encoder.05.index-mask-invert 0
+#setp    [HMOT](CARD0).encoder.05.scale  [JOINT_2]ENCODER_SCALE
 
-net z-pos-fb               <=  [HMOT](CARD0).encoder.05.position
-net z-vel-fb               <=  [HMOT](CARD0).encoder.05.velocity
+#net z-pos-fb               <=  [HMOT](CARD0).encoder.05.position
+#net z-vel-fb               <=  [HMOT](CARD0).encoder.05.velocity
 net z-pos-fb               =>  joint.2.motor-pos-fb
-net z-index-enable    joint.2.index-enable  <=>  [HMOT](CARD0).encoder.05.index-enable
-net z-pos-rawcounts        <=  [HMOT](CARD0).encoder.05.rawcounts
+#net z-index-enable    joint.2.index-enable  <=>  [HMOT](CARD0).encoder.05.index-enable
+#net z-pos-rawcounts        <=  [HMOT](CARD0).encoder.05.rawcounts
 
 # ---setup home / limit switch signals---
 

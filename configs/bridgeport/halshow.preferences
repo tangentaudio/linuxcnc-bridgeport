@@ -1,19 +1,14 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1053x475+791+112
+wm geometry . 1053x475+33+488
 placeFrames 0.3400576368876081
 set ::ratio 0.3400576368876081
 set ::old_w_leftf 160
 set ::watchlist {
-    sig+x-enable
-    sig+x-inner-pos-fb
-    sig+x-outer-pos-fb
-    sig+x-output
-    sig+x-output-inner
-    sig+x-output-outer
-    sig+x-pos-cmd
-    pin+hm2_7i43.0.encoder.00.position
-    pin+hm2_7i43.0.encoder.02.position
+    pin+hm2_7i43.0.pwmgen.00.enable
+    pin+hm2_7i43.0.pwmgen.00.value
+    sig+machine-is-enabled
+    sig+machine-is-on
 }
 set ::workmode watchhal
 set ::watchInterval 100
