@@ -65,6 +65,13 @@ setp    [HMOT](CARD0).encoder.00.index-mask 0
 setp    [HMOT](CARD0).encoder.00.index-mask-invert 0
 setp    [HMOT](CARD0).encoder.00.scale  [JOINT_0]ENCODER_SCALE
 
+setp    [HMOT](CARD0).encoder.02.counter-mode 0
+setp    [HMOT](CARD0).encoder.02.filter 1
+setp    [HMOT](CARD0).encoder.02.index-invert 0
+setp    [HMOT](CARD0).encoder.02.index-mask 0
+setp    [HMOT](CARD0).encoder.02.index-mask-invert 0
+setp    [HMOT](CARD0).encoder.02.scale  [JOINT_0]ENCODER_LINEAR_SCALE
+
 net x-pos-fb               <=  [HMOT](CARD0).encoder.00.position
 net x-vel-fb               <=  [HMOT](CARD0).encoder.00.velocity
 net x-pos-fb               =>  joint.0.motor-pos-fb
@@ -163,17 +170,17 @@ net z-enable     joint.2.amp-enable-out  => [HMOT](CARD0).pwmgen.02.enable
 
 # ---Encoder feedback signals/setup---
 
-setp    [HMOT](CARD0).encoder.02.counter-mode 0
-setp    [HMOT](CARD0).encoder.02.filter 1
-setp    [HMOT](CARD0).encoder.02.index-invert 0
-setp    [HMOT](CARD0).encoder.02.index-mask 0
-setp    [HMOT](CARD0).encoder.02.index-mask-invert 0
-setp    [HMOT](CARD0).encoder.02.scale  [JOINT_2]ENCODER_SCALE
+#setp    [HMOT](CARD0).encoder.03.counter-mode 0
+#setp    [HMOT](CARD0).encoder.03.filter 1
+#setp    [HMOT](CARD0).encoder.03.index-invert 0
+#setp    [HMOT](CARD0).encoder.03.index-mask 0
+#setp    [HMOT](CARD0).encoder.03.index-mask-invert 0
+#setp    [HMOT](CARD0).encoder.03.scale  [JOINT_2]ENCODER_SCALE
 
-net z-pos-fb               <=  [HMOT](CARD0).encoder.02.position
-net z-vel-fb               <=  [HMOT](CARD0).encoder.02.velocity
+#net z-pos-fb               <=  [HMOT](CARD0).encoder.03.position
+#net z-vel-fb               <=  [HMOT](CARD0).encoder.03.velocity
 net z-pos-fb               =>  joint.2.motor-pos-fb
-net z-index-enable    joint.2.index-enable  <=>  [HMOT](CARD0).encoder.02.index-enable
+#net z-index-enable    joint.2.index-enable  <=>  [HMOT](CARD0).encoder.03.index-enable
 net z-pos-rawcounts        <=  [HMOT](CARD0).encoder.02.rawcounts
 
 # ---setup home / limit switch signals---
