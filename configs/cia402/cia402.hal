@@ -1,6 +1,7 @@
 ###########################################################
 #
-# CIA 402 example snippet Hal
+# Bridgeport ProtoTrak Conversion
+# Leadshine EL7 / CIA 402
 #
 ###########################################################
 
@@ -13,7 +14,7 @@ loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JO
 
 loadusr -W lcec_conf ethercat-conf.xml
 loadrt lcec
-loadrt cia402 count=3
+loadrt el7_cia402 names=cia402.0,cia402.1,cia402.2
 loadrt pid names=s-pid,0-pid,1-pid,2-pid
 
 loadusr halshow
