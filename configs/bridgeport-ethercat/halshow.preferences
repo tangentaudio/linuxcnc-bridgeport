@@ -1,46 +1,12 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1072x918+753+47
+wm geometry . 1072x918+803+50
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
 set ::watchlist {
-    pin+cia402.0.opmode
-    pin+cia402.0.opmode-display
-    pin+cia402.0.statusword
-    pin+cia402.0.home
-    pin+cia402.0.stat-homed
-    pin+cia402.0.stat-homing
-    pin+cia402.0.stat-fault
-    pin+cia402.0.fault-reset
-    pin+cia402.0.stat-op-enabled
-    pin+cia402.0.stat-quick-stop
-    pin+cia402.0.stat-switched-on
-    pin+cia402.0.stat-warning
-    pin+joint.0.homed
-    pin+joint.0.homing
-    pin+joint.0.pos-fb
-    pin+joint.0.pos-cmd
-    pin+joint.0.home-state
-    pin+joint.0.faulted
-    pin+joint.0.error
-    pin+joint.0.active
-    pin+joint.0.index-enable
-    pin+halui.joint.0.home
-    pin+halui.joint.0.is-homed
-    pin+halui.joint.0.unhome
-    sig+0-enable
-    sig+0-homing
-    sig+0-homed
-    sig+0-home-request
-    pin+lcec.0.7.homing-method
-    pin+lcec.0.7.homing-low-velocity
-    pin+lcec.0.7.homing-high-velocity
-    pin+lcec.0.7.homing-acceleration
-    pin+cia402.0.controlword
-    sig+0-controlword
-    pin+cia402.0.opmode-homing
-    pin+cia402.0.stat-target-reached
+    pin+cia402.1.pos-cmd
+    pin+cia402.1.pos-fb
 }
 set ::workmode watchhal
 set ::watchInterval 100
