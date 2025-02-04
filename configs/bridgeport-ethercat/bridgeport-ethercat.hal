@@ -131,6 +131,9 @@ setp lcec.0.5.enc-pos-scale [JOINT_2]LINEAR_SCALE
 
 net 2-pos-fb	  => joint.2.motor-pos-fb <= lcec.0.5.enc-pos
 
+net 2-home-request joint.2.request-custom-homing   joint.2.custom-homing-finished joint.2.is-custom-homing
+
+
 
 ###########################################################
 # Config - Manual Tool Changes
