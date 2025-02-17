@@ -1,12 +1,60 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1072x918+803+50
+wm geometry . 1072x959+803+9
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
 set ::watchlist {
-    pin+cia402.1.pos-cmd
-    pin+cia402.1.pos-fb
+    pin+lcec.0.9.actual-position
+    pin+lcec.0.9.actual-torque
+    pin+lcec.0.9.actual-velocity
+    pin+lcec.0.9.cia-controlword
+    pin+lcec.0.9.cia-statusword
+    pin+lcec.0.9.home-offset
+    pin+lcec.0.9.opmode
+    pin+lcec.0.9.opmode-display
+    pin+lcec.0.9.slave-online
+    pin+lcec.0.9.slave-oper
+    pin+lcec.0.9.slave-state-init
+    pin+lcec.0.9.slave-state-op
+    pin+lcec.0.9.slave-state-preop
+    pin+lcec.0.9.slave-state-safeop
+    pin+lcec.0.9.target-position
+    pin+lcec.0.9.target-velocity
+    pin+cia402.2.controlword
+    pin+cia402.2.drv-actual-position
+    pin+cia402.2.drv-actual-velocity
+    pin+cia402.2.drv-fault
+    pin+cia402.2.drv-target-position
+    pin+cia402.2.drv-target-velocity
+    pin+cia402.2.enable
+    pin+cia402.2.fault-reset
+    pin+cia402.2.home
+    pin+cia402.2.opmode
+    pin+cia402.2.opmode-cyclic-position
+    pin+cia402.2.opmode-cyclic-velocity
+    pin+cia402.2.opmode-display
+    pin+cia402.2.opmode-homing
+    pin+cia402.2.opmode-no-mode
+    pin+cia402.2.pos-cmd
+    pin+cia402.2.pos-fb
+    pin+cia402.2.read-all.time
+    pin+cia402.2.stat-fault
+    pin+cia402.2.stat-homed
+    pin+cia402.2.stat-homing
+    pin+cia402.2.stat-op-enabled
+    pin+cia402.2.stat-quick-stop
+    pin+cia402.2.stat-remote
+    pin+cia402.2.stat-switched-on
+    pin+cia402.2.stat-switchon-disabled
+    pin+cia402.2.stat-switchon-ready
+    pin+cia402.2.stat-target-reached
+    pin+cia402.2.stat-voltage-enabled
+    pin+cia402.2.stat-warning
+    pin+cia402.2.statusword
+    pin+cia402.2.velocity-cmd
+    pin+cia402.2.velocity-fb
+    pin+cia402.2.write-all.time
 }
 set ::workmode watchhal
 set ::watchInterval 100

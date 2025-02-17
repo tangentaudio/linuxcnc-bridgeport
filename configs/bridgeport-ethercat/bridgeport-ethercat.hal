@@ -13,7 +13,8 @@
 # 6 EL5101-0011 1Ch Inc. Encoder 5V           W Knee Glass Scale, 5 micron
 # 7 T7-EC(COE) (aka LeadShine EL7)            X Axis Servo, 750W, 23-bit ABS encoder
 # 8 T7-EC(COE) (aka LeadShine EL7)            Y Axis Servo, 750W, 23-bit ABS encoder
-#
+# 9 AS715N_sAxis_V0.10                        Knee Servo, 1000W, 17-bit ABS encoder
+
 ###########################################################
 
 ###########################################################
@@ -25,8 +26,8 @@ loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JO
 
 loadusr -W lcec_conf ethercat-conf.xml
 loadrt lcec
-loadrt el7_cia402 names=cia402.0,cia402.1
-loadrt and2 names=and2.oper
+loadrt el7_cia402 names=cia402.0,cia402.1,cia402.2
+loadrt and2 names=and2.oper0,and2.oper1
 loadusr halshow
 
 ###########################################################
@@ -36,12 +37,15 @@ loadusr halshow
 addf lcec.read-all servo-thread
 addf cia402.0.read-all servo-thread
 addf cia402.1.read-all servo-thread
+addf cia402.2.read-all servo-thread
 
 addf motion-command-handler servo-thread
 addf motion-controller servo-thread
-addf and2.oper servo-thread
+addf and2.oper0 servo-thread
+addf and2.oper1 servo-thread
 addf cia402.0.write-all servo-thread
 addf cia402.1.write-all servo-thread
+addf cia402.2.write-all servo-thread
 addf lcec.write-all servo-thread
 
 
@@ -49,11 +53,13 @@ addf lcec.write-all servo-thread
 # Safety
 ###########################################################
 
-# disable EMC until both servo drives are in oper state
+# disable EMC until all servo drives are in oper state
 # this can take some time at startup, and it will give a fault if enabled too early
-net oin1 <= and2.oper.in0 <= lcec.0.7.slave-oper
-net oin2 <= and2.oper.in1 <= lcec.0.8.slave-oper
-net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper.out
+net oin1 <= and2.oper0.in0 <= lcec.0.7.slave-oper
+net oin2 <= and2.oper0.in1 <= lcec.0.8.slave-oper
+net oin4 <= and2.oper1.in0 <= and2.oper0.out
+net oin3 <= and2.oper1.in1 <= lcec.0.9.slave-oper
+net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper1.out
 
  
 ###########################################################
@@ -124,14 +130,46 @@ net 1-homed        joint.1.custom-homing-finished  cia402.1.stat-homed
 
 
 ###########################################################
-# Config - Joint 2 (Z, Quill) - manual quill w/mag scale
+# Config - Joint 2 (Z, Knee)
+###########################################################
+setp cia402.2.csp-mode 1
+
+setp cia402.2.pos-scale [JOINT_2]SERVO_SCALE
+
+net 2-statusword      lcec.0.9.cia-statusword => cia402.2.statusword
+net 2-opmode-display  lcec.0.9.opmode-display => cia402.2.opmode-display
+net 2-drv-act-pos     lcec.0.9.actual-position => cia402.2.drv-actual-position
+net 2-drv-act-velo    lcec.0.9.actual-velocity => cia402.2.drv-actual-velocity
+
+net 2-enable    <= joint.2.amp-enable-out => cia402.2.enable
+net 2-amp-fault => joint.2.amp-fault-in   <= cia402.2.drv-fault
+net 2-pos-cmd   <= joint.2.motor-pos-cmd  => cia402.2.pos-cmd
+net 2-pos-fb    => joint.2.motor-pos-fb   <= cia402.2.pos-fb
+
+net 2-controlword         cia402.2.controlword => lcec.0.9.cia-controlword
+net 2-modes-of-operation  cia402.2.opmode => lcec.0.9.opmode
+net 2-drv-target-pos      cia402.2.drv-target-position => lcec.0.9.target-position
+net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.9.target-velocity
+
+#setp lcec.0.9.homing-method [JOINT_2]CIA402_HOMING_METHOD
+#setp lcec.0.9.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
+#setp lcec.0.9.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
+#setp lcec.0.9.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
+
+#net 2-home-request joint.2.request-custom-homing   cia402.2.home joint.2.index-enable
+#net 2-homing       joint.2.is-custom-homing        cia402.2.stat-homing
+#net 2-homed        joint.2.custom-homing-finished  cia402.2.stat-homed
+
+
+###########################################################
+# Config - Joint 9 (W, Quill) - manual quill w/mag scale
 ###########################################################
 
-setp lcec.0.5.enc-pos-scale [JOINT_2]LINEAR_SCALE
+setp lcec.0.5.enc-pos-scale [JOINT_3]LINEAR_SCALE
 
-net 2-pos-fb	  => joint.2.motor-pos-fb <= lcec.0.5.enc-pos
+net 3-pos-fb	  => joint.3.motor-pos-fb <= lcec.0.5.enc-pos
+net 3-home-request joint.3.request-custom-homing   joint.3.custom-homing-finished joint.3.is-custom-homing
 
-net 2-home-request joint.2.request-custom-homing   joint.2.custom-homing-finished joint.2.is-custom-homing
 
 
 
