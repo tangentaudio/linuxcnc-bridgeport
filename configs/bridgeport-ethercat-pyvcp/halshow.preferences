@@ -1,0 +1,19 @@
+# Halshow settings
+# This file is generated automatically.
+wm geometry . 1072x959+803+9
+placeFrames 0.3
+set ::ratio 0.3
+set ::old_w_leftf 160
+set ::watchlist {
+    pin+lcec.0.servo-z.homing-method
+    pin+lcec.0.servo-z.homing-low-velocity
+    pin+lcec.0.servo-z.homing-high-velocity
+    pin+lcec.0.servo-z.homing-acceleration
+}
+set ::workmode watchhal
+set ::watchInterval 100
+set ::col1_width 100
+set ::ffmts 
+set ::ifmts 
+set ::alwaysOnTop 0
+set ::autoSaveWatchlist 1

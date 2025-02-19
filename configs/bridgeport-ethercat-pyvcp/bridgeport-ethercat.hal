@@ -1,0 +1,191 @@
+###########################################################
+# Bridgeport ProtoTrak Conversion to EtherCAT
+###########################################################
+#
+# EtherCAT device IDs:
+#
+# 0 EK1100 EtherCAT Coupler (2A E-Bus)
+# 1 EL2008 8Ch. Dig. Output 24V               General Purpose Outputs
+# 2 EL1018 8Ch. Dig. Input 24V                General Purpose Inputs
+# 3 EL5101 1Ch. Inc. Encoder 5V               X Glass Scale, 5 micron
+# 4 EL5101 1Ch. Inc. Encoder 5V               Y Glass Scale, 5 micron
+# 5 EL5101 1Ch. Inc. Encoder 5V               Z Quill Mag Scale, 5 micron
+# 6 EL5101-0011 1Ch Inc. Encoder 5V           W Knee Glass Scale, 5 micron
+# 7 T7-EC(COE) (aka LeadShine EL7)            X Axis Servo, 750W, 23-bit ABS encoder
+# 8 T7-EC(COE) (aka LeadShine EL7)            Y Axis Servo, 750W, 23-bit ABS encoder
+# 9 AS715N_sAxis_V0.10 (aka Inovance SV660N)  Knee Servo, 1000W, 17-bit ABS encoder
+
+###########################################################
+
+###########################################################
+# Setup
+###########################################################
+
+loadrt [KINS]KINEMATICS
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
+
+loadusr -W lcec_conf ethercat-conf.xml
+loadrt lcec
+loadrt el7_cia402 names=cia402.0,cia402.1,cia402.2
+loadrt and2 names=and2.oper0,and2.oper1
+loadusr halshow
+
+###########################################################
+# Functions servo-thread
+###########################################################
+
+addf lcec.read-all servo-thread
+addf cia402.0.read-all servo-thread
+addf cia402.1.read-all servo-thread
+addf cia402.2.read-all servo-thread
+
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf and2.oper0 servo-thread
+addf and2.oper1 servo-thread
+addf cia402.0.write-all servo-thread
+addf cia402.1.write-all servo-thread
+addf cia402.2.write-all servo-thread
+addf lcec.write-all servo-thread
+
+
+###########################################################
+# Safety
+###########################################################
+
+# disable EMC until all servo drives are in oper state
+# this can take some time at startup, and it will give a fault if enabled too early
+net oin1 <= and2.oper0.in0 <= lcec.0.servo-x.slave-oper
+net oin2 <= and2.oper0.in1 <= lcec.0.servo-y.slave-oper
+net oin4 <= and2.oper1.in0 <= and2.oper0.out
+net oin3 <= and2.oper1.in1 <= lcec.0.servo-z.slave-oper
+net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper1.out
+
+ 
+###########################################################
+# Config - Joint 0 (X)
+###########################################################
+setp cia402.0.csp-mode 1
+
+setp cia402.0.pos-scale [JOINT_0]SERVO_SCALE
+setp lcec.0.encoder-x.enc-pos-scale [JOINT_0]LINEAR_SCALE
+
+net 0-statusword      lcec.0.servo-x.cia-statusword => cia402.0.statusword
+net 0-opmode-display  lcec.0.servo-x.opmode-display => cia402.0.opmode-display
+net 0-drv-act-pos     lcec.0.servo-x.actual-position => cia402.0.drv-actual-position
+net 0-drv-act-velo    lcec.0.servo-x.actual-velocity => cia402.0.drv-actual-velocity
+
+net 0-enable     <= joint.0.amp-enable-out => cia402.0.enable
+net 0-amp-fault  => joint.0.amp-fault-in   <= cia402.0.drv-fault
+net 0-pos-cmd    <= joint.0.motor-pos-cmd  => cia402.0.pos-cmd
+net 0-pos-fb     => joint.0.motor-pos-fb   <= cia402.0.pos-fb
+
+net 0-controlword         cia402.0.controlword => lcec.0.servo-x.cia-controlword
+net 0-modes-of-operation  cia402.0.opmode => lcec.0.servo-x.opmode
+net 0-drv-target-pos      cia402.0.drv-target-position => lcec.0.servo-x.target-position
+net 0-drv-target-velo     cia402.0.drv-target-velocity => lcec.0.servo-x.target-velocity
+
+setp lcec.0.servo-x.homing-method [JOINT_0]CIA402_HOMING_METHOD
+setp lcec.0.servo-x.homing-high-velocity [JOINT_0]CIA402_HOMING_SEARCH_VELOCITY
+setp lcec.0.servo-x.homing-low-velocity [JOINT_0]CIA402_HOMING_LATCH_VELOCITY
+setp lcec.0.servo-x.homing-acceleration [JOINT_0]CIA402_HOMING_ACCELERATION
+
+net 0-home-request joint.0.request-custom-homing   cia402.0.home joint.0.index-enable
+net 0-homing       joint.0.is-custom-homing        cia402.0.stat-homing
+net 0-homed        joint.0.custom-homing-finished  cia402.0.stat-homed
+
+
+
+###########################################################
+# Config - Joint 1 (Y)
+###########################################################
+setp cia402.1.csp-mode 1
+
+setp cia402.1.pos-scale [JOINT_1]SERVO_SCALE
+setp lcec.0.encoder-y.enc-pos-scale [JOINT_1]LINEAR_SCALE
+
+net 1-statusword      lcec.0.servo-y.cia-statusword => cia402.1.statusword
+net 1-opmode-display  lcec.0.servo-y.opmode-display => cia402.1.opmode-display
+net 1-drv-act-pos     lcec.0.servo-y.actual-position => cia402.1.drv-actual-position
+net 1-drv-act-velo    lcec.0.servo-y.actual-velocity => cia402.1.drv-actual-velocity
+
+net 1-enable    <= joint.1.amp-enable-out => cia402.1.enable
+net 1-amp-fault => joint.1.amp-fault-in   <= cia402.1.drv-fault
+net 1-pos-cmd   <= joint.1.motor-pos-cmd  => cia402.1.pos-cmd
+net 1-pos-fb    => joint.1.motor-pos-fb   <= cia402.1.pos-fb
+
+net 1-controlword         cia402.1.controlword => lcec.0.servo-y.cia-controlword
+net 1-modes-of-operation  cia402.1.opmode => lcec.0.servo-y.opmode
+net 1-drv-target-pos      cia402.1.drv-target-position => lcec.0.servo-y.target-position
+net 1-drv-target-velo     cia402.1.drv-target-velocity => lcec.0.servo-y.target-velocity
+
+setp lcec.0.servo-y.homing-method [JOINT_1]CIA402_HOMING_METHOD
+setp lcec.0.servo-y.homing-high-velocity [JOINT_1]CIA402_HOMING_SEARCH_VELOCITY
+setp lcec.0.servo-y.homing-low-velocity [JOINT_1]CIA402_HOMING_LATCH_VELOCITY
+setp lcec.0.servo-y.homing-acceleration [JOINT_1]CIA402_HOMING_ACCELERATION
+
+net 1-home-request joint.1.request-custom-homing   cia402.1.home joint.1.index-enable
+net 1-homing       joint.1.is-custom-homing        cia402.1.stat-homing
+net 1-homed        joint.1.custom-homing-finished  cia402.1.stat-homed
+
+
+###########################################################
+# Config - Joint 2 (Z, Knee)
+###########################################################
+setp cia402.2.csp-mode 1
+
+setp cia402.2.pos-scale [JOINT_2]SERVO_SCALE
+
+net 2-statusword      lcec.0.servo-z.cia-statusword => cia402.2.statusword
+net 2-opmode-display  lcec.0.servo-z.opmode-display => cia402.2.opmode-display
+net 2-drv-act-pos     lcec.0.servo-z.actual-position => cia402.2.drv-actual-position
+net 2-drv-act-velo    lcec.0.servo-z.actual-velocity => cia402.2.drv-actual-velocity
+
+net 2-enable    <= joint.2.amp-enable-out => cia402.2.enable
+net 2-amp-fault => joint.2.amp-fault-in   <= cia402.2.drv-fault
+net 2-pos-cmd   <= joint.2.motor-pos-cmd  => cia402.2.pos-cmd
+net 2-pos-fb    => joint.2.motor-pos-fb   <= cia402.2.pos-fb
+
+net 2-controlword         cia402.2.controlword => lcec.0.servo-z.cia-controlword
+net 2-modes-of-operation  cia402.2.opmode => lcec.0.servo-z.opmode
+net 2-drv-target-pos      cia402.2.drv-target-position => lcec.0.servo-z.target-position
+net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.servo-z.target-velocity
+
+#setp lcec.0.servo-z.homing-method [JOINT_2]CIA402_HOMING_METHOD
+#setp lcec.0.servo-z.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
+#setp lcec.0.servo-z.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
+#setp lcec.0.servo-z.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
+
+#net 2-home-request joint.2.request-custom-homing   cia402.2.home joint.2.index-enable
+#net 2-homing       joint.2.is-custom-homing        cia402.2.stat-homing
+#net 2-homed        joint.2.custom-homing-finished  cia402.2.stat-homed
+
+
+###########################################################
+# Config - Joint 3 (W, Quill) - manual quill w/mag scale
+###########################################################
+
+setp lcec.0.encoder-w.enc-pos-scale [JOINT_3]LINEAR_SCALE
+
+net 3-pos-fb	  => joint.3.motor-pos-fb <= lcec.0.encoder-w.enc-pos
+net 3-home-request joint.3.request-custom-homing   joint.3.custom-homing-finished joint.3.is-custom-homing
+
+
+
+
+###########################################################
+# Config - Manual Tool Changes
+###########################################################
+
+net tool-change-request    <= iocontrol.0.tool-change
+net tool-change-confirmed  => iocontrol.0.tool-changed
+net tool-number            <= iocontrol.0.tool-prep-number
+
+# use external manual tool change dialog
+loadusr -W hal_manualtoolchange
+net tool-change-request    =>  hal_manualtoolchange.change
+net tool-change-confirmed  <=  hal_manualtoolchange.changed
+net tool-number            =>  hal_manualtoolchange.number
+
+# ignore tool prepare requests
+net tool-prepare-loopback   iocontrol.0.tool-prepare      =>  iocontrol.0.tool-prepared
