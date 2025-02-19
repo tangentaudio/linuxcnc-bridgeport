@@ -1,21 +1,21 @@
 <masters>
 	<master idx="0" appTimePeriod="1000000" refClockSyncCycles="1" >
 		<!--Beckhoff EL1100 EtherCAT Coupler -->
-		<slave idx="0" type="EK1100"/>
+		<slave name="coupler" idx="0" type="EK1100"/>
 		<!--Beckhoff EL2008 Digital Outputs x8 -->
-		<slave idx="1" type="EL2008"/>
+		<slave name="dout-0" idx="1" type="EL2008"/>
 		<!--Beckhoff EL1018 Digital Inputs x8 -->
-		<slave idx="2" type="EL1018"/>
+		<slave name="din-1" idx="2" type="EL1018"/>
 		<!--Beckhoff EL5101 RS422 Incremental Encoder x1 -->
-		<slave idx="3" type="EL5101"/>
+		<slave name="encoder-x" idx="3" type="EL5101"/>
 		<!--Beckhoff EL5101 RS422 Incremental Encoder x1 -->
-		<slave idx="4" type="EL5101"/>
+		<slave name="encoder-y" idx="4" type="EL5101"/>
 		<!--Beckhoff EL5101 RS422 Incremental Encoder x1 -->
-		<slave idx="5" type="EL5101"/>
-		<!--Beckhoff EL5101 RS422 Incremental Encoder x1 -->
-		<slave idx="6" type="EL5101"/>
+		<slave name="encoder-z" idx="5" type="EL5101"/>
+		<!--Beckhoff EL5101-0011 RS422 Incremental Encoder x1 -->
+		<slave name="encoder-w" idx="6" type="EL5101"/>
 		<!--StepperOnline T7-EC, which is an OEM version of the LeadShine EL7 -->
-		<slave idx="7" type="generic" vid="00004321" pid="000010d7" configPdos="true">
+		<slave name="servo-x" idx="7" type="generic" vid="00004321" pid="000010d7" configPdos="true">
 			<syncManager idx="2" dir="out">
 				<pdo idx="1600">
 					<pdoEntry idx="6040" subIdx="00" bitLen="16" halPin="cia-controlword" halType="u32"/>
@@ -46,7 +46,7 @@
 			<dcConf assignActivate="300" sync0Cycle="*1" sync0Shift="0"/>
 		</slave>
 		<!--StepperOnline T7-EC, which is an OEM version of the LeadShine EL7 -->
-		<slave idx="8" type="generic" vid="00004321" pid="000010d7" configPdos="true">
+		<slave name="servo-y" idx="8" type="generic" vid="00004321" pid="000010d7" configPdos="true">
 			<syncManager idx="2" dir="out">
 				<pdo idx="1600">
 					<pdoEntry idx="6040" subIdx="00" bitLen="16" halPin="cia-controlword" halType="u32"/>
@@ -76,8 +76,8 @@
 			</syncManager>
 			<dcConf assignActivate="300" sync0Cycle="*1" sync0Shift="0"/>
 		</slave>
-		
-		<slave idx="9" type="generic" vid="00400000" pid="00000715" configPdos="true">
+		<!-- StepperOnline A6, which is an OEM version of Inovance SV660N -->
+		<slave name="servo-z" idx="9" type="generic" vid="00400000" pid="00000715" configPdos="true">
 			<syncManager idx="2" dir="out">
 				<pdo idx="1600">
 					<pdoEntry idx="6040" subIdx="00" bitLen="16" halPin="cia-controlword" halType="u32"/>
@@ -85,12 +85,10 @@
 					<pdoEntry idx="607A" subIdx="00" bitLen="32" halPin="target-position" halType="s32"/>
 					<pdoEntry idx="60FF" subIdx="00" bitLen="32" halPin="target-velocity" halType="s32"/>
 					<pdoEntry idx="607C" subIdx="00" bitLen="32" halPin="home-offset" halType="s32"/>
-					<!--
 					<pdoEntry idx="6098" subIdx="00" bitLen="8" halPin="homing-method" halType="s32"/>
 					<pdoEntry idx="6099" subIdx="01" bitLen="32" halPin="homing-high-velocity" halType="u32"/>
 					<pdoEntry idx="6099" subIdx="02" bitLen="32" halPin="homing-low-velocity" halType="u32"/>
 					<pdoEntry idx="609A" subIdx="00" bitLen="32" halPin="homing-acceleration" halType="u32"/>
-					-->
 				</pdo>
 			</syncManager>
 			<syncManager idx="3" dir="in">

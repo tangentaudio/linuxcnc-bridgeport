@@ -13,7 +13,7 @@
 # 6 EL5101-0011 1Ch Inc. Encoder 5V           W Knee Glass Scale, 5 micron
 # 7 T7-EC(COE) (aka LeadShine EL7)            X Axis Servo, 750W, 23-bit ABS encoder
 # 8 T7-EC(COE) (aka LeadShine EL7)            Y Axis Servo, 750W, 23-bit ABS encoder
-# 9 AS715N_sAxis_V0.10                        Knee Servo, 1000W, 17-bit ABS encoder
+# 9 AS715N_sAxis_V0.10 (aka Inovance SV660N)  Knee Servo, 1000W, 17-bit ABS encoder
 
 ###########################################################
 
@@ -55,10 +55,10 @@ addf lcec.write-all servo-thread
 
 # disable EMC until all servo drives are in oper state
 # this can take some time at startup, and it will give a fault if enabled too early
-net oin1 <= and2.oper0.in0 <= lcec.0.7.slave-oper
-net oin2 <= and2.oper0.in1 <= lcec.0.8.slave-oper
+net oin1 <= and2.oper0.in0 <= lcec.0.servo-x.slave-oper
+net oin2 <= and2.oper0.in1 <= lcec.0.servo-y.slave-oper
 net oin4 <= and2.oper1.in0 <= and2.oper0.out
-net oin3 <= and2.oper1.in1 <= lcec.0.9.slave-oper
+net oin3 <= and2.oper1.in1 <= lcec.0.servo-z.slave-oper
 net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper1.out
 
  
@@ -68,27 +68,27 @@ net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper1.out
 setp cia402.0.csp-mode 1
 
 setp cia402.0.pos-scale [JOINT_0]SERVO_SCALE
-setp lcec.0.3.enc-pos-scale [JOINT_0]LINEAR_SCALE
+setp lcec.0.encoder-x.enc-pos-scale [JOINT_0]LINEAR_SCALE
 
-net 0-statusword      lcec.0.7.cia-statusword => cia402.0.statusword
-net 0-opmode-display  lcec.0.7.opmode-display => cia402.0.opmode-display
-net 0-drv-act-pos     lcec.0.7.actual-position => cia402.0.drv-actual-position
-net 0-drv-act-velo    lcec.0.7.actual-velocity => cia402.0.drv-actual-velocity
+net 0-statusword      lcec.0.servo-x.cia-statusword => cia402.0.statusword
+net 0-opmode-display  lcec.0.servo-x.opmode-display => cia402.0.opmode-display
+net 0-drv-act-pos     lcec.0.servo-x.actual-position => cia402.0.drv-actual-position
+net 0-drv-act-velo    lcec.0.servo-x.actual-velocity => cia402.0.drv-actual-velocity
 
 net 0-enable     <= joint.0.amp-enable-out => cia402.0.enable
 net 0-amp-fault  => joint.0.amp-fault-in   <= cia402.0.drv-fault
 net 0-pos-cmd    <= joint.0.motor-pos-cmd  => cia402.0.pos-cmd
 net 0-pos-fb     => joint.0.motor-pos-fb   <= cia402.0.pos-fb
 
-net 0-controlword         cia402.0.controlword => lcec.0.7.cia-controlword
-net 0-modes-of-operation  cia402.0.opmode => lcec.0.7.opmode
-net 0-drv-target-pos      cia402.0.drv-target-position => lcec.0.7.target-position
-net 0-drv-target-velo     cia402.0.drv-target-velocity => lcec.0.7.target-velocity
+net 0-controlword         cia402.0.controlword => lcec.0.servo-x.cia-controlword
+net 0-modes-of-operation  cia402.0.opmode => lcec.0.servo-x.opmode
+net 0-drv-target-pos      cia402.0.drv-target-position => lcec.0.servo-x.target-position
+net 0-drv-target-velo     cia402.0.drv-target-velocity => lcec.0.servo-x.target-velocity
 
-setp lcec.0.7.homing-method [JOINT_0]CIA402_HOMING_METHOD
-setp lcec.0.7.homing-high-velocity [JOINT_0]CIA402_HOMING_SEARCH_VELOCITY
-setp lcec.0.7.homing-low-velocity [JOINT_0]CIA402_HOMING_LATCH_VELOCITY
-setp lcec.0.7.homing-acceleration [JOINT_0]CIA402_HOMING_ACCELERATION
+setp lcec.0.servo-x.homing-method [JOINT_0]CIA402_HOMING_METHOD
+setp lcec.0.servo-x.homing-high-velocity [JOINT_0]CIA402_HOMING_SEARCH_VELOCITY
+setp lcec.0.servo-x.homing-low-velocity [JOINT_0]CIA402_HOMING_LATCH_VELOCITY
+setp lcec.0.servo-x.homing-acceleration [JOINT_0]CIA402_HOMING_ACCELERATION
 
 net 0-home-request joint.0.request-custom-homing   cia402.0.home joint.0.index-enable
 net 0-homing       joint.0.is-custom-homing        cia402.0.stat-homing
@@ -102,27 +102,27 @@ net 0-homed        joint.0.custom-homing-finished  cia402.0.stat-homed
 setp cia402.1.csp-mode 1
 
 setp cia402.1.pos-scale [JOINT_1]SERVO_SCALE
-setp lcec.0.4.enc-pos-scale [JOINT_1]LINEAR_SCALE
+setp lcec.0.encoder-y.enc-pos-scale [JOINT_1]LINEAR_SCALE
 
-net 1-statusword      lcec.0.8.cia-statusword => cia402.1.statusword
-net 1-opmode-display  lcec.0.8.opmode-display => cia402.1.opmode-display
-net 1-drv-act-pos     lcec.0.8.actual-position => cia402.1.drv-actual-position
-net 1-drv-act-velo    lcec.0.8.actual-velocity => cia402.1.drv-actual-velocity
+net 1-statusword      lcec.0.servo-y.cia-statusword => cia402.1.statusword
+net 1-opmode-display  lcec.0.servo-y.opmode-display => cia402.1.opmode-display
+net 1-drv-act-pos     lcec.0.servo-y.actual-position => cia402.1.drv-actual-position
+net 1-drv-act-velo    lcec.0.servo-y.actual-velocity => cia402.1.drv-actual-velocity
 
 net 1-enable    <= joint.1.amp-enable-out => cia402.1.enable
 net 1-amp-fault => joint.1.amp-fault-in   <= cia402.1.drv-fault
 net 1-pos-cmd   <= joint.1.motor-pos-cmd  => cia402.1.pos-cmd
 net 1-pos-fb    => joint.1.motor-pos-fb   <= cia402.1.pos-fb
 
-net 1-controlword         cia402.1.controlword => lcec.0.8.cia-controlword
-net 1-modes-of-operation  cia402.1.opmode => lcec.0.8.opmode
-net 1-drv-target-pos      cia402.1.drv-target-position => lcec.0.8.target-position
-net 1-drv-target-velo     cia402.1.drv-target-velocity => lcec.0.8.target-velocity
+net 1-controlword         cia402.1.controlword => lcec.0.servo-y.cia-controlword
+net 1-modes-of-operation  cia402.1.opmode => lcec.0.servo-y.opmode
+net 1-drv-target-pos      cia402.1.drv-target-position => lcec.0.servo-y.target-position
+net 1-drv-target-velo     cia402.1.drv-target-velocity => lcec.0.servo-y.target-velocity
 
-setp lcec.0.8.homing-method [JOINT_1]CIA402_HOMING_METHOD
-setp lcec.0.8.homing-high-velocity [JOINT_1]CIA402_HOMING_SEARCH_VELOCITY
-setp lcec.0.8.homing-low-velocity [JOINT_1]CIA402_HOMING_LATCH_VELOCITY
-setp lcec.0.8.homing-acceleration [JOINT_1]CIA402_HOMING_ACCELERATION
+setp lcec.0.servo-y.homing-method [JOINT_1]CIA402_HOMING_METHOD
+setp lcec.0.servo-y.homing-high-velocity [JOINT_1]CIA402_HOMING_SEARCH_VELOCITY
+setp lcec.0.servo-y.homing-low-velocity [JOINT_1]CIA402_HOMING_LATCH_VELOCITY
+setp lcec.0.servo-y.homing-acceleration [JOINT_1]CIA402_HOMING_ACCELERATION
 
 net 1-home-request joint.1.request-custom-homing   cia402.1.home joint.1.index-enable
 net 1-homing       joint.1.is-custom-homing        cia402.1.stat-homing
@@ -136,25 +136,25 @@ setp cia402.2.csp-mode 1
 
 setp cia402.2.pos-scale [JOINT_2]SERVO_SCALE
 
-net 2-statusword      lcec.0.9.cia-statusword => cia402.2.statusword
-net 2-opmode-display  lcec.0.9.opmode-display => cia402.2.opmode-display
-net 2-drv-act-pos     lcec.0.9.actual-position => cia402.2.drv-actual-position
-net 2-drv-act-velo    lcec.0.9.actual-velocity => cia402.2.drv-actual-velocity
+net 2-statusword      lcec.0.servo-z.cia-statusword => cia402.2.statusword
+net 2-opmode-display  lcec.0.servo-z.opmode-display => cia402.2.opmode-display
+net 2-drv-act-pos     lcec.0.servo-z.actual-position => cia402.2.drv-actual-position
+net 2-drv-act-velo    lcec.0.servo-z.actual-velocity => cia402.2.drv-actual-velocity
 
 net 2-enable    <= joint.2.amp-enable-out => cia402.2.enable
 net 2-amp-fault => joint.2.amp-fault-in   <= cia402.2.drv-fault
 net 2-pos-cmd   <= joint.2.motor-pos-cmd  => cia402.2.pos-cmd
 net 2-pos-fb    => joint.2.motor-pos-fb   <= cia402.2.pos-fb
 
-net 2-controlword         cia402.2.controlword => lcec.0.9.cia-controlword
-net 2-modes-of-operation  cia402.2.opmode => lcec.0.9.opmode
-net 2-drv-target-pos      cia402.2.drv-target-position => lcec.0.9.target-position
-net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.9.target-velocity
+net 2-controlword         cia402.2.controlword => lcec.0.servo-z.cia-controlword
+net 2-modes-of-operation  cia402.2.opmode => lcec.0.servo-z.opmode
+net 2-drv-target-pos      cia402.2.drv-target-position => lcec.0.servo-z.target-position
+net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.servo-z.target-velocity
 
-#setp lcec.0.9.homing-method [JOINT_2]CIA402_HOMING_METHOD
-#setp lcec.0.9.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
-#setp lcec.0.9.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
-#setp lcec.0.9.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
+#setp lcec.0.servo-z.homing-method [JOINT_2]CIA402_HOMING_METHOD
+#setp lcec.0.servo-z.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
+#setp lcec.0.servo-z.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
+#setp lcec.0.servo-z.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
 
 #net 2-home-request joint.2.request-custom-homing   cia402.2.home joint.2.index-enable
 #net 2-homing       joint.2.is-custom-homing        cia402.2.stat-homing
@@ -162,12 +162,12 @@ net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.9.target-veloci
 
 
 ###########################################################
-# Config - Joint 9 (W, Quill) - manual quill w/mag scale
+# Config - Joint 3 (W, Quill) - manual quill w/mag scale
 ###########################################################
 
-setp lcec.0.5.enc-pos-scale [JOINT_3]LINEAR_SCALE
+setp lcec.0.encoder-w.enc-pos-scale [JOINT_3]LINEAR_SCALE
 
-net 3-pos-fb	  => joint.3.motor-pos-fb <= lcec.0.5.enc-pos
+net 3-pos-fb	  => joint.3.motor-pos-fb <= lcec.0.encoder-w.enc-pos
 net 3-home-request joint.3.request-custom-homing   joint.3.custom-homing-finished joint.3.is-custom-homing
 
 

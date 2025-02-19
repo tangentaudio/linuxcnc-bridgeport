@@ -1,6 +1,0 @@
-
-#net x-act-torque lcec.0.7.actual-torque => pyvcp.x-actual-torque
-#net y-act-torque lcec.0.8.actual-torque => pyvcp.y-actual-torque
-
-net x-input-status lcec.0.7.input-status => pyvcp.x-input-status
-net y-input-status lcec.0.8.input-status => pyvcp.y-input-status
