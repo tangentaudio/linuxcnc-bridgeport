@@ -8,8 +8,9 @@ yndialogtest-geometry = default
 bothtest-geometry = default
 KeyboardDialog-geometry = 910 528 597 357
 CalculatorDialog-geometry = 910 528 586 382
-axisToolButtonDialog_CALCULATOR = 910 528 586 382
+axisToolButtonDialog_CALCULATOR = 1308 723 586 382
 OriginOffsetDialog-geometry = 860 500 555 403
+DROWidgetDialog_CALCULATOR = 910 585 472 378
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -30,12 +31,12 @@ RunFromLineDialog_sound_type = READY
 
 [BOOK_KEEPING]
 last_loaded_directory = /home/steve/linuxcnc/nc_files/examples
-RecentPath_5 = /home/steve/linuxcnc/nc_files/examples/comp311.ngc
-RecentPath_4 = /home/steve/linuxcnc/nc_files/examples/arcspiral.ngc
-RecentPath_3 = /home/steve/devel/linuxcnc-bridgeport/configs/nc_files/examples/3D_Chips.ngc
-RecentPath_2 = /home/steve/linuxcnc/nc_files/examples/tort.ngc
-RecentPath_1 = /home/steve/linuxcnc/nc_files/examples/3D_Chips.ngc
-RecentPath_0 = /home/steve/linuxcnc/nc_files/examples/flowsnake.ngc
+RecentPath_5 = /home/steve/devel/linuxcnc-bridgeport/configs/nc_files/examples/3D_Chips.ngc
+RecentPath_4 = /home/steve/linuxcnc/nc_files/examples/tort.ngc
+RecentPath_3 = /home/steve/linuxcnc/nc_files/examples/3D_Chips.ngc
+RecentPath_2 = /home/steve/linuxcnc/nc_files/examples/daisy.ngc
+RecentPath_1 = /home/steve/linuxcnc/nc_files/examples/flowsnake.ngc
+RecentPath_0 = /home/steve/linuxcnc/nc_files/examples/spiral.ngc
 style_QSS_Path = DEFAULT
 
 [VERSA_PROBE_OPTIONS]
@@ -80,11 +81,11 @@ originoffsetview-G59.3 = User System 9
 
 [SCREEN_OPTIONS]
 catch_errors = True
-desktop_notify = True
+desktop_notify = False
 notify_max_msgs = 10
 shutdown_check = True
-sound_player_on = True
-MainWindow-geometry = 5 60 1920 1080
+sound_player_on = False
+MainWindow-geometry = 5 60 1920 1234
 overlay_play_sound = False
 overlay_sound_type = RING
 

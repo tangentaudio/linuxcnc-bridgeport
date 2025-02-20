@@ -189,14 +189,71 @@ DROLabel {
     background: #2277ff;
     color: #cccccc;
     border: 2px solid #1166ee;
-    border-radius: 15px;
-
 }
+
+#dro_axis_set_x:disabled,
+#dro_axis_set_y:disabled,
+#dro_axis_set_z:disabled,
+#dro_axis_set_w:disabled {
+    background: #000000;
+    color: #777777;
+    border: 2px solid #333333;
+}
+
+
+#dro_axis_set_x:pressed,
+#dro_axis_set_y:pressed,
+#dro_axis_set_z:pressed,
+#dro_axis_set_w:pressed {
+    background: #3388ff;
+    color: #cccccc;
+    border: 2px solid #1166ee;
+}
+
+
+#dro_home_x[isHomed=true],
+#dro_home_y[isHomed=true],
+#dro_home_z[isHomed=true],
+#dro_home_w[isHomed=true] {
+    background: #333333;
+    color: #cccccc;
+    border: 2px solid #111111;
+    visibility: hidden;
+}
+
+#dro_home_x[isHomed=false],
+#dro_home_y[isHomed=false],
+#dro_home_z[isHomed=false],
+#dro_home_w[isHomed=false] {
+    background: #2277ff;
+    color: #cccccc;
+    border: 2px solid #1166ee;
+    visibility: visible;
+}
+
+
+#dro_home_x:disabled,
+#dro_home_y:disabled,
+#dro_home_z:disabled,
+#dro_home_w:disabled {
+    background: #000000;
+    color: #777777;
+    border: 2px solid #333333;
+}
+
+#dro_home_x:pressed,
+#dro_home_y:pressed,
+#dro_home_z:pressed,
+#dro_home_w:pressed {
+    background: #3388ff;
+    color: #cccccc;
+    border: 2px solid #1166ee;
+}
+
+
 
 QToolButton QMenu {
     font-size: 24pt;
-    background:black;
-    color: white;
 }
 
 QToolButton QMenu:hover {

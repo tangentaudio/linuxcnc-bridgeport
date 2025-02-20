@@ -13,6 +13,7 @@ from qtvcp.widgets.mdi_history import MDIHistory as MDI_HISTORY
 from qtvcp.widgets.geditor import GEditor as GCODE
 from qtvcp.widgets.file_manager import FileManager as FILEMANAGER
 from qtvcp.widgets.gcode_graphics import GCodeGraphics as GRAPHICS
+from qtvcp.widgets.calculator import Calculator as CALCULATOR
 from qtvcp.widgets.status_slider import StatusSlider as SLIDER
 from qtvcp.widgets.status_label import StatusLabel as TOOLSTAT
 from qtvcp.widgets.state_led import StateLED as LED
@@ -86,41 +87,12 @@ class HandlerClass:
     def initialized__(self):
         KEYBIND.add_call('Key_F12','on_keycall_F12')
         KEYBIND.add_call('Key_Dollar','on_keycall_dollar')
-        KEYBIND.add_call('Key_QuoteLeft','on_keycall_feedoverride',0)
-        KEYBIND.add_call('Key_1','on_keycall_feedoverride',10)
-        KEYBIND.add_call('Key_2','on_keycall_feedoverride',20)
-        KEYBIND.add_call('Key_3','on_keycall_feedoverride',30)
-        KEYBIND.add_call('Key_4','on_keycall_feedoverride',40)
-        KEYBIND.add_call('Key_5','on_keycall_feedoverride',50)
-        KEYBIND.add_call('Key_6','on_keycall_feedoverride',60)
-        KEYBIND.add_call('Key_7','on_keycall_feedoverride',70)
-        KEYBIND.add_call('Key_8','on_keycall_feedoverride',80)
-        KEYBIND.add_call('Key_9','on_keycall_feedoverride',90)
-        KEYBIND.add_call('Key_0','on_keycall_feedoverride',100)
-
-        #KEYBIND.add_call('Key_AsciiTilde','on_keycall_spindleoverride',0)
-        #KEYBIND.add_call('Key_Exclam','on_keycall_spindleoverride',10)
-        #KEYBIND.add_call('Key_At','on_keycall_spindleoverride',20)
-        #KEYBIND.add_call('Key_NumberSign','on_keycall_spindleoverride',30)
-        #KEYBIND.add_call('Key_DollarSign','on_keycall_spindleoverride',40)
-        #KEYBIND.add_call('Key_Percent','on_keycall_spindleoverride',50)
-        KEYBIND.add_call('Key_AsciiCircum','on_keycall_spindleoverride',60)
-        KEYBIND.add_call('Key_Ampersand','on_keycall_spindleoverride',70)
-        KEYBIND.add_call('Key_Asterisk','on_keycall_spindleoverride',80)
-        KEYBIND.add_call('Key_Parenleft','on_keycall_spindleoverride',90)
-        KEYBIND.add_call('Key_ParenRight','on_keycall_spindleoverride',100)
-        KEYBIND.add_call('Key_Underscore','on_keycall_spindleoverride',110)
 
         KEYBIND.add_call('Key_Period','on_keycall_jograte',1)
         KEYBIND.add_call('Key_Comma','on_keycall_jograte',0)
         KEYBIND.add_call('Key_Greater','on_keycall_angular_jograte',1)
         KEYBIND.add_call('Key_Less','on_keycall_angular_jograte',0)
 
-        TOOLBAR.configure_submenu(self.w.menuRecent, 'recent_submenu')
-        TOOLBAR.configure_submenu(self.w.menuHoming, 'home_submenu')
-        TOOLBAR.configure_submenu(self.w.menuUnhome, 'unhome_submenu')
-        TOOLBAR.configure_submenu(self.w.menuZeroCoordinateSystem, 'zero_systems_submenu')
-        TOOLBAR.configure_submenu(self.w.menuGridSize, 'grid_size_submenu')
         TOOLBAR.configure_action(self.w.actionEstop, 'estop')
         TOOLBAR.configure_action(self.w.actionMachineOn, 'power')
         TOOLBAR.configure_action(self.w.actionOpen, 'load')
@@ -174,9 +146,9 @@ class HandlerClass:
         TOOLBAR.configure_action(self.w.actionAxisMode, 'axis_mode')
         self.w.actionQuickRef.triggered.connect(self.quick_reference)
         self.w.actionMachineLog.triggered.connect(self.launch_log_dialog)
-        if not INFO.HOME_ALL_FLAG:
-            self.w.actionButton_home.setText("Home Selected")
-            self.w.actionButton_home.set_home_select(True)
+        #if not INFO.HOME_ALL_FLAG:
+        #    self.w.actionButton_home.setText("Home Selected")
+        #    self.w.actionButton_home.set_home_select(True)
         self.make_corner_widgets()
         self.make_progressbar()
         self.adjust_controls()
@@ -187,9 +159,9 @@ class HandlerClass:
 
         self.restoreSettings()
 
-        message = "--- QtAxis Version {} on Linuxcnc {} ---".format(
-            VERSION, STATUS.get_linuxcnc_version())
-        STATUS.emit('update-machine-log', message, None)
+        #message = "--- QtAxis Version {} on Linuxcnc {} ---".format(
+        #    VERSION, STATUS.get_linuxcnc_version())
+        #STATUS.emit('update-machine-log', message, None)
 
     def processed_focus_event__(self, receiver, event):
         #print('Parent:',receiver.parent(),'receiver:', receiver)
@@ -517,6 +489,7 @@ class HandlerClass:
         except Exception as e:
             LOG.error("Load file error: {}".format(e))
             #STATUS.emit('error', NML_ERROR, "Load file error: {}".format(e))
+
 
     def adjust_controls(self):
         if INFO.HAS_ANGULAR_JOINT:
