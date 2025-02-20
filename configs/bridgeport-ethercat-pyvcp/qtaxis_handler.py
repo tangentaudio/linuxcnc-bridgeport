@@ -18,7 +18,7 @@ from qtvcp.widgets.state_led import StateLED as LED
 from qtvcp.lib.keybindings import Keylookup
 from qtvcp.lib.toolbar_actions import ToolBarActions
 from qtvcp.widgets.stylesheeteditor import  StyleSheetEditor as SSE
-from qtvcp.widgets.bar import HalBar
+#from qtvcp.widgets.bar import HalBar
 from qtvcp.core import Status, Action, Info, Qhal
 
 # Set up logging
@@ -338,8 +338,9 @@ class HandlerClass:
             self.show_axes()
 
     def update_spindle(self,w,data):
-        self.w.rpm_bar.setInvertedAppearance(bool(data<0))
-        self.w.rpm_bar.setValue(abs(int(data)))
+        #self.w.rpm_bar.setInvertedAppearance(bool(data<0))
+        #self.w.rpm_bar.setValue(abs(int(data)))
+        pass
 
     def update_jog_pins(self, data):
         if type(data) == str:
@@ -391,6 +392,13 @@ class HandlerClass:
         else:
             self.w.progressbar.setFormat('Completed: {}%'.format(fraction))
 
+    def showOffsetsChanged(self):
+        # the logic looks backwards here due to when the action signal is triggered
+        if self.w.gcodegraphics.property('_offsets'):
+            self.w.buttonShowOffsets.setText('Show Offsets')
+        else:
+            self.w.buttonShowOffsets.setText('Hide Offsets')
+            
     #####################
     # general functions #
     #####################
@@ -622,30 +630,30 @@ class HandlerClass:
     # add a tool number to tab corner
     def make_corner_widgets(self):
         # make a spindle-at-speed green LED
-        self.w.led = LED()
-        self.w.led.setProperty('is_spindle_at_speed_status',True)
-        self.w.led.setProperty('color',QColor(0,255,0,255))
-        self.w.led.hal_init(HAL_NAME = 'spindle_is_at_speed')
+        #self.w.led = LED()
+        #self.w.led.setProperty('is_spindle_at_speed_status',True)
+        #self.w.led.setProperty('color',QColor(0,255,0,255))
+        #self.w.led.hal_init(HAL_NAME = 'spindle_is_at_speed')
 
         # make a spindle speed bar
         #self.w.frame = QtWidgets.QProgressBar()
-        self.w.rpm_bar = HalBar()
-        self.w.rpm_bar.setMinimumWidth (150)
-        self.w.rpm_bar.setRange(0, INFO.MAX_SPINDLE_SPEED)
+        #self.w.rpm_bar = HalBar()
+        #self.w.rpm_bar.setMinimumWidth (150)
+        #self.w.rpm_bar.setRange(0, INFO.MAX_SPINDLE_SPEED)
 
 
         # containers
-        w = QtWidgets.QWidget()
-        w.setContentsMargins(0,0,0,0)
+        #w = QtWidgets.QWidget()
+        #w.setContentsMargins(0,0,0,0)
 
-        hbox = QtWidgets.QHBoxLayout()
-        hbox.setContentsMargins(0,0,0,0)
-        hbox.addWidget(self.w.rpm_bar)
-        hbox.addWidget(self.w.led)
-        w.setLayout(hbox)
+        #hbox = QtWidgets.QHBoxLayout()
+        #hbox.setContentsMargins(0,0,0,0)
+        #hbox.addWidget(self.w.rpm_bar)
+        #hbox.addWidget(self.w.led)
+        #w.setLayout(hbox)
 
         # add those to the corner of the right tab widget
-        self.w.rightTab.setCornerWidget(w)
+        #self.w.rightTab.setCornerWidget(w)
 
         # add tool number status to left tab corner
         self.w.tool_stat = TOOLSTAT()

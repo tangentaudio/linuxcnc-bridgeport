@@ -28,7 +28,7 @@ loadusr -W lcec_conf ethercat-conf.xml
 loadrt lcec
 loadrt el7_cia402 names=cia402.0,cia402.1,cia402.2
 loadrt and2 names=and2.oper0,and2.oper1
-loadusr halshow
+#loadusr halshow
 
 ###########################################################
 # Functions servo-thread
@@ -177,15 +177,15 @@ net 3-home-request joint.3.request-custom-homing   joint.3.custom-homing-finishe
 # Config - Manual Tool Changes
 ###########################################################
 
-net tool-change-request    <= iocontrol.0.tool-change
-net tool-change-confirmed  => iocontrol.0.tool-changed
-net tool-number            <= iocontrol.0.tool-prep-number
+#net tool-change-request    <= iocontrol.0.tool-change
+#net tool-change-confirmed  => iocontrol.0.tool-changed
+#net tool-number            <= iocontrol.0.tool-prep-number
 
 # use external manual tool change dialog
-loadusr -W hal_manualtoolchange
-net tool-change-request    =>  hal_manualtoolchange.change
-net tool-change-confirmed  <=  hal_manualtoolchange.changed
-net tool-number            =>  hal_manualtoolchange.number
+#loadusr -W hal_manualtoolchange
+#net tool-change-request    =>  hal_manualtoolchange.change
+#net tool-change-confirmed  <=  hal_manualtoolchange.changed
+#net tool-number            =>  hal_manualtoolchange.number
 
 # ignore tool prepare requests
-net tool-prepare-loopback   iocontrol.0.tool-prepare      =>  iocontrol.0.tool-prepared
+#net tool-prepare-loopback   iocontrol.0.tool-prepare      =>  iocontrol.0.tool-prepared

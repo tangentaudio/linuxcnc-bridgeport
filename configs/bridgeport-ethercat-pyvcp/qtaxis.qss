@@ -27,8 +27,8 @@ background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
     stop:0 #eee, stop:1 #ccc);
 border: 1px solid #777;
 width: 20px;
-margin-top: -7px;
-margin-bottom: -75px;
+margin-top: -15px;
+margin-bottom: -15px;
 border-radius: 4px;
 
 }
@@ -77,33 +77,27 @@ QTabWidget::pane { /* The tab widget frame */
 }
 
 QTabWidget::tab-bar {
-    left: 5px; /* move to the right by 5px */
+    /*left: 5px;*/ /* move to the right by 5px */
 }
 
 /* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
 QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #E1E1E1, stop: 0.4 #DDDDDD, stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 2px solid #C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
-    border-top-left-radius: 4px;
-b   order-top-right-radius: 4px;
+    background: #a0a0a0;
     min-width: 8ex;
+    min-height: 4ex;
     padding: 2px;
+    margin-left:5px;
 }
 QTabBar::tab:selected, QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-        stop: 0 #fafafa, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+    background: #c0c0c0;
 }
 QTabBar::tab:selected {
+    background: #ffffff;
     border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
-}
-QTabBar::tab:!selected {
-    margin-top: 2px; /* make non-selected tabs look smaller */
 }
 EditorBase{
  background:black;
-qproperty-styleColorBackground:grey;
+qproperty-styleColorBackground: white;
 qproperty-styleColor0: black;
 qproperty-styleColor1: darkblue;
 qproperty-styleColor2: blue;
@@ -111,9 +105,10 @@ qproperty-styleColor3: red;
 qproperty-styleColor4: lightblue;
 qproperty-styleColor5: white;
 qproperty-styleColor6: lightGreen;
-qproperty-styleColor7: yellow ;
+qproperty-styleColor7: lightRed ;
 qproperty-styleColorSelectionText: white;
 qproperty-styleColorSelectionBackground: blue;
+/*
 qproperty-styleFont0: "Times,15,-1,5,90,0,0,1,1,0";
 qproperty-styleFont1: "Times,15,-1,5,90,1,0,1,0,0";
 qproperty-styleFont2: "Times,15,-1,5,90,0,0,1,1,0";
@@ -122,6 +117,7 @@ qproperty-styleFont4: "Times,15,-1,5,90,0,0,1,1,0";
 qproperty-styleFont5: "Times,15,-1,5,90,0,0,1,1,0";
 qproperty-styleFont6: "Times,15,-1,5,90,0,0,1,1,0";
 qproperty-styleFont7: "Times,15,-1,5,90,0,0,1,1,0";
+*/
 }
 
 QSpinBox {
@@ -148,6 +144,64 @@ QSpinBox::up-button {
 QSpinBox::up-arrow {
     width: 20px;
     height: 20px;
+}
+DROLabel{
+    background: black;
+    border: 1px solid black;
+    font: 48pt "Lato Heavy";
+    color: #00FF00;
+}
+
+#statuslabel_dro_x ,
+#statuslabel_dro_y,
+#statuslabel_dro_z,
+#statuslabel_dro_w{
+    background: black;
+    border: 1px solid black;
+    font: 15pt "Lato Heavy";
+    color:  #D6D6D6;
+}
+
+#label_g5x_xx,
+#label_g5x_yy,
+#label_g5x_zz,
+#label_g5x_ww {
+    background: black;
+    border: 1px solid black;
+    font: 48pt "Lato Heavy";
+    color:  gray;
+}
+
+#label_dro_g53 {
+    background: #111111;
+    border: 1px solid #111111;
+    font: 48pt "Lato Heavy";
+    color:  gray;
+}
+
+#dro_label_g53_x,
+#dro_label_g53_y,
+#dro_label_g53_z,
+#dro_label_g53_w {
+    background: #111111;
+    border: 1px solid #111111;
+    font: 20pt "Noto Sans Mono Bold";
+}
+
+#dro_label_metric_imperial {
+    background: #111111;
+    border: 1px solid #111111;
+    font: 20pt "Noto Sans Mono Bold";
+    color: cyan;
+}
+
+
+DROLabel[isHomed=false],
+#statuslabel_dro_x[isHomed=false],
+#statuslabel_dro_y[isHomed=false],
+#statuslabel_dro_z[isHomed=false],
+#statuslabel_dro_w[isHomed=false]  {
+    color: red;
 }
 
 QDialog QPushButton {
