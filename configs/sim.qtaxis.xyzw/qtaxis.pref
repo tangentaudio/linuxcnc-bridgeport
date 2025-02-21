@@ -1,14 +1,14 @@
 [DIALOG_GEOMETRY]
 AboutDialog-geometry = half
 LncMessage-geometry = 910 528 300 124
-ToolChangeDialog-geometry = 910 528 300 241
+ToolChangeDialog-geometry = 910 528 300 245
 VersaHelpDialog-geometry = default
 statustest-geometry = default
 yndialogtest-geometry = default
 bothtest-geometry = default
 KeyboardDialog-geometry = 910 528 597 357
-CalculatorDialog-geometry = 910 528 586 382
-axisToolButtonDialog_CALCULATOR = 1308 723 586 382
+CalculatorDialog-geometry = 910 528 586 436
+axisToolButtonDialog_CALCULATOR = 678 382 676 436
 OriginOffsetDialog-geometry = 860 500 555 403
 DROWidgetDialog_CALCULATOR = 910 585 472 378
 
@@ -85,7 +85,7 @@ desktop_notify = False
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 5 60 1920 1234
+MainWindow-geometry = 0 55 1920 1114
 overlay_play_sound = False
 overlay_sound_type = RING
 

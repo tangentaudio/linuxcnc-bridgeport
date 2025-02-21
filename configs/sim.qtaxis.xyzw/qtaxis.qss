@@ -3,7 +3,30 @@
 }
 
 QPushButton {
-    border: 2px solid #d0d0d0;
+    background: #e0e0e0;
+}
+QPushButton:disabled {
+    background: rgba(208,208,208,0.5);
+}
+QPushButton:hover {
+    background: #d0d0d0;
+}
+QPushButton:pressed {
+    background: #ffffff;
+}
+
+#actionButtonEStop {
+    font: 18pt "FontAwesome";
+    color: red;
+}
+#actionButtonMachinePower {
+    font: 18pt "FontAwesome";
+    color: black;
+}
+
+#actionButtonHomeAll {
+    font: 18pt "FontAwesome";
+    color: black;
 }
 
 QSlider::groove:horizontal {
@@ -77,10 +100,8 @@ QProgressBar::chunk {
 
 
 QTabWidget::pane {
-    /*background: #e0e0e0;*/
-    margin-right: 0px;
-    border-right-width: 0px;
-    padding-right: 0px;
+    margin: 2px;
+    border 1px solid black;
 }
 
 QTabBar::tab {
@@ -106,7 +127,7 @@ QTabBar::tab:selected {
 }
 
 EditorBase {
-    background: black;
+    background: white;
     qproperty-styleColorBackground: white;
     qproperty-styleColor0: black;
     qproperty-styleColor1: darkblue;
@@ -158,18 +179,18 @@ QSpinBox::up-arrow {
 }
 
 DROLabel {
-    background: black;
-    border: 1px solid black;
+    background: white;
+    border: none;
     font: 48pt "Lato Heavy";
-    color: #00FF00;
+    color: #0077CC;
 }
 
 #statuslabel_dro_x,
 #statuslabel_dro_y,
 #statuslabel_dro_z,
 #statuslabel_dro_w {
-    background: black;
-    border: 1px solid black;
+    background: white;
+    border: none;
     font: 15pt "Lato Heavy";
     color: #D6D6D6;
 }
@@ -178,8 +199,8 @@ DROLabel {
 #dro_actions_y,
 #dro_actions_z,
 #dro_actions_w {
-    background: black;
-    border: 1px solid black;
+    background: white;
+    border: none;
 }
 
 #dro_axis_set_x,
@@ -195,7 +216,7 @@ DROLabel {
 #dro_axis_set_y:disabled,
 #dro_axis_set_z:disabled,
 #dro_axis_set_w:disabled {
-    background: #000000;
+    background: white;
     color: #777777;
     border: 2px solid #333333;
 }
@@ -215,10 +236,10 @@ DROLabel {
 #dro_home_y[isHomed=true],
 #dro_home_z[isHomed=true],
 #dro_home_w[isHomed=true] {
-    background: #333333;
-    color: #cccccc;
-    border: 2px solid #111111;
-    visibility: hidden;
+    background: none;
+    color: #aaaaaa;
+    border: none;
+    font: 20pt "FontAwesome";
 }
 
 #dro_home_x[isHomed=false],
@@ -228,7 +249,7 @@ DROLabel {
     background: #2277ff;
     color: #cccccc;
     border: 2px solid #1166ee;
-    visibility: visible;
+    font: 20pt "FontAwesome";
 }
 
 
@@ -236,18 +257,19 @@ DROLabel {
 #dro_home_y:disabled,
 #dro_home_z:disabled,
 #dro_home_w:disabled {
-    background: #000000;
+    background:white;
     color: #777777;
-    border: 2px solid #333333;
+    font: 20pt "FontAwesome";
 }
 
-#dro_home_x:pressed,
-#dro_home_y:pressed,
-#dro_home_z:pressed,
-#dro_home_w:pressed {
+#dro_home_x:pressed[isHomed=false],
+#dro_home_y:pressed[isHomed=false],
+#dro_home_z:pressed[isHomed=false],
+#dro_home_w:pressed[isHomed=false] {
     background: #3388ff;
     color: #cccccc;
     border: 2px solid #1166ee;
+    font: 20pt "FontAwesome";
 }
 
 
@@ -265,15 +287,15 @@ QToolButton QMenu:hover {
 #label_g5x_yy,
 #label_g5x_zz,
 #label_g5x_ww {
-    background: black;
-    border: 1px solid black;
+    background:white;
+    border: none;
     font: 48pt "Lato Heavy";
     color: gray;
 }
 
 #label_dro_g53 {
-    background: #111111;
-    border: 1px solid #111111;
+    background: white;
+    border: none;
     font: 48pt "Lato Heavy";
     color: gray;
 }
@@ -282,16 +304,16 @@ QToolButton QMenu:hover {
 #dro_label_g53_y,
 #dro_label_g53_z,
 #dro_label_g53_w {
-    background: #111111;
-    border: 1px solid #111111;
+    background: white;
+    border: none;
     font: 20pt "Noto Sans Mono Bold";
 }
 
 #dro_label_metric_imperial {
-    background: #111111;
-    border: 1px solid #111111;
+    background: white;
+    border: none;
     font: 20pt "Noto Sans Mono Bold";
-    color: cyan;
+    color: darkmagenta;
 }
 
 

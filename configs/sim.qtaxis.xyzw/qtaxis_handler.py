@@ -17,6 +17,7 @@ from qtvcp.widgets.calculator import Calculator as CALCULATOR
 from qtvcp.widgets.status_slider import StatusSlider as SLIDER
 from qtvcp.widgets.status_label import StatusLabel as TOOLSTAT
 from qtvcp.widgets.state_led import StateLED as LED
+from qtvcp.widgets.action_button import ActionButton as ACTIONBUTTON
 from qtvcp.lib.keybindings import Keylookup
 from qtvcp.lib.toolbar_actions import ToolBarActions
 from qtvcp.widgets.stylesheeteditor import  StyleSheetEditor as SSE
@@ -78,7 +79,6 @@ class HandlerClass:
 
     def class_patch__(self):
         GCODE.exitCall = self.editor_exit
-
         FILEMANAGER.load = self.file_load
 
     # at this point:
@@ -483,8 +483,8 @@ class HandlerClass:
             ACTION.OPEN_PROGRAM(fname)
             STATUS.emit('update-machine-log', 'Loaded: ' + fname, 'TIME')
             
-            # jump to preview tab
-            self.w.rightTab.setCurrentIndex(1)
+            # jump to dro tab
+            self.w.rightTab.setCurrentIndex(0)
 
         except Exception as e:
             LOG.error("Load file error: {}".format(e))
@@ -492,10 +492,10 @@ class HandlerClass:
 
 
     def adjust_controls(self):
-        if INFO.HAS_ANGULAR_JOINT:
-            self.w.widget_angular_jog.show()
-        else:
-            self.w.widget_angular_jog.hide()
+        #if INFO.HAS_ANGULAR_JOINT:
+        #    self.w.widget_angular_jog.show()
+        #else:
+        #    self.w.widget_angular_jog.hide()
         if INFO.IS_TRIVIAL_MACHINE:
             self.w.menuControlMode.menuAction().setVisible(False)
 
