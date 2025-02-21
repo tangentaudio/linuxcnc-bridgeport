@@ -2603,7 +2603,7 @@ Origin</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_zoomin.gif</normaloff>:/toolbar/images/tool_zoomin.gif</iconset>
                            </property>
                           </widget>
@@ -2626,7 +2626,7 @@ Origin</string>
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_zoomout.gif</normaloff>:/toolbar/images/tool_zoomout.gif</iconset>
                            </property>
                           </widget>
@@ -2662,7 +2662,7 @@ Origin</string>
                             <string>Perspective</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_axis_p.gif</normaloff>:/toolbar/images/tool_axis_p.gif</iconset>
                            </property>
                           </widget>
@@ -2685,7 +2685,7 @@ Origin</string>
                             <string>Front</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_axis_y.gif</normaloff>:/toolbar/images/tool_axis_y.gif</iconset>
                            </property>
                           </widget>
@@ -2708,7 +2708,7 @@ Origin</string>
                             <string>Side</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_axis_x.gif</normaloff>:/toolbar/images/tool_axis_x.gif</iconset>
                            </property>
                           </widget>
@@ -2731,7 +2731,7 @@ Origin</string>
                             <string>Rotated</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_axis_z2.gif</normaloff>:/toolbar/images/tool_axis_z2.gif</iconset>
                            </property>
                           </widget>
@@ -2754,7 +2754,7 @@ Origin</string>
                             <string>Top</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_axis_z.gif</normaloff>:/toolbar/images/tool_axis_z.gif</iconset>
                            </property>
                           </widget>
@@ -2790,7 +2790,7 @@ Origin</string>
                             <string>Clear</string>
                            </property>
                            <property name="icon">
-                            <iconset resource="qtaxis.qrc">
+                            <iconset resource="qttangent.qrc">
                              <normaloff>:/toolbar/images/tool_clear.gif</normaloff>:/toolbar/images/tool_clear.gif</iconset>
                            </property>
                           </widget>
@@ -3025,7 +3025,7 @@ Origin</string>
                           <string>Cycle Start</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_run.gif</normaloff>:/toolbar/images/tool_run.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -3063,7 +3063,7 @@ Origin</string>
                           <string>Step</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_step.gif</normaloff>:/toolbar/images/tool_step.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -3104,7 +3104,7 @@ Origin</string>
                           <string>Pause</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_pause.gif</normaloff>:/toolbar/images/tool_pause.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -3151,7 +3151,7 @@ Origin</string>
                           <string>Stop</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_stop.gif</normaloff>:/toolbar/images/tool_stop.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -3353,7 +3353,7 @@ Origin</string>
 Stop</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_optpause.gif</normaloff>:/toolbar/images/tool_optpause.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -3436,7 +3436,7 @@ Stop</string>
 Delete</string>
                          </property>
                          <property name="icon">
-                          <iconset resource="qtaxis.qrc">
+                          <iconset resource="qttangent.qrc">
                            <normaloff>:/toolbar/images/tool_blockdelete.gif</normaloff>:/toolbar/images/tool_blockdelete.gif</iconset>
                          </property>
                          <property name="iconSize">
@@ -4769,7 +4769,7 @@ Delete</string>
   </action>
   <action name="actionReload">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_reload.gif</normaloff>:/toolbar/images/tool_reload.gif</iconset>
    </property>
    <property name="text">
@@ -4788,7 +4788,7 @@ Delete</string>
   </action>
   <action name="actionQuit">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/close.gif</normaloff>:/toolbar/images/close.gif</iconset>
    </property>
    <property name="text">
@@ -4800,7 +4800,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_estop.gif</normaloff>:/toolbar/images/tool_estop.gif</iconset>
    </property>
    <property name="text">
@@ -4812,7 +4812,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_power.gif</normaloff>:/toolbar/images/tool_power.gif</iconset>
    </property>
    <property name="text">
@@ -4821,7 +4821,7 @@ Delete</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_open.gif</normaloff>:/toolbar/images/tool_open.gif</iconset>
    </property>
    <property name="text">
@@ -4830,7 +4830,7 @@ Delete</string>
   </action>
   <action name="actionRun">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_run.gif</normaloff>
      <normalon>../../../axis/images/tool_run.gif</normalon>:/toolbar/images/tool_run.gif</iconset>
    </property>
@@ -4840,7 +4840,7 @@ Delete</string>
   </action>
   <action name="actionStep">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_step.gif</normaloff>:/toolbar/images/tool_step.gif</iconset>
    </property>
    <property name="text">
@@ -4852,7 +4852,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_pause.gif</normaloff>:/toolbar/images/tool_pause.gif</iconset>
    </property>
    <property name="text">
@@ -4861,7 +4861,7 @@ Delete</string>
   </action>
   <action name="actionStop">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_stop.gif</normaloff>:/toolbar/images/tool_stop.gif</iconset>
    </property>
    <property name="text">
@@ -4873,7 +4873,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_blockdelete.gif</normaloff>:/toolbar/images/tool_blockdelete.gif</iconset>
    </property>
    <property name="text">
@@ -4885,7 +4885,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_optpause.gif</normaloff>:/toolbar/images/tool_optpause.gif</iconset>
    </property>
    <property name="text">
@@ -4897,7 +4897,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_axis_z.gif</normaloff>:/toolbar/images/tool_axis_z.gif</iconset>
    </property>
    <property name="text">
@@ -4909,7 +4909,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_axis_z2.gif</normaloff>:/toolbar/images/tool_axis_z2.gif</iconset>
    </property>
    <property name="text">
@@ -4921,7 +4921,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_axis_x.gif</normaloff>:/toolbar/images/tool_axis_x.gif</iconset>
    </property>
    <property name="text">
@@ -4933,7 +4933,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_axis_y.gif</normaloff>:/toolbar/images/tool_axis_y.gif</iconset>
    </property>
    <property name="text">
@@ -4945,7 +4945,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_axis_p.gif</normaloff>:/toolbar/images/tool_axis_p.gif</iconset>
    </property>
    <property name="text">
@@ -4957,7 +4957,7 @@ Delete</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_rotate.gif</normaloff>:/toolbar/images/tool_rotate.gif</iconset>
    </property>
    <property name="text">
@@ -4966,7 +4966,7 @@ Delete</string>
   </action>
   <action name="actionClearPlot">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/tool_clear.gif</normaloff>:/toolbar/images/tool_clear.gif</iconset>
    </property>
    <property name="text">
@@ -5034,7 +5034,7 @@ Delete</string>
   </action>
   <action name="actionToolOffsetDialog">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/editor.png</normaloff>:/toolbar/images/editor.png</iconset>
    </property>
    <property name="text">
@@ -5043,7 +5043,7 @@ Delete</string>
   </action>
   <action name="actionOriginOffsetDialog">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/editor.png</normaloff>:/toolbar/images/editor.png</iconset>
    </property>
    <property name="text">
@@ -5097,7 +5097,7 @@ Delete</string>
   </action>
   <action name="actionVersaProbe">
    <property name="icon">
-    <iconset resource="qtaxis.qrc">
+    <iconset resource="qttangent.qrc">
      <normaloff>:/toolbar/images/down.png</normaloff>:/toolbar/images/down.png</iconset>
    </property>
    <property name="text">
@@ -5272,7 +5272,7 @@ Delete</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="qtaxis.qrc"/>
+  <include location="qttangent.qrc"/>
  </resources>
  <connections>
   <connection>

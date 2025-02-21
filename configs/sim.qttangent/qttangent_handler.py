@@ -159,9 +159,9 @@ class HandlerClass:
 
         self.restoreSettings()
 
-        #message = "--- QtAxis Version {} on Linuxcnc {} ---".format(
-        #    VERSION, STATUS.get_linuxcnc_version())
-        #STATUS.emit('update-machine-log', message, None)
+        message = "--- QtTangent Version {} on Linuxcnc {} ---".format(
+            VERSION, STATUS.get_linuxcnc_version())
+        STATUS.emit('update-machine-log', message, None)
 
     def processed_focus_event__(self, receiver, event):
         #print('Parent:',receiver.parent(),'receiver:', receiver)
@@ -221,7 +221,7 @@ class HandlerClass:
             pass
 
     def colorMPGFocusBorder(self, name, receiver, colorName):
-        if self.hal.hal.pin_has_writer('qtaxis.mpg-in'):
+        if self.hal.hal.pin_has_writer('qttangent.mpg-in'):
             self.MPGFocusWidgetBorder = name
             self.MPGFocusWidget = receiver
             self.w[name].setStyleSheet('#%s {border: 3px solid %s;}'%(name,colorName))
@@ -602,7 +602,7 @@ class HandlerClass:
         retval = msg.exec_()
 
     def launch_log_dialog(self):
-        ACTION.CALL_DIALOG({'NAME':'MACHINELOG', 'ID':'_qtaxis_handler_'})
+        ACTION.CALL_DIALOG({'NAME':'MACHINELOG', 'ID':'_qttangent_handler_'})
 
     # keyboard jogging from key binding calls
     # double the rate if fast is true 
