@@ -5,10 +5,10 @@ net Yhomeswpos => comp_y.in0
 net Zhomeswpos => comp_z.in0
 net Whomeswpos => comp_w.in0
 
-sets Xhomeswpos 1
-sets Yhomeswpos .5
-sets Zhomeswpos 2
-sets Whomeswpos 2
+sets Xhomeswpos .1
+sets Yhomeswpos .1
+sets Zhomeswpos .1
+sets Whomeswpos .1
 
 net Xpos => comp_x.in1
 net Ypos => comp_y.in1
