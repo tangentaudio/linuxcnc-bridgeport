@@ -6,15 +6,19 @@ QDialog QPushButton {
     width: 100px;
     height: 40px;
 }
+
 QPushButton {
     background: #e0e0e0;
 }
+
 QPushButton:disabled {
-    background: rgba(208,208,208,0.5);
+    background: rgba(208, 208, 208, 0.5);
 }
+
 QPushButton:hover {
     background: #d0d0d0;
 }
+
 QPushButton:pressed {
     background: #ffffff;
 }
@@ -28,10 +32,29 @@ QToolButton QMenu:hover {
     font-size: 24pt;
 }
 
+
+#statusFCodes,
+#statusGCodes,
+#statusMCodes {
+    font: 12pt "Noto Sans Mono";
+}
+
+#statusMCodes {
+    font-weight: 900;
+}
+
+#statusToolNumber,
+#statusToolLength {
+    font: 12pt "Noto Sans Mono";
+    font-weight: 300;
+}
+
+
 #actionButtonEStop {
     font: 18pt "FontAwesome";
     color: red;
 }
+
 #actionButtonMachinePower {
     font: 18pt "FontAwesome";
     color: black;
@@ -141,27 +164,41 @@ QTabBar::tab:selected {
 
 EditorBase {
     background: white;
-    qproperty-styleColorBackground: white;
+    qproperty-styleColorBackground: #f0f0f0;
+
+    qproperty-styleColorMarginText: #000000;
+    qproperty-styleColorMarginBackground: #ccccdd;
+
+    qproperty-styleColorCursor: gray;
+    qproperty-styleColorMarkerBackground: rgba(92,92,128,0.4);
+
+    /* default */
     qproperty-styleColor0: black;
-    qproperty-styleColor1: darkblue;
-    qproperty-styleColor2: blue;
-    qproperty-styleColor3: red;
-    qproperty-styleColor4: lightblue;
-    qproperty-styleColor5: white;
-    qproperty-styleColor6: lightGreen;
-    qproperty-styleColor7: lightRed;
+    qproperty-styleFont0: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* comment */
+    qproperty-styleColor1: gray;
+    qproperty-styleFont1: "Noto Sans Mono Bold,11,-1,5,90,0,0,1,1,0";
+    /* G code */
+    qproperty-styleColor2: darkcyan;
+    qproperty-styleFont2: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* M code */
+    qproperty-styleColor3: darkred;
+    qproperty-styleFont3: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* Axis */
+    qproperty-styleColor4: blue;
+    qproperty-styleFont4: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* Other */
+    qproperty-styleColor5: green;
+    qproperty-styleFont5: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* Axis Value */
+    qproperty-styleColor6: darkblue;
+    qproperty-styleFont6: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    /* Other Value */
+    qproperty-styleColor7: gray;
+    qproperty-styleFont7: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+
     qproperty-styleColorSelectionText: white;
-    qproperty-styleColorSelectionBackground: blue;
-    /*
-qproperty-styleFont0: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont1: "Times,15,-1,5,90,1,0,1,0,0";
-qproperty-styleFont2: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont3: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont4: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont5: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont6: "Times,15,-1,5,90,0,0,1,1,0";
-qproperty-styleFont7: "Times,15,-1,5,90,0,0,1,1,0";
-*/
+    qproperty-styleColorSelectionBackground: darkblue;
 }
 
 QSpinBox {
@@ -194,8 +231,7 @@ QSpinBox::up-arrow {
 #frameDRO {
     background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, 
                                 stop: 0 rgba(0,0,0,1.0),
-                                stop: 0.75 rgba(0,0,64,1.0),
-                                stop: 1 rgba(0,0,128,1.0));
+                                stop: 1.0 rgba(32,32,32,1.0));
 }
 
 DROLabel {
@@ -306,8 +342,8 @@ DROLabel {
 
 #dro_label_metric_imperial {
     border: none;
-    font: 20pt "Noto Sans Mono Bold";
-    color: darkmagenta;
+    font: 24pt "Lato Heavy";
+    color: cyan;
 }
 
 
@@ -318,4 +354,3 @@ DROLabel[isHomed=false],
 #statuslabel_dro_w[isHomed=false] {
     color: #333333;
 }
-

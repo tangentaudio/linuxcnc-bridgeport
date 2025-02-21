@@ -149,7 +149,6 @@ class HandlerClass:
         #if not INFO.HOME_ALL_FLAG:
         #    self.w.actionButton_home.setText("Home Selected")
         #    self.w.actionButton_home.set_home_select(True)
-        self.make_corner_widgets()
         self.make_progressbar()
         self.adjust_controls()
 
@@ -622,43 +621,6 @@ class HandlerClass:
         else:
             ACTION.JOG(joint, 0, 0, 0)
 
-    # add spindle speed bar and at-speed led to tab corner
-    # add a tool number to tab corner
-    def make_corner_widgets(self):
-        # make a spindle-at-speed green LED
-        #self.w.led = LED()
-        #self.w.led.setProperty('is_spindle_at_speed_status',True)
-        #self.w.led.setProperty('color',QColor(0,255,0,255))
-        #self.w.led.hal_init(HAL_NAME = 'spindle_is_at_speed')
-
-        # make a spindle speed bar
-        #self.w.frame = QtWidgets.QProgressBar()
-        #self.w.rpm_bar = HalBar()
-        #self.w.rpm_bar.setMinimumWidth (150)
-        #self.w.rpm_bar.setRange(0, INFO.MAX_SPINDLE_SPEED)
-
-
-        # containers
-        #w = QtWidgets.QWidget()
-        #w.setContentsMargins(0,0,0,0)
-
-        #hbox = QtWidgets.QHBoxLayout()
-        #hbox.setContentsMargins(0,0,0,0)
-        #hbox.addWidget(self.w.rpm_bar)
-        #hbox.addWidget(self.w.led)
-        #w.setLayout(hbox)
-
-        # add those to the corner of the right tab widget
-        #self.w.rightTab.setCornerWidget(w)
-
-        # add tool number status to left tab corner
-        self.w.tool_stat = TOOLSTAT()
-        self.w.tool_stat.setProperty('tool_number_status', True)
-        self.w.tool_stat.setProperty('textTemplate', 'Tool %d')
-        self.w.tool_stat.hal_init()
-        self.w.tool_stat.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
-        self.w.tool_stat.setFixedWidth(60)
-        self.w.leftTab.setCornerWidget(self.w.tool_stat)
 
     def make_progressbar(self):
         self.w.progressbar = QtWidgets.QProgressBar()

@@ -859,6 +859,18 @@
                            <property name="spacing">
                             <number>0</number>
                            </property>
+                           <property name="leftMargin">
+                            <number>6</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>6</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>6</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>6</number>
+                           </property>
                            <item>
                             <widget class="DROLabel" name="dro_label_g5x_r">
                              <property name="sizePolicy">
@@ -2505,23 +2517,23 @@ Origin</string>
                         </property>
                         <property name="overlay_color" stdset="0">
                          <color>
-                          <red>0</red>
-                          <green>0</green>
-                          <blue>0</blue>
+                          <red>32</red>
+                          <green>32</green>
+                          <blue>32</blue>
                          </color>
                         </property>
                         <property name="overlay_alpha" stdset="0">
-                         <double>0.500000000000000</double>
+                         <double>255.000000000000000</double>
                         </property>
                         <property name="background_color" stdset="0">
                          <color>
-                          <red>0</red>
-                          <green>0</green>
-                          <blue>128</blue>
+                          <red>32</red>
+                          <green>32</green>
+                          <blue>32</blue>
                          </color>
                         </property>
                         <property name="_use_gradient_background" stdset="0">
-                         <bool>true</bool>
+                         <bool>false</bool>
                         </property>
                         <property name="jog_color" stdset="0">
                          <color alpha="0">
@@ -3200,9 +3212,21 @@ Origin</string>
                       <property name="frameShadow">
                        <enum>QFrame::Plain</enum>
                       </property>
-                      <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,0">
-                       <item row="0" column="0" rowspan="3">
+                      <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,0,0">
+                       <item row="0" column="0">
                         <widget class="QGroupBox" name="groupActiveCodes">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
                          <property name="title">
                           <string>Active</string>
                          </property>
@@ -3236,16 +3260,19 @@ Origin</string>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
-                              <height>16777215</height>
+                              <height>20</height>
                              </size>
                             </property>
                             <property name="font">
                              <font>
                               <family>Noto Sans Mono</family>
-                              <pointsize>11</pointsize>
+                              <pointsize>12</pointsize>
                               <weight>50</weight>
                               <bold>false</bold>
                              </font>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                             </property>
                             <property name="wordWrap">
                              <bool>true</bool>
@@ -3269,6 +3296,12 @@ Origin</string>
                               <height>0</height>
                              </size>
                             </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>20</height>
+                             </size>
+                            </property>
                             <property name="font">
                              <font>
                               <family>Noto Sans Mono</family>
@@ -3279,6 +3312,9 @@ Origin</string>
                             </property>
                             <property name="text">
                              <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                             </property>
                             <property name="wordWrap">
                              <bool>true</bool>
@@ -3324,23 +3360,72 @@ Origin</string>
                             </property>
                            </widget>
                           </item>
-                          <item>
-                           <spacer name="verticalSpacer">
-                            <property name="orientation">
-                             <enum>Qt::Vertical</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>20</width>
-                              <height>40</height>
-                             </size>
-                            </property>
-                           </spacer>
-                          </item>
                          </layout>
                         </widget>
                        </item>
-                       <item row="2" column="1">
+                       <item row="0" column="2">
+                        <widget class="IndicatedPushButton" name="buttonBlockDelete">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>50</height>
+                          </size>
+                         </property>
+                         <property name="text">
+                          <string>Block
+Delete</string>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="qttangent.qrc">
+                           <normaloff>:/toolbar/images/tool_blockdelete.gif</normaloff>:/toolbar/images/tool_blockdelete.gif</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>32</width>
+                           <height>32</height>
+                          </size>
+                         </property>
+                         <property name="indicator_option" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="indicator_status_option" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="on_color" stdset="0">
+                          <color>
+                           <red>0</red>
+                           <green>255</green>
+                           <blue>0</blue>
+                          </color>
+                         </property>
+                         <property name="shape_option" stdset="0">
+                          <number>2</number>
+                         </property>
+                         <property name="off_color" stdset="0">
+                          <color alpha="192">
+                           <red>0</red>
+                           <green>0</green>
+                           <blue>0</blue>
+                          </color>
+                         </property>
+                         <property name="corner_radius" stdset="0">
+                          <double>0.000000000000000</double>
+                         </property>
+                         <property name="height_fraction" stdset="0">
+                          <double>0.100000000000000</double>
+                         </property>
+                         <property name="width_fraction" stdset="0">
+                          <double>0.500000000000000</double>
+                         </property>
+                         <property name="is_block_delete_status" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="isOnSensitive" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
                         <widget class="IndicatedPushButton" name="buttonOptionalStop">
                          <property name="minimumSize">
                           <size>
@@ -3423,66 +3508,71 @@ Stop</string>
                          </property>
                         </widget>
                        </item>
-                       <item row="1" column="1">
-                        <widget class="IndicatedPushButton" name="buttonBlockDelete">
-                         <property name="minimumSize">
+                       <item row="1" column="0" rowspan="2">
+                        <widget class="QGroupBox" name="groupCurrentTool">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="maximumSize">
                           <size>
-                           <width>100</width>
-                           <height>50</height>
+                           <width>16777215</width>
+                           <height>96</height>
                           </size>
                          </property>
-                         <property name="text">
-                          <string>Block
-Delete</string>
+                         <property name="title">
+                          <string>Current Tool</string>
                          </property>
-                         <property name="icon">
-                          <iconset resource="qttangent.qrc">
-                           <normaloff>:/toolbar/images/tool_blockdelete.gif</normaloff>:/toolbar/images/tool_blockdelete.gif</iconset>
-                         </property>
-                         <property name="iconSize">
-                          <size>
-                           <width>32</width>
-                           <height>32</height>
-                          </size>
-                         </property>
-                         <property name="indicator_option" stdset="0">
-                          <bool>true</bool>
-                         </property>
-                         <property name="indicator_status_option" stdset="0">
-                          <bool>true</bool>
-                         </property>
-                         <property name="on_color" stdset="0">
-                          <color>
-                           <red>0</red>
-                           <green>255</green>
-                           <blue>0</blue>
-                          </color>
-                         </property>
-                         <property name="shape_option" stdset="0">
-                          <number>2</number>
-                         </property>
-                         <property name="off_color" stdset="0">
-                          <color alpha="192">
-                           <red>0</red>
-                           <green>0</green>
-                           <blue>0</blue>
-                          </color>
-                         </property>
-                         <property name="corner_radius" stdset="0">
-                          <double>0.000000000000000</double>
-                         </property>
-                         <property name="height_fraction" stdset="0">
-                          <double>0.100000000000000</double>
-                         </property>
-                         <property name="width_fraction" stdset="0">
-                          <double>0.500000000000000</double>
-                         </property>
-                         <property name="is_block_delete_status" stdset="0">
-                          <bool>true</bool>
-                         </property>
-                         <property name="isOnSensitive" stdset="0">
-                          <bool>true</bool>
-                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_7">
+                          <item>
+                           <widget class="StatusLabel" name="statusToolNumber">
+                            <property name="font">
+                             <font>
+                              <family>Noto Sans Mono</family>
+                              <pointsize>12</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="scaleText" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="textTemplate" stdset="0">
+                             <string>T%d</string>
+                            </property>
+                            <property name="tool_number_status" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="StatusLabel" name="statusToolLength">
+                            <property name="font">
+                             <font>
+                              <family>Noto Sans Mono</family>
+                              <pointsize>12</pointsize>
+                             </font>
+                            </property>
+                            <property name="scaleText" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="textTemplate" stdset="0">
+                             <string>Length Offset %.3f</string>
+                            </property>
+                            <property name="index_number" stdset="0">
+                             <number>2</number>
+                            </property>
+                            <property name="tool_diameter_status" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="tool_offset_status" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
