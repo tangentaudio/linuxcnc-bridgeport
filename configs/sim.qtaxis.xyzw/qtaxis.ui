@@ -828,7 +828,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QFrame" name="frame_2">
+                       <widget class="QFrame" name="frameDRO">
                         <property name="frameShape">
                          <enum>QFrame::NoFrame</enum>
                         </property>
@@ -2266,7 +2266,7 @@ Origin</string>
                           </layout>
                          </item>
                          <item>
-                          <widget class="QWidget" name="widget_dro_g53" native="true">
+                          <widget class="QWidget" name="widget_dro_dtg" native="true">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                              <horstretch>0</horstretch>
@@ -2284,13 +2284,13 @@ Origin</string>
                              <number>0</number>
                             </property>
                             <property name="rightMargin">
-                             <number>0</number>
+                             <number>12</number>
                             </property>
                             <property name="bottomMargin">
                              <number>0</number>
                             </property>
                             <item>
-                             <widget class="QLabel" name="label_dro_g53">
+                             <widget class="QLabel" name="label_dro_dtg">
                               <property name="maximumSize">
                                <size>
                                 <width>200</width>
@@ -2308,7 +2308,7 @@ Origin</string>
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="DROLabel" name="dro_label_g53_x">
+                               <widget class="DROLabel" name="dro_label_dtg_x">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                                   <horstretch>0</horstretch>
@@ -2336,7 +2336,7 @@ Origin</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="DROLabel" name="dro_label_g53_y">
+                               <widget class="DROLabel" name="dro_label_dtg_y">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                                   <horstretch>0</horstretch>
@@ -2370,7 +2370,7 @@ Origin</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="DROLabel" name="dro_label_g53_z">
+                               <widget class="DROLabel" name="dro_label_dtg_z">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                                   <horstretch>0</horstretch>
@@ -2401,7 +2401,7 @@ Origin</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="DROLabel" name="dro_label_g53_w">
+                               <widget class="DROLabel" name="dro_label_dtg_w">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                                   <horstretch>0</horstretch>
@@ -2510,15 +2510,18 @@ Origin</string>
                           <blue>0</blue>
                          </color>
                         </property>
+                        <property name="overlay_alpha" stdset="0">
+                         <double>0.500000000000000</double>
+                        </property>
                         <property name="background_color" stdset="0">
                          <color>
                           <red>0</red>
                           <green>0</green>
-                          <blue>0</blue>
+                          <blue>128</blue>
                          </color>
                         </property>
                         <property name="_use_gradient_background" stdset="0">
-                         <bool>false</bool>
+                         <bool>true</bool>
                         </property>
                         <property name="jog_color" stdset="0">
                          <color alpha="0">
@@ -2540,6 +2543,9 @@ Origin</string>
                           <green>192</green>
                           <blue>192</blue>
                          </color>
+                        </property>
+                        <property name="InhibitControls">
+                         <bool>false</bool>
                         </property>
                         <property name="overlay" stdset="0">
                          <bool>true</bool>
@@ -3117,7 +3123,7 @@ Origin</string>
                           <bool>false</bool>
                          </property>
                          <property name="isRunSensitive" stdset="0">
-                          <bool>true</bool>
+                          <bool>false</bool>
                          </property>
                          <property name="isAutoSensitive" stdset="0">
                           <bool>true</bool>
@@ -3164,7 +3170,7 @@ Origin</string>
                           <bool>false</bool>
                          </property>
                          <property name="isRunSensitive" stdset="0">
-                          <bool>true</bool>
+                          <bool>false</bool>
                          </property>
                          <property name="isAutoSensitive" stdset="0">
                           <bool>true</bool>
