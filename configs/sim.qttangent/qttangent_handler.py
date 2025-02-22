@@ -350,15 +350,23 @@ class HandlerClass:
     #######################
 
     def setSpindleSpeed(self, event):
+        ACTION.SET_MANUAL_MODE()
         self.w.lineSpindleSpeed.issue_mdi()
         ACTION.SET_MANUAL_MODE()
 
 
     def setToolNumber(self, event):
+        ACTION.SET_MANUAL_MODE()
         self.w.lineToolNumber.issue_mdi()
         ACTION.SET_MANUAL_MODE()
 
 
+    def addTool(self, event):
+        self.w.toolOffsetView.add_tool()
+
+    def deleteTools(self, event):
+        self.w.toolOffsetView.delete_tools()
+        
     def leftTabChanged(self, num):
         if num == 0:
             ACTION.SET_MANUAL_MODE()
@@ -640,7 +648,9 @@ class HandlerClass:
     def make_progressbar(self):
         self.w.progressbar = QtWidgets.QProgressBar()
         self.w.progressbar.setRange(0,100)
-        self.w.tabGCode.layout().addWidget(self.w.progressbar)
+        self.w.tabGCode.layout().insertWidget(1, self.w.progressbar)
+        
+        self.w.gcode_editor.percentDone.connect(self.percentCompleted)
 
     def g53_in_dro_changed(self, w, data):
         if data:
