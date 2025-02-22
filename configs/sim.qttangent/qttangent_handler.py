@@ -346,6 +346,11 @@ class HandlerClass:
     # callbacks from form #
     #######################
 
+    def setSpindleSpeed(self, event):
+        if len(self.w.lineSpindleSpeed.text()) > 0:
+            ACTION.CALL_MDI(f"M3 S{self.w.lineSpindleSpeed.text()}")
+            ACTION.SET_MANUAL_MODE()
+
     def leftTabChanged(self, num):
         if num == 0:
             ACTION.SET_MANUAL_MODE()

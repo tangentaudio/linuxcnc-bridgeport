@@ -1,3 +1,4 @@
+
 * {
     font: 10pt "DejaVu Sans Condensed";
 }
@@ -33,6 +34,7 @@ QToolButton QMenu:hover {
 }
 
 
+
 #statusFCodes,
 #statusGCodes,
 #statusMCodes {
@@ -61,6 +63,12 @@ QToolButton QMenu:hover {
 }
 
 #actionButtonHomeAll {
+    font: 18pt "FontAwesome";
+    color: black;
+}
+
+#actionButtonSpindleSlower,
+#actionButtonSpindleFaster {
     font: 18pt "FontAwesome";
     color: black;
 }
@@ -170,32 +178,32 @@ EditorBase {
     qproperty-styleColorMarginBackground: #ccccdd;
 
     qproperty-styleColorCursor: gray;
-    qproperty-styleColorMarkerBackground: rgba(92,92,128,0.4);
+    qproperty-styleColorMarkerBackground: rgba(34, 134, 228, 0.589);
 
     /* default */
     qproperty-styleColor0: black;
-    qproperty-styleFont0: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont0: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* comment */
     qproperty-styleColor1: gray;
     qproperty-styleFont1: "Noto Sans Mono Bold,11,-1,5,90,0,0,1,1,0";
     /* G code */
     qproperty-styleColor2: darkcyan;
-    qproperty-styleFont2: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont2: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* M code */
     qproperty-styleColor3: darkred;
-    qproperty-styleFont3: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont3: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* Axis */
     qproperty-styleColor4: blue;
-    qproperty-styleFont4: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont4: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* Other */
     qproperty-styleColor5: green;
-    qproperty-styleFont5: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont5: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* Axis Value */
     qproperty-styleColor6: darkblue;
-    qproperty-styleFont6: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont6: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
     /* Other Value */
     qproperty-styleColor7: gray;
-    qproperty-styleFont7: "Noto Sans Mono,11,-1,5,90,0,0,1,1,0";
+    qproperty-styleFont7: "DejaVu Sans Mono,11,-1,5,90,0,0,1,1,0";
 
     qproperty-styleColorSelectionText: white;
     qproperty-styleColorSelectionBackground: darkblue;
@@ -354,3 +362,19 @@ DROLabel[isHomed=false],
 #statuslabel_dro_w[isHomed=false] {
     color: #333333;
 }
+
+JogIncrements QAbstractItemView {
+    background-color: white;
+    color: black;
+}
+
+JogIncrements::item {
+    color: black;
+    height: 36px;
+    font-size: 24pt;
+}
+
+JogIncrements::item:selected {
+    background-color: orange;
+}
+
