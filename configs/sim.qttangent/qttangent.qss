@@ -41,6 +41,22 @@ QToolButton QMenu:hover {
     font-size: 24pt;
 }
 
+#lineSpindleSpeed,
+#lineToolNumber {
+    font: 20pt "Noto Sans Mono Bold";
+}
+
+#lineSpindleSpeed[isPendingValue=true],
+#lineToolNumber[isPendingValue=true] {
+    background: cyan;
+}
+
+#lineSpindleSpeed[isPendingValue=false],
+#lineToolNumber[isPendingValue=false] {
+    background: none;
+}
+
+
 
 
 #statusFCodes,

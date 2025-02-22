@@ -12,6 +12,8 @@ axisToolButtonDialog_CALCULATOR = 678 382 676 436
 OriginOffsetDialog-geometry = 860 500 555 403
 DROWidgetDialog_CALCULATOR = 910 585 472 378
 VersaProbeDialog-geometry = 860 500 860 558
+SpindleSpeed_Keyboard_Dialog_CALCULATOR = 910 585 548 436
+OperatorValue_Keyboard_Dialog_CALCULATOR = 910 585 548 436
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -122,6 +124,12 @@ gcodegraphics-user-panx = 0.0
 gcodegraphics-user-pany = 0.0
 gcodegraphics-user-lat = 0.0
 gcodegraphics-user-lon = 0.0
+previewWidget-user-view = p
+previewWidget-user-zoom = 10.0
+previewWidget-user-panx = 0.0
+previewWidget-user-pany = 0.0
+previewWidget-user-lat = 0.0
+previewWidget-user-lon = 0.0
 
 [FILEMANAGER_JUMPLIST]
 

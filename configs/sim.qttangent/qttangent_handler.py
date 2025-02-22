@@ -350,9 +350,14 @@ class HandlerClass:
     #######################
 
     def setSpindleSpeed(self, event):
-        if len(self.w.lineSpindleSpeed.text()) > 0:
-            ACTION.CALL_MDI(f"M3 S{self.w.lineSpindleSpeed.text()}")
-            ACTION.SET_MANUAL_MODE()
+        self.w.lineSpindleSpeed.issue_mdi()
+        ACTION.SET_MANUAL_MODE()
+
+
+    def setToolNumber(self, event):
+        self.w.lineToolNumber.issue_mdi()
+        ACTION.SET_MANUAL_MODE()
+
 
     def leftTabChanged(self, num):
         if num == 0:
@@ -479,7 +484,6 @@ class HandlerClass:
             self.w.gcode_editor.readOnlyMode()
             self.w.horizontalSplitter.show()
 
-
     # Class patch for FILEMANAGER.load
     def file_load(self, fname=None):
         try:
@@ -490,8 +494,10 @@ class HandlerClass:
             ACTION.OPEN_PROGRAM(fname)
             STATUS.emit('update-machine-log', 'Loaded: ' + fname, 'TIME')
             
-            # jump to dro tab
-            self.w.rightTab.setCurrentIndex(0)
+            # jump to preview tab
+            self.w.rightTab.setCurrentWidget(self.w.tabPreview)
+            # jump to gcode tab
+            self.w.leftTab.setCurrentWidget(self.w.tabGCode)
 
         except Exception as e:
             LOG.error("Load file error: {}".format(e))
@@ -634,7 +640,7 @@ class HandlerClass:
     def make_progressbar(self):
         self.w.progressbar = QtWidgets.QProgressBar()
         self.w.progressbar.setRange(0,100)
-        self.w.statusbar.addWidget(self.w.progressbar)
+        self.w.tabGCode.layout().addWidget(self.w.progressbar)
 
     def g53_in_dro_changed(self, w, data):
         if data:
