@@ -3,6 +3,14 @@
     font: 10pt "DejaVu Sans Condensed";
 }
 
+QTableView {
+    font: 12pt "DejaVu Sans Mono"; 
+    
+}
+QHeaderView::section {
+    height: 30px;
+}
+
 QDialog QPushButton {
     width: 100px;
     height: 40px;

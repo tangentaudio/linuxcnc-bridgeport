@@ -157,6 +157,9 @@ class HandlerClass:
             self.w.dro_label_g53_y.setVisible(False)
 
         self.restoreSettings()
+        
+        self.w.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.FramelessWindowHint)
+        self.w.showFullScreen()
 
         message = "--- QtTangent Version {} on Linuxcnc {} ---".format(
             VERSION, STATUS.get_linuxcnc_version())
@@ -500,8 +503,9 @@ class HandlerClass:
         #    self.w.widget_angular_jog.show()
         #else:
         #    self.w.widget_angular_jog.hide()
-        if INFO.IS_TRIVIAL_MACHINE:
-            self.w.menuControlMode.menuAction().setVisible(False)
+        #if INFO.IS_TRIVIAL_MACHINE:
+        #    self.w.menuControlMode.menuAction().setVisible(False)
+        pass
 
     def quick_reference(self):
         help1 = [

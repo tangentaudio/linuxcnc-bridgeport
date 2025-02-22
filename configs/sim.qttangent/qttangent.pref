@@ -11,6 +11,7 @@ CalculatorDialog-geometry = 910 528 586 436
 axisToolButtonDialog_CALCULATOR = 678 382 676 436
 OriginOffsetDialog-geometry = 860 500 555 403
 DROWidgetDialog_CALCULATOR = 910 585 472 378
+VersaProbeDialog-geometry = 860 500 860 558
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -52,7 +53,7 @@ ps_xy_clearance = 5.0
 ps_side_edge_length = 5.0
 ps_probe_height = 20.0
 ps_block_height = 20.0
-use_tool_measurement = True
+use_tool_measurement = False
 ps_offs_x = 0.0
 ps_offs_y = 0.0
 ps_offs_z = 0.0
@@ -85,7 +86,7 @@ desktop_notify = False
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 0 55 1920 1114
+MainWindow-geometry = 0 0 1920 1200
 overlay_play_sound = False
 overlay_sound_type = RING
 

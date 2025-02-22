@@ -44,7 +44,7 @@
        <bool>false</bool>
       </property>
       <property name="catch_close_option" stdset="0">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="catch_errors_option" stdset="0">
        <bool>false</bool>
@@ -71,10 +71,10 @@
        <bool>false</bool>
       </property>
       <property name="messageDialog_option" stdset="0">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="closeDialog_option" stdset="0">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="entryDialog_option" stdset="0">
        <bool>true</bool>
@@ -99,7 +99,7 @@
        <bool>false</bool>
       </property>
       <property name="keyboardDialog_option" stdset="0">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="versaProbeDialog_option" stdset="0">
        <bool>true</bool>
@@ -198,6 +198,21 @@
                   <enum>QFrame::Plain</enum>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_10">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QTabWidget" name="leftTab">
                     <property name="sizePolicy">
@@ -2958,7 +2973,18 @@ Origin</string>
                      </attribute>
                      <layout class="QVBoxLayout" name="verticalLayout_9">
                       <item>
-                       <widget class="ToolOffsetView" name="tooloffsetview"/>
+                       <widget class="ToolOffsetView" name="tooloffsetview">
+                        <property name="gridStyle">
+                         <enum>Qt::SolidLine</enum>
+                        </property>
+                        <property name="styleColorHighlight" stdset="0">
+                         <color>
+                          <red>26</red>
+                          <green>95</green>
+                          <blue>180</blue>
+                         </color>
+                        </property>
+                       </widget>
                       </item>
                      </layout>
                     </widget>
@@ -4783,6 +4809,19 @@ Stop</string>
                          </property>
                         </widget>
                        </item>
+                       <item row="2" column="0">
+                        <widget class="QPushButton" name="buttonShutdown">
+                         <property name="minimumSize">
+                          <size>
+                           <width>100</width>
+                           <height>50</height>
+                          </size>
+                         </property>
+                         <property name="text">
+                          <string>Exit</string>
+                         </property>
+                        </widget>
+                       </item>
                       </layout>
                      </widget>
                     </item>
@@ -4819,132 +4858,6 @@ Stop</string>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1920</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <widget class="QMenu" name="menuRecent">
-     <property name="title">
-      <string>Recent</string>
-     </property>
-    </widget>
-    <addaction name="actionOpen"/>
-    <addaction name="menuRecent"/>
-    <addaction name="actionReload"/>
-    <addaction name="actionEdit"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionProperties"/>
-    <addaction name="actionToolOffsetDialog"/>
-    <addaction name="actionOriginOffsetDialog"/>
-    <addaction name="separator"/>
-    <addaction name="actionQuit"/>
-   </widget>
-   <widget class="QMenu" name="menuMachine">
-    <property name="title">
-     <string>Machine</string>
-    </property>
-    <widget class="QMenu" name="menuHoming">
-     <property name="title">
-      <string>Homing</string>
-     </property>
-    </widget>
-    <widget class="QMenu" name="menuUnhome">
-     <property name="title">
-      <string>Unhome </string>
-     </property>
-    </widget>
-    <widget class="QMenu" name="menuZeroCoordinateSystem">
-     <property name="title">
-      <string>Zero Coordinate System</string>
-     </property>
-    </widget>
-    <widget class="QMenu" name="menuControlMode">
-     <property name="title">
-      <string>Control Mode</string>
-     </property>
-     <addaction name="actionJointMode"/>
-     <addaction name="actionAxisMode"/>
-    </widget>
-    <addaction name="actionClear_MDI_History"/>
-    <addaction name="actionCalibration"/>
-    <addaction name="actionHalshow"/>
-    <addaction name="actionHalmeter"/>
-    <addaction name="actionHalscope"/>
-    <addaction name="actionStatus"/>
-    <addaction name="menuHoming"/>
-    <addaction name="menuUnhome"/>
-    <addaction name="menuControlMode"/>
-    <addaction name="separator"/>
-    <addaction name="actionVersaProbe"/>
-    <addaction name="separator"/>
-    <addaction name="actionEstop"/>
-    <addaction name="actionMachineOn"/>
-    <addaction name="separator"/>
-    <addaction name="actionRun"/>
-    <addaction name="actionRunFromLine"/>
-    <addaction name="actionStep"/>
-    <addaction name="actionPause"/>
-    <addaction name="actionStop"/>
-    <addaction name="separator"/>
-    <addaction name="actionOptionalStop"/>
-    <addaction name="actionSkip"/>
-    <addaction name="separator"/>
-    <addaction name="menuZeroCoordinateSystem"/>
-    <addaction name="actionTouchoffWorkplace"/>
-    <addaction name="actionTouchoffFixture"/>
-   </widget>
-   <widget class="QMenu" name="menuView">
-    <property name="title">
-     <string>View</string>
-    </property>
-    <widget class="QMenu" name="menuGridSize">
-     <property name="title">
-      <string>Grid Size</string>
-     </property>
-    </widget>
-    <addaction name="actionPerspectiveView"/>
-    <addaction name="actionSideView"/>
-    <addaction name="actionFrontView"/>
-    <addaction name="actionTopView"/>
-    <addaction name="actionRotatedView"/>
-    <addaction name="actionClearPlot"/>
-    <addaction name="actionLargeDRO"/>
-    <addaction name="actionShowOffsets"/>
-    <addaction name="actionShow_G53_in_DRO"/>
-    <addaction name="menuGridSize"/>
-    <addaction name="actionAlphaMode"/>
-    <addaction name="actionInhibitSelection"/>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-    <addaction name="actionQuickRef"/>
-    <addaction name="actionMachineLog"/>
-    <addaction name="actionCalculatorDialog"/>
-   </widget>
-   <widget class="QMenu" name="menuStstem">
-    <property name="title">
-     <string>System</string>
-    </property>
-    <addaction name="actionShutdown"/>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuMachine"/>
-   <addaction name="menuView"/>
-   <addaction name="menuHelp"/>
-   <addaction name="menuStstem"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbout">
@@ -5731,6 +5644,22 @@ Stop</string>
     <hint type="destinationlabel">
      <x>391</x>
      <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonShutdown</sender>
+   <signal>clicked()</signal>
+   <receiver>actionQuit</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1712</x>
+     <y>957</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>
