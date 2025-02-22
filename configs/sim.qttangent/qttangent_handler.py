@@ -366,7 +366,7 @@ class HandlerClass:
 
     def deleteTools(self, event):
         self.w.toolOffsetView.delete_tools()
-        
+
     def leftTabChanged(self, num):
         if num == 0:
             ACTION.SET_MANUAL_MODE()
