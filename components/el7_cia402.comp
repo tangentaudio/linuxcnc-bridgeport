@@ -141,6 +141,8 @@ param rw float velo_scale   "velocity in machine units per 1 Motor revolution";
 param rw bit auto_fault_reset "true resets an actual Drive Fault automatically at the next enable Signal";
 param rw bit csp_mode "true= CS Position Mode, false= CS Velocity Mode, is only recognized at Linuxcnc Startup, default true";
 
+param rw bit el7_mode "true=for EL7, false=A6 or other";
+
 //internals
 variable float pos_scale_old;
 variable float velo_scale_old;
@@ -226,19 +228,49 @@ FUNCTION(read_all) {
 
   if (opmode_cyclic_position || opmode_cyclic_velocity) {
     stat_target_reached = (statusword >> 10) & 1;
-    } else {
+  } else {
       stat_target_reached = 0;
-    }
+  }
+
 
   //home states  
   if (home && opmode_homing) {
+    // status word bits in homing mode
+    // 10 Position reach                            1: Home located or homing interrupted
+    // 11 Internal software position limit status   0: Software position limit not reached
+    //                                              1: Software position limit reached
+    // 12 Homing completion output                  0: Homing not completed
+    //                                              1: Homing completed
+    // 13 Homing error                              0: Homing error not occurred
+    //                                              1: Homing error occurred
+    // 14 Manufacturer-specific                     Not supported
+    // 15 Homing completion                         0: Homing not complete
+    //                                              1: Homing completed
+
+    //      1111 1100 0000 0000
+    //      5432 1098 7654 3210 
+    //  237 0000 0010 0011 0111
+    // 26B7 0010 0110 1011 0111 homing error
+    // 1637 0001 0110
+    // 8637 1000 0110
+    // 9637 1001 0110
+
+
     static unsigned last_status = 0;
-    
-    stat_homed    = ((statusword >> 10) & 1) && ((statusword >> 12) & 1);
-    stat_homing   = !stat_homed && !((statusword >> 10) & 1);
+
+    if ((statusword >> 13) & 1) {
+      rtapi_print("homing error\n");
+      // homing error
+      stat_homing = 0;
+      stat_homed = 0;
+      stat_fault = 1;
+    } else {
+      stat_homed    = ((statusword >> 10) & 1) && ((statusword >> 12) & 1);
+      stat_homing   = !stat_fault && !stat_homed && !((statusword >> 10) & 1);
+    }
 
     if (statusword != last_status) {
-     rtapi_print("opmode_homing statusword=%x homing=%d homed=%d\n", statusword, stat_homing, stat_homed);
+     rtapi_print("opmode_homing statusword=%x (fault=%d) homing=%d homed=%d\n", statusword, stat_fault, stat_homing, stat_homed);
     }
     last_status = statusword;
   }
@@ -254,7 +286,8 @@ FUNCTION(read_all) {
 
 FUNCTION(write_all) {
   int enable_edge;
-    static unsigned int home_init = 0;
+  static unsigned int home_init = 0;
+  static unsigned int last_controlword=0xffff;
 
   //init opmode
   if (!init_pos_mode) {
@@ -317,14 +350,25 @@ FUNCTION(write_all) {
 
     if (!home_init) {
        opmode = OPMODE_HOMING;
-       controlword &= ~(0x0011);
+
+       if (el7_mode) {
+        // for some reason the EL7 needs to see this to start homing
+        controlword &= ~(0x0011);
+       }
+
        home_init = 1;
        rtapi_print("start homing: home_init=%x home=%x controlword=%x\n", home_init, home, controlword);
     } else {
 //       controlword |= (home << 4);
-	 controlword |= 0x0011;
+	    controlword |= 0x0011;
     }
   }
 
+  if (controlword != last_controlword) {
+    rtapi_print("write_all: controlword=%x\n", controlword);
+  }
+
+  last_controlword = controlword;
 }
+
 

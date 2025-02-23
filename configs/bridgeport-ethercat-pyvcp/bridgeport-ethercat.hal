@@ -66,6 +66,7 @@ net emc-enable <= iocontrol.0.emc-enable-in <= and2.oper1.out
 # Config - Joint 0 (X)
 ###########################################################
 setp cia402.0.csp-mode 1
+setp cia402.0.el7-mode 1
 
 setp cia402.0.pos-scale [JOINT_0]SERVO_SCALE
 setp lcec.0.encoder-x.enc-pos-scale [JOINT_0]LINEAR_SCALE
@@ -100,6 +101,7 @@ net 0-homed        joint.0.custom-homing-finished  cia402.0.stat-homed
 # Config - Joint 1 (Y)
 ###########################################################
 setp cia402.1.csp-mode 1
+setp cia402.1.el7-mode 1
 
 setp cia402.1.pos-scale [JOINT_1]SERVO_SCALE
 setp lcec.0.encoder-y.enc-pos-scale [JOINT_1]LINEAR_SCALE
@@ -133,6 +135,7 @@ net 1-homed        joint.1.custom-homing-finished  cia402.1.stat-homed
 # Config - Joint 2 (Z, Knee)
 ###########################################################
 setp cia402.2.csp-mode 1
+setp cia402.2.el7-mode 0
 
 setp cia402.2.pos-scale [JOINT_2]SERVO_SCALE
 
@@ -151,14 +154,14 @@ net 2-modes-of-operation  cia402.2.opmode => lcec.0.servo-z.opmode
 net 2-drv-target-pos      cia402.2.drv-target-position => lcec.0.servo-z.target-position
 net 2-drv-target-velo     cia402.2.drv-target-velocity => lcec.0.servo-z.target-velocity
 
-#setp lcec.0.servo-z.homing-method [JOINT_2]CIA402_HOMING_METHOD
-#setp lcec.0.servo-z.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
-#setp lcec.0.servo-z.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
-#setp lcec.0.servo-z.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
+setp lcec.0.servo-z.homing-method [JOINT_2]CIA402_HOMING_METHOD
+setp lcec.0.servo-z.homing-high-velocity [JOINT_2]CIA402_HOMING_SEARCH_VELOCITY
+setp lcec.0.servo-z.homing-low-velocity [JOINT_2]CIA402_HOMING_LATCH_VELOCITY
+setp lcec.0.servo-z.homing-acceleration [JOINT_2]CIA402_HOMING_ACCELERATION
 
-#net 2-home-request joint.2.request-custom-homing   cia402.2.home joint.2.index-enable
-#net 2-homing       joint.2.is-custom-homing        cia402.2.stat-homing
-#net 2-homed        joint.2.custom-homing-finished  cia402.2.stat-homed
+net 2-home-request joint.2.request-custom-homing   cia402.2.home joint.2.index-enable
+net 2-homing       joint.2.is-custom-homing        cia402.2.stat-homing
+net 2-homed        joint.2.custom-homing-finished  cia402.2.stat-homed
 
 
 ###########################################################

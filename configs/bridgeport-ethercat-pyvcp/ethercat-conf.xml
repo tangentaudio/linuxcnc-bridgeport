@@ -89,6 +89,10 @@
 					<pdoEntry idx="6099" subIdx="01" bitLen="32" halPin="homing-high-velocity" halType="u32"/>
 					<pdoEntry idx="6099" subIdx="02" bitLen="32" halPin="homing-low-velocity" halType="u32"/>
 					<pdoEntry idx="609A" subIdx="00" bitLen="32" halPin="homing-acceleration" halType="u32"/>
+					<pdoEntry idx="60E6" subIdx="00" bitLen="8" halPin="homing-calculation-method" halType="u32"/>
+					<!--
+					<pdoEntry idx="2010" subIdx="09" bitLen="32" halPin="homing-time-limit" halType="u32"/>
+					-->
 				</pdo>
 			</syncManager>
 			<syncManager idx="3" dir="in">
