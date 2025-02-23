@@ -364,9 +364,9 @@ FUNCTION(write_all) {
     }
   }
 
-  if (controlword != last_controlword) {
-    rtapi_print("write_all: controlword=%x\n", controlword);
-  }
+  //if (controlword != last_controlword) {
+  //  rtapi_print("write_all: controlword=%x\n", controlword);
+  //}
 
   last_controlword = controlword;
 }

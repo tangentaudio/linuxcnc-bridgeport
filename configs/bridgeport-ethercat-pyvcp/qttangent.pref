@@ -1,0 +1,102 @@
+[DIALOG_GEOMETRY]
+AboutDialog-geometry = half
+LncMessage-geometry = 910 541 300 124
+ToolChangeDialog-geometry = 910 525 300 245
+VersaHelpDialog-geometry = default
+OperatorValue_Keyboard_Dialog_CALCULATOR = 910 525 662 436
+CalculatorDialog-geometry = 910 525 662 436
+axisToolButtonDialog_CALCULATOR = 910 525 662 436
+
+[DIALOG_OPTIONS]
+EntryDialog_play_sound = True
+EntryDialog_sound_type = READY
+toolDialog_play_sound = True
+toolDialog_speak = True
+toolDialog_sound_type = READY
+KeyboardDialog_play_sound = True
+KeyboardDialog_sound_type = READY
+CalculatorDialog_play_sound = True
+CalculatorDialog_sound_type = READY
+RunFromLineDialog_play_sound = True
+RunFromLineDialog_sound_type = READY
+
+[SCREEN_OPTIONS]
+overlay_play_sound = False
+overlay_sound_type = RING
+catch_errors = False
+desktop_notify = False
+notify_max_msgs = 10
+shutdown_check = True
+sound_player_on = False
+MainWindow-geometry = 0 0 1920 1080
+
+[VERSA_PROBE_OPTIONS]
+ps_probe_tool = -1
+ps_searchvel = 300.0
+ps_probevel = 10.0
+ps_z_clearance = 3.0
+ps_probe_max = 1.0
+ps_probe_max_z_travel = 1.0
+ps_probe_latch = 0.5
+ps_probe_diam = 2.0
+ps_xy_clearance = 5.0
+ps_side_edge_length = 5.0
+ps_probe_height = 20.0
+ps_block_height = 20.0
+use_tool_measurement = True
+ps_offs_x = 0.0
+ps_offs_y = 0.0
+ps_offs_z = 0.0
+ps_offs_angle = 0.0
+ps_probe_rapid_vel = 60.0
+
+[MCH_MSG_OPTIONS]
+mchnMsg_play_sound = True
+mchnMsg_speak_errors = False
+mchnMsg_speak_text = True
+mchnMsg_sound_type = ATTENTION
+
+[USR_MSG_OPTIONS]
+usermsg_play_sound = True
+userMsg_sound_type = ATTENTION
+userMsg_use_focusOverlay = True
+
+[SHUTDOWN_OPTIONS]
+shutdown_play_sound = True
+shutdown_alert_sound_type = READY
+shutdown_exit_sound_type = LOGOUT
+shutdown_msg_title = Do you want to Shutdown now?
+shutdown_msg_focus_text = 
+shutdown_msg_detail = 
+
+[NOTIFY_OPTIONS]
+notify_start_greeting = False
+notify_start_title = Welcome
+notify_start_detail = This option can be changed in the preference file
+notify_start_timeout = 5
+
+[ORIGINOFFSET_SYSTEM_NAMES]
+originoffsetview-G54 = User System 1
+originoffsetview-G55 = User System 2
+originoffsetview-G56 = User System 3
+originoffsetview-G57 = User System 4
+originoffsetview-G58 = User System 5
+originoffsetview-G59 = User System 6
+originoffsetview-G59.1 = User System 7
+originoffsetview-G59.2 = User System 8
+originoffsetview-G59.3 = User System 9
+
+[SCREEN_CONTROL_LAST_SETTING]
+previewWidget-user-view = p
+previewWidget-user-zoom = 10.0
+previewWidget-user-panx = 0.0
+previewWidget-user-pany = 0.0
+previewWidget-user-lat = 0.0
+previewWidget-user-lon = 0.0
+
+[BOOK_KEEPING]
+last_loaded_directory = /home/steve/linuxcnc/nc_files
+style_QSS_Path = DEFAULT
+
+[FILEMANAGER_JUMPLIST]
+
