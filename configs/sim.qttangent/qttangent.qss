@@ -69,11 +69,24 @@ QToolButton QMenu:hover {
     font-weight: 900;
 }
 
-#statusToolNumber,
-#statusToolLength {
-    font: 12pt "Noto Sans Mono";
+#statusToolNumber {
+    font: 16pt "Noto Sans Mono";
     font-weight: 300;
+    color: blue;
 }
+
+#statusToolLength {
+    font: 14pt "Noto Sans Mono";
+    font-weight: 100;
+    color: darkblue;
+}
+
+#statusToolComment {
+    font: 12pt "Noto Sans Bold";
+    font-weight: 300;
+    color: gray;
+}
+
 
 #statusSpindleRequestedSpeed,
 #statusSpindleActualSpeed {
@@ -111,13 +124,10 @@ QSlider::groove:horizontal {
 }
 
 QSlider::sub-page:horizontal {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-            stop: 0 #00066e, stop: 1 #000bbf);
-    background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
-            stop: 0 #bbf, stop: 1 #55f);
     border: 1px solid #777;
     height: 10px;
     border-radius: 4px;
+    background: #777;
 }
 
 QSlider::add-page:horizontal {
@@ -128,19 +138,16 @@ QSlider::add-page:horizontal {
 }
 
 QSlider::handle:horizontal {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-            stop:0 #eee, stop:1 #ccc);
     border: 1px solid #777;
     width: 20px;
     margin-top: -15px;
     margin-bottom: -15px;
     border-radius: 4px;
-
+    background: #ddd;
 }
 
 QSlider::handle:horizontal:hover {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-            stop:0 #fff, stop:1 #ddd);
+    background: #eee;
     border: 1px solid #444;
     border-radius: 4px;
 }

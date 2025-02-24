@@ -389,7 +389,7 @@ class HandlerClass:
 
     def showOffsetsChanged(self):
         # the logic looks backwards here due to when the action signal is triggered
-        if self.w.gcodegraphics.property('_offsets'):
+        if self.w.previewWidget.property('_offsets'):
             self.w.buttonShowOffsets.setText('Show Offsets')
         else:
             self.w.buttonShowOffsets.setText('Hide Offsets')
