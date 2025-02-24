@@ -207,6 +207,12 @@ QTabBar::tab:selected {
     border-left: 4px solid blue;
 }
 
+#machinelog {
+    font: 12pt 'Noto Sans Mono';
+    font-weight: 200;
+
+}
+
 EditorBase {
     background: white;
     qproperty-styleColorBackground: #f0f0f0;

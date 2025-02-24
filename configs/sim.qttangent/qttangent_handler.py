@@ -72,6 +72,7 @@ class HandlerClass:
         STATUS.connect('joint-selection-changed', lambda w, d: self.update_jog_pins(d))
         STATUS.connect('axis-selection-changed', lambda w, d: self.update_jog_pins(d))
         STATUS.connect('status-message', lambda w, d, o: self.add_external_status(d,o))
+        STATUS.connect('error', self.handle_error)
 
     ##########################################
     # Special Functions called from QTSCREEN
@@ -85,6 +86,8 @@ class HandlerClass:
     # the widgets are instantiated.
     # the HAL pins are built but HAL is not set ready
     def initialized__(self):
+        KEYBIND.add_call('Key_F3','on_keycall_F3')
+        KEYBIND.add_call('Key_F5','on_keycall_F5')
         KEYBIND.add_call('Key_F12','on_keycall_F12')
         KEYBIND.add_call('Key_Dollar','on_keycall_dollar')
 
@@ -151,6 +154,8 @@ class HandlerClass:
         #    self.w.actionButton_home.set_home_select(True)
         self.make_progressbar()
         self.adjust_controls()
+
+        self.w.rightTab.currentChanged.connect(self.clear_log_error)
 
         if INFO.MACHINE_IS_LATHE:
             self.w.dro_label_g5x_y.setVisible(False)
@@ -315,8 +320,10 @@ class HandlerClass:
             self.show_axes()
 
     def update_spindle(self,w,data):
-        #self.w.rpm_bar.setInvertedAppearance(bool(data<0))
-        #self.w.rpm_bar.setValue(abs(int(data)))
+        if bool(data>0):
+            self.w.statusSpindleActualSpeed.setStyleSheet("* { color: green; }")
+        else:
+            self.w.statusSpindleActualSpeed.setStyleSheet("* { color: black; }")
         pass
 
     def update_jog_pins(self, data):
@@ -345,20 +352,28 @@ class HandlerClass:
         if log:
             STATUS.emit('update-machine-log', "{}\n{}".format(title, logtext), 'TIME')
 
+    def handle_error(self, w, kind, text):
+        if not 'Unexpected realtime delay' in text:
+            self.w.rightTab.setCurrentWidget(self.w.tabLog)
+        
+        self.w.rightTab.tabBar.setTabTextColor(4, QColor(255,0,0))
+
+
+
+    def clear_log_error(self, event):
+        self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,0,0))
+
+
     #######################
     # callbacks from form #
     #######################
 
     def setSpindleSpeed(self, event):
-        ACTION.SET_MANUAL_MODE()
         self.w.lineSpindleSpeed.issue_mdi()
-        ACTION.SET_MANUAL_MODE()
 
 
     def setToolNumber(self, event):
-        ACTION.SET_MANUAL_MODE()
         self.w.lineToolNumber.issue_mdi()
-        ACTION.SET_MANUAL_MODE()
 
 
     def addTool(self, event):
@@ -368,8 +383,11 @@ class HandlerClass:
         self.w.toolOffsetView.delete_tools()
 
     def leftTabChanged(self, num):
-        if num == 0:
+        if num == 2:
+            ACTION.SET_AUTO_MODE()
+        elif num == 3:
             ACTION.SET_MANUAL_MODE()
+        
 
     def percentLoaded(self, fraction):
         if fraction <0:
@@ -766,6 +784,14 @@ class HandlerClass:
     def on_keycall_ANEG(self,event,state,shift,cntrl):
         pass
         #self.kb_jog(state, 3, -1, shift, linear=False)
+
+    def on_keycall_F3(self, event, state, shift, cntrl):
+        if state:
+            self.w.leftTab.setCurrentWidget(self.w.tabManual)
+
+    def on_keycall_F5(self, event, state, shift, cntrl):
+        if state:
+            self.w.leftTab.setCurrentWidget(self.w.tabMDI)
 
     def on_keycall_F12(self,event,state,shift,cntrl):
         if state:
