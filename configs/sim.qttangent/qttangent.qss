@@ -75,6 +75,12 @@ QToolButton QMenu:hover {
     font-weight: 300;
 }
 
+#statusSpindleRequestedSpeed,
+#statusSpindleActualSpeed {
+    font: 12pt "Noto Sans Mono";
+    font-weight: 300;
+}
+
 
 #actionButtonEStop {
     font: 18pt "FontAwesome";
