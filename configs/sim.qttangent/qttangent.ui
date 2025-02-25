@@ -4358,533 +4358,622 @@ LOAD TOOL</string>
                        <number>40</number>
                       </property>
                       <item>
-                       <spacer name="verticalSpacer_5">
-                        <property name="orientation">
-                         <enum>Qt::Vertical</enum>
+                       <widget class="QWidget" name="widgetFeedOverride" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <property name="sizeHint" stdset="0">
+                        <property name="minimumSize">
                          <size>
-                          <width>20</width>
-                          <height>40</height>
+                          <width>0</width>
+                          <height>54</height>
                          </size>
                         </property>
-                       </spacer>
+                        <layout class="QHBoxLayout" name="horizontalLayout_feedOverride">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_6">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Feed Override</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_3">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="feed_override_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderFeed">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="feed_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                           <property name="alertState">
+                            <string>Warn</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                       <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_feedOverride">
-                        <property name="spacing">
-                         <number>12</number>
+                       <widget class="QWidget" name="widgetRapidOverride" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_6">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Feed Override</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_3">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="feed_override_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderFeed">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="rapid_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="feed_rate" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                          <property name="alertState">
-                           <string>Warn</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_rapidOverride">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_8">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Rapid Override</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_4">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="rapid_override_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderRapid">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                       <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_rapidOverride">
-                        <property name="spacing">
-                         <number>12</number>
+                       <widget class="QWidget" name="widgetSpindleOverride" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_8">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Rapid Override</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_4">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="rapid_override_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderRapid">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_spindleOverride">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_9">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Spindle Override</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_5">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="spindle_override_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderSpindle">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="spindle_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                       <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_spindleOverride">
-                        <property name="spacing">
-                         <number>12</number>
+                       <widget class="QWidget" name="widgetJogRate" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_9">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Spindle Override</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_5">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="spindle_override_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderSpindle">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="rapid_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="spindle_rate" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_jograte">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_10">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Jog Rate</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_6">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="jograte_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderJog">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                       <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_jograte">
-                        <property name="spacing">
-                         <number>12</number>
+                       <widget class="QWidget" name="widgetAngularJogRate" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_10">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Jog Rate</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_6">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="jograte_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderJog">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="rapid_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jograte_rate" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_jograte_angular">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_14">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Angular Jog Rate</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_9">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="jograte_status" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_angular_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderAngularJog">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_angular_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                       <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_jograte_angular">
-                        <property name="spacing">
-                         <number>12</number>
+                       <widget class="QWidget" name="widgetMaxVelocity" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_14">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Angular Jog Rate</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_9">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="jograte_status" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jograte_angular_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderAngularJog">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="rapid_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jograte_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jograte_angular_rate" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_maxVelocity">
-                        <property name="spacing">
-                         <number>12</number>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
                         </property>
-                        <item>
-                         <widget class="QLabel" name="label_11">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Max Velocity</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>0</number>
-                          </property>
-                          <property name="indent">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusLabel" name="statuslabel_7">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>50</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>100.0</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                          </property>
-                          <property name="margin">
-                           <number>-7</number>
-                          </property>
-                          <property name="textTemplate" stdset="0">
-                           <string>%s</string>
-                          </property>
-                          <property name="max_velocity_override_status" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="StatusSlider" name="statusSliderMaxVelocity">
-                          <property name="minimumSize">
-                           <size>
-                            <width>480</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>400</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="rapid_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jograte_angular_rate" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="max_velocity_rate" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                        <layout class="QHBoxLayout" name="horizontalLayout_maxVelocity">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_11">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Max Velocity</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_7">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="max_velocity_override_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderMaxVelocity">
+                           <property name="minimumSize">
+                            <size>
+                             <width>480</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_angular_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="max_velocity_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                      </layout>
                     </item>

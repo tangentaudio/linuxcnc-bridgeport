@@ -534,13 +534,10 @@ class HandlerClass:
 
 
     def adjust_controls(self):
-        #if INFO.HAS_ANGULAR_JOINT:
-        #    self.w.widget_angular_jog.show()
-        #else:
-        #    self.w.widget_angular_jog.hide()
-        #if INFO.IS_TRIVIAL_MACHINE:
-        #    self.w.menuControlMode.menuAction().setVisible(False)
-        pass
+        if INFO.HAS_ANGULAR_JOINT:
+            self.w.widgetAngularJogRate.show()
+        else:
+            self.w.widgetAngularJogRate.hide()
 
     def quick_reference(self):
         help1 = [
