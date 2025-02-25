@@ -14,6 +14,9 @@ DROWidgetDialog_CALCULATOR = 910 585 472 378
 VersaProbeDialog-geometry = 860 500 860 558
 SpindleSpeed_Keyboard_Dialog_CALCULATOR = 910 585 548 436
 OperatorValue_Keyboard_Dialog_CALCULATOR = 910 585 662 436
+basicProbeHelpDialog-geometry = default
+_KEYBOARD = 910 585 597 357
+_CALCULATOR = 910 585 662 436
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -88,7 +91,7 @@ desktop_notify = False
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 0 0 1920 1086
+MainWindow-geometry = 0 0 1920 1200
 overlay_play_sound = False
 overlay_sound_type = RING
 
@@ -132,4 +135,24 @@ previewWidget-user-lat = 0.0
 previewWidget-user-lon = 0.0
 
 [FILEMANAGER_JUMPLIST]
+Desktop = /home/steve/Desktop
+nc_files = /home/steve/linuxcnc/nc_files
+
+[PROBE OPTIONS]
+Probe tool = 4
+Probe diameter = 4
+Probe rapid = 10
+Probe feed = 10
+Probe search = 10
+Probe max travel = 10
+Probe max z = 2
+Probe extra depth = 0
+Probe step off = 10
+Probe xy clearance = 10
+Probe z clearance = 10
+Probe edge width = 10
+Calibration offset = 0
+Cal x width = 0
+Cal y width = 0
+Cal diameter = 0
 

@@ -71,10 +71,10 @@
        <string>WORKINGFOLDER/qttangent.pref</string>
       </property>
       <property name="embedded_program_option" stdset="0">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="default_embed_tab" stdset="0">
-       <string>rightTab</string>
+       <string>leftTab</string>
       </property>
       <property name="focusOverlay_option" stdset="0">
        <bool>true</bool>
@@ -340,6 +340,9 @@
                          </size>
                         </property>
                         <property name="auto_show_mdi_status" stdset="0">
+                         <bool>false</bool>
+                        </property>
+                        <property name="auto_show_manual_status" stdset="0">
                          <bool>false</bool>
                         </property>
                         <property name="show_editor" stdset="0">
@@ -695,6 +698,31 @@ Delete</string>
                            </property>
                           </widget>
                          </item>
+                         <item>
+                          <widget class="ActionButton" name="actionButtonReloadFile">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>75</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string> Reload</string>
+                           </property>
+                           <property name="isOnSensitive" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                           <property name="isIdleSensitive" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
                         </layout>
                        </widget>
                       </item>
@@ -778,235 +806,348 @@ Delete</string>
                      <attribute name="title">
                       <string>Manual</string>
                      </attribute>
-                     <layout class="QVBoxLayout" name="verticalLayout_18">
-                      <item>
-                       <layout class="QGridLayout" name="gridLayout_3">
-                        <item row="2" column="0">
-                         <widget class="AxisToolButton" name="axistoolbutton_5">
-                          <property name="minimumSize">
-                           <size>
-                            <width>75</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Z</string>
-                          </property>
-                          <property name="checkable">
-                           <bool>true</bool>
-                          </property>
-                          <property name="joint_number" stdset="0">
-                           <number>2</number>
-                          </property>
-                          <property name="axis_letter" stdset="0">
-                           <string>Z</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="3">
-                         <widget class="ActionButton" name="actionbutton">
-                          <property name="minimumSize">
-                           <size>
-                            <width>100</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>+</string>
-                          </property>
-                          <property name="isManSensitive" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                          <property name="jog_selected_pos_action" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                          <property name="joint_number" stdset="0">
+                     <layout class="QGridLayout" name="gridLayout_6">
+                      <item row="0" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_25">
+                        <property name="spacing">
+                         <number>40</number>
+                        </property>
+                        <item>
+                         <layout class="QGridLayout" name="gridLayout_3">
+                          <property name="spacing">
                            <number>0</number>
                           </property>
-                          <property name="incr_imperial_number" stdset="0">
-                           <double>0.010000000000000</double>
-                          </property>
-                          <property name="incr_mm_number" stdset="0">
-                           <double>0.025000000000000</double>
-                          </property>
-                          <property name="incr_angular_number" stdset="0">
-                           <double>-1.000000000000000</double>
-                          </property>
-                          <property name="toggle_float_option" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="float_num" stdset="0">
-                           <double>100.000000000000000</double>
-                          </property>
-                          <property name="float_alt_num" stdset="0">
-                           <double>50.000000000000000</double>
-                          </property>
-                          <property name="view_type_string" stdset="0">
-                           <string>P</string>
-                          </property>
-                          <property name="command_text_string" stdset="0">
-                           <string/>
-                          </property>
-                          <property name="ini_mdi_number" stdset="0">
-                           <number>0</number>
-                          </property>
-                         </widget>
+                          <item row="0" column="0">
+                           <widget class="AxisToolButton" name="axisTool_0">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="AxisToolButton" name="axisTool_1">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="2">
+                           <widget class="AxisToolButton" name="axisTool_2">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0">
+                           <widget class="AxisToolButton" name="axisTool_3">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="AxisToolButton" name="axisTool_4">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="AxisToolButton" name="axisTool_5">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="AxisToolButton" name="axisTool_6">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="AxisToolButton" name="axisTool_7">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="AxisToolButton" name="axisTool_8">
+                            <property name="minimumSize">
+                             <size>
+                              <width>75</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>axis</string>
+                            </property>
+                            <property name="checkable">
+                             <bool>true</bool>
+                            </property>
+                            <property name="axis_letter" stdset="0">
+                             <string>X</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </item>
-                        <item row="1" column="0">
-                         <widget class="AxisToolButton" name="axistoolbutton_4">
-                          <property name="minimumSize">
-                           <size>
-                            <width>75</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>Y</string>
-                          </property>
-                          <property name="checkable">
-                           <bool>true</bool>
-                          </property>
-                          <property name="joint_number" stdset="0">
-                           <number>1</number>
-                          </property>
-                          <property name="axis_letter" stdset="0">
-                           <string>Y</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="0">
-                         <widget class="AxisToolButton" name="axistoolbutton_3">
-                          <property name="minimumSize">
-                           <size>
-                            <width>75</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>X</string>
-                          </property>
-                          <property name="checkable">
-                           <bool>true</bool>
-                          </property>
-                          <property name="axis_letter" stdset="0">
-                           <string>X</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="1">
-                         <widget class="AxisToolButton" name="axistoolbutton_6">
-                          <property name="minimumSize">
-                           <size>
-                            <width>75</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>W</string>
-                          </property>
-                          <property name="checkable">
-                           <bool>true</bool>
-                          </property>
-                          <property name="joint_number" stdset="0">
-                           <number>8</number>
-                          </property>
-                          <property name="axis_letter" stdset="0">
-                           <string>W</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="2">
-                         <widget class="ActionButton" name="actionbutton_2">
-                          <property name="minimumSize">
-                           <size>
-                            <width>100</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                          <property name="text">
-                           <string>-</string>
-                          </property>
-                          <property name="isManSensitive" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                          <property name="jog_selected_pos_action" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="jog_selected_neg_action" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                          <property name="joint_number" stdset="0">
-                           <number>0</number>
-                          </property>
-                          <property name="incr_imperial_number" stdset="0">
-                           <double>0.010000000000000</double>
-                          </property>
-                          <property name="incr_mm_number" stdset="0">
-                           <double>0.025000000000000</double>
-                          </property>
-                          <property name="incr_angular_number" stdset="0">
-                           <double>-1.000000000000000</double>
-                          </property>
-                          <property name="toggle_float_option" stdset="0">
-                           <bool>false</bool>
-                          </property>
-                          <property name="float_num" stdset="0">
-                           <double>100.000000000000000</double>
-                          </property>
-                          <property name="float_alt_num" stdset="0">
-                           <double>50.000000000000000</double>
-                          </property>
-                          <property name="view_type_string" stdset="0">
-                           <string>P</string>
-                          </property>
-                          <property name="command_text_string" stdset="0">
-                           <string/>
-                          </property>
-                          <property name="ini_mdi_number" stdset="0">
-                           <number>0</number>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="3">
-                         <widget class="JogIncrements" name="jogincrements">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                            <horstretch>0</horstretch>
-                            <verstretch>40</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <property name="frame">
-                           <bool>false</bool>
-                          </property>
-                          <property name="linear_option" stdset="0">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
+                        <item>
+                         <layout class="QGridLayout" name="gridLayout_5">
+                          <item row="0" column="0">
+                           <widget class="ActionButton" name="actionbutton_2">
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>200</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>-</string>
+                            </property>
+                            <property name="isManSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_selected_pos_action" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="jog_selected_neg_action" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="joint_number" stdset="0">
+                             <number>0</number>
+                            </property>
+                            <property name="incr_imperial_number" stdset="0">
+                             <double>0.010000000000000</double>
+                            </property>
+                            <property name="incr_mm_number" stdset="0">
+                             <double>0.025000000000000</double>
+                            </property>
+                            <property name="incr_angular_number" stdset="0">
+                             <double>-1.000000000000000</double>
+                            </property>
+                            <property name="toggle_float_option" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="float_num" stdset="0">
+                             <double>100.000000000000000</double>
+                            </property>
+                            <property name="float_alt_num" stdset="0">
+                             <double>50.000000000000000</double>
+                            </property>
+                            <property name="view_type_string" stdset="0">
+                             <string>P</string>
+                            </property>
+                            <property name="command_text_string" stdset="0">
+                             <string/>
+                            </property>
+                            <property name="ini_mdi_number" stdset="0">
+                             <number>0</number>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <widget class="ActionButton" name="actionbutton">
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>200</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>+</string>
+                            </property>
+                            <property name="isManSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_selected_pos_action" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="joint_number" stdset="0">
+                             <number>0</number>
+                            </property>
+                            <property name="incr_imperial_number" stdset="0">
+                             <double>0.010000000000000</double>
+                            </property>
+                            <property name="incr_mm_number" stdset="0">
+                             <double>0.025000000000000</double>
+                            </property>
+                            <property name="incr_angular_number" stdset="0">
+                             <double>-1.000000000000000</double>
+                            </property>
+                            <property name="toggle_float_option" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="float_num" stdset="0">
+                             <double>100.000000000000000</double>
+                            </property>
+                            <property name="float_alt_num" stdset="0">
+                             <double>50.000000000000000</double>
+                            </property>
+                            <property name="view_type_string" stdset="0">
+                             <string>P</string>
+                            </property>
+                            <property name="command_text_string" stdset="0">
+                             <string/>
+                            </property>
+                            <property name="ini_mdi_number" stdset="0">
+                             <number>0</number>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="0" colspan="2">
+                           <widget class="JogIncrements" name="jogIncrements">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                              <horstretch>0</horstretch>
+                              <verstretch>40</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>200</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true"/>
+                            </property>
+                            <property name="frame">
+                             <bool>false</bool>
+                            </property>
+                            <property name="linear_option" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </item>
                        </layout>
                       </item>
-                      <item>
+                      <item row="0" column="1">
+                       <spacer name="horizontalSpacer">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>454</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item row="1" column="0">
                        <spacer name="verticalSpacer">
                         <property name="orientation">
                          <enum>Qt::Vertical</enum>
@@ -5902,7 +6043,7 @@ LOAD TOOL</string>
    <hints>
     <hint type="sourcelabel">
      <x>1903</x>
-     <y>780</y>
+     <y>753</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
@@ -5918,7 +6059,7 @@ LOAD TOOL</string>
    <hints>
     <hint type="sourcelabel">
      <x>1903</x>
-     <y>734</y>
+     <y>707</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
@@ -5943,62 +6084,14 @@ LOAD TOOL</string>
    </hints>
   </connection>
   <connection>
-   <sender>buttonOptionalStop</sender>
-   <signal>clicked()</signal>
-   <receiver>actionOptionalStop</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>681</x>
-     <y>771</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBlockDelete</sender>
-   <signal>clicked()</signal>
-   <receiver>actionSkip</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>777</x>
-     <y>771</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leftTab</sender>
-   <signal>currentChanged(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>leftTabChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>47</x>
-     <y>74</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>63</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>buttonSetSpindle</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>setSpindleSpeed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>765</y>
+     <x>776</x>
+     <y>878</y>
     </hint>
     <hint type="destinationlabel">
      <x>391</x>
@@ -6029,8 +6122,8 @@ LOAD TOOL</string>
    <slot>setToolNumber()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>604</x>
-     <y>1015</y>
+     <x>777</x>
+     <y>1042</y>
     </hint>
     <hint type="destinationlabel">
      <x>687</x>
@@ -6045,8 +6138,8 @@ LOAD TOOL</string>
    <slot>addTool()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1686</x>
-     <y>162</y>
+     <x>1891</x>
+     <y>77</y>
     </hint>
     <hint type="destinationlabel">
      <x>1623</x>
@@ -6061,12 +6154,76 @@ LOAD TOOL</string>
    <slot>deleteTools()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1717</x>
-     <y>206</y>
+     <x>1891</x>
+     <y>133</y>
     </hint>
     <hint type="destinationlabel">
      <x>1709</x>
      <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonOptionalStop</sender>
+   <signal>clicked()</signal>
+   <receiver>actionOptionalStop</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>706</x>
+     <y>744</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftTab</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>leftTabChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBlockDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>actionSkip</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>802</x>
+     <y>744</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionButtonReloadFile</sender>
+   <signal>clicked()</signal>
+   <receiver>actionReload</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>806</x>
+     <y>719</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>869</x>
+     <y>-4</y>
     </hint>
    </hints>
   </connection>
@@ -6081,5 +6238,6 @@ LOAD TOOL</string>
   <slot>setToolNumber()</slot>
   <slot>addTool()</slot>
   <slot>deleteTools()</slot>
+  <slot>toggleEditGCode()</slot>
  </slots>
 </ui>

@@ -63,6 +63,8 @@ class HandlerClass:
         self.MPGFocusWidget = None
         self.CycleFocusWidget = None
 
+        self.isManualToolChange = False
+
         self.init_pins()
 
         STATUS.connect('general',self.return_value)
@@ -73,8 +75,14 @@ class HandlerClass:
         STATUS.connect('axis-selection-changed', lambda w, d: self.update_jog_pins(d))
         STATUS.connect('status-message', lambda w, d, o: self.add_external_status(d,o))
         STATUS.connect('error', self.handle_error)
+        STATUS.connect('command-stopped', lambda w: self.handle_command_stopped())
+        #STATUS.connect('tool-offset-changed', lambda w, d: self.w.toolOffsetView.update_tool(d))
+        #STATUS.connect('tool-offset-deleted', lambda w, d: self.w.toolOffsetView.delete_tool(d))
+        #STATUS.connect('tool-offsets-deleted', lambda w, d: self.w.toolOffsetView.delete_tools())
+        #STATUS.connect('tool-offsets-added', lambda w, d: self.w.toolOffsetView.add_tool())
 
-    ##########################################
+        
+    ##########################################      
     # Special Functions called from QTSCREEN
     ##########################################
 
@@ -166,8 +174,7 @@ class HandlerClass:
         self.w.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.FramelessWindowHint)
         self.w.showFullScreen()
 
-        message = "--- QtTangent Version {} on Linuxcnc {} ---".format(
-            VERSION, STATUS.get_linuxcnc_version())
+        message = "--- QtTangent Version {} on Linuxcnc {} ---".format(VERSION, STATUS.get_linuxcnc_version())
         STATUS.emit('update-machine-log', message, None)
 
     def processed_focus_event__(self, receiver, event):
@@ -297,6 +304,7 @@ class HandlerClass:
 
     # process the STATUS return message from set-tool-offset
     def return_value(self, w, message):
+        
         num = message.get('RETURN')
         code = bool(message.get('ID') == 'FORM__')
         name = bool(message.get('NAME') == 'ENTRY')
@@ -358,7 +366,11 @@ class HandlerClass:
         
         self.w.rightTab.tabBar.setTabTextColor(4, QColor(255,0,0))
 
-
+    def handle_command_stopped(self):
+        if self.isManualToolChange:
+            print("MANUAL TOOL HAS BEEN CHANGED")
+            self.isManualToolChange = False
+            ACTION.SET_MANUAL_MODE()
 
     def clear_log_error(self, event):
         self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,0,0))
@@ -370,11 +382,12 @@ class HandlerClass:
 
     def setSpindleSpeed(self, event):
         self.w.lineSpindleSpeed.issue_mdi()
+        ACTION.SET_MANUAL_MODE()
 
 
     def setToolNumber(self, event):
+        self.isManualToolChange = True
         self.w.lineToolNumber.issue_mdi()
-
 
     def addTool(self, event):
         self.w.toolOffsetView.add_tool()
@@ -382,12 +395,15 @@ class HandlerClass:
     def deleteTools(self, event):
         self.w.toolOffsetView.delete_tools()
 
+
     def leftTabChanged(self, num):
-        if num == 2:
+        if num == 1:
             ACTION.SET_AUTO_MODE()
+        elif num == 2:
+            ACTION.SET_MDI_MODE()
         elif num == 3:
             ACTION.SET_MANUAL_MODE()
-        
+
 
     def percentLoaded(self, fraction):
         if fraction <0:
@@ -451,42 +467,28 @@ class HandlerClass:
                 return True
         return False
 
+    # XYZABCUVW 
     def show_joints(self):
-        #for i in range(0,9):
-        #    j = INFO.GET_NAME_FROM_JOINT.get(i)
-        #    if i in INFO.AVAILABLE_JOINTS:
-        #        self.w['ras_label_%s'%i].show()
-        #        self.w['ras_%s'%i].show()
-        #        self.w['ras_label_%s'%i].setText('J%d'%i)
-        #        self.w['ras_%s'%i].setProperty('axis_selection',j)
-        #        self.w['ras_%s'%i].setProperty('joint_selection',i)
-        #        try:
-        #            self.w['machine_label_j%d'%i].setText('<html><head/><body><p><span style=" font-size:20pt; font-weight:600;">Joint %d:</span></p></body></html>'%i)
-        #        except:
-        #            pass
-        #        continue
-        #    self.w['ras_label_%s'%i].hide()
-        #    self.w['ras_%s'%i].hide()
-        pass
+        for i in range(0,9):
+            j = INFO.GET_NAME_FROM_JOINT.get(i)
+            if i in INFO.AVAILABLE_JOINTS:
+                self.w['axisTool_%s'%i].show()
+                self.w['axisTool_%s'%i].setText('J%d'%i)
+                self.w['axisTool_%s'%i].setProperty('joint_number', i)
+                self.w['axisTool_%s'%i].setProperty('axis_letter', j)
+                continue
+            self.w['axisTool_%s'%i].hide()
 
     def show_axes(self):
-        #for i in range(0,9):
-        #    j = INFO.GET_NAME_FROM_JOINT.get(i)
-        #    if j and len(j) == 1:
-        #        self.w['ras_label_%s'%i].show()
-        #        self.w['ras_%s'%i].show()
-        #        self.w['ras_label_%s'%i].setText('%s'%j)
-        #        # lathes need adjustment
-        #        self.w['ras_%s'%i].setProperty('axis_selection',j)
-        #        self.w['ras_%s'%i].setProperty('joint_selection',i)
-        #        try:
-        #            self.w['machine_label_j%d'%i].setText('<html><head/><body><p><span style=" font-size:20pt; font-weight:600;">Machine %s:</span></p></body></html>' %j)
-        #        except:
-        #            pass
-        #        continue
-        #    self.w['ras_label_%s'%i].hide()
-        #    self.w['ras_%s'%i].hide()
-        pass
+        for i in range(0,9):
+            j = INFO.GET_NAME_FROM_JOINT.get(i)
+            if j and len(j) == 1:
+                self.w['axisTool_%s'%i].show()
+                self.w['axisTool_%s'%i].setText('%s'%j)
+                self.w['axisTool_%s'%i].setProperty('joint_number', i)
+                self.w['axisTool_%s'%i].setProperty('axis_letter', j)
+                continue
+            self.w['axisTool_%s'%i].hide()
     
     def _set_user_system_text(self, w, data):
         convert = { 1:"G54 ", 2:"G55 ", 3:"G56 ", 4:"G57 ", 5:"G58 ", 6:"G59 ", 7:"G59.1 ", 8:"G59.2 ", 9:"G59.3 "}
