@@ -122,6 +122,16 @@
       <property name="versaProbeDialog_option" stdset="0">
        <bool>true</bool>
       </property>
+      <property name="toolChooserDialog_option" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="toolChooser_overlay_color" stdset="0">
+       <color alpha="150">
+        <red>0</red>
+        <green>255</green>
+        <blue>0</blue>
+       </color>
+      </property>
       <property name="toolOffsetDialog_option" stdset="0">
        <bool>false</bool>
       </property>
@@ -227,13 +237,13 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>900</width>
+                   <width>904</width>
                    <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>1200</width>
+                   <width>904</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -260,7 +270,7 @@
                    <number>0</number>
                   </property>
                   <property name="rightMargin">
-                   <number>10</number>
+                   <number>2</number>
                   </property>
                   <property name="bottomMargin">
                    <number>0</number>
@@ -3866,7 +3876,7 @@ SPINDLE FWD</string>
                                   <string>RPM</string>
                                  </property>
                                  <property name="issue_mdi_on_submit_option" stdset="0">
-                                  <bool>false</bool>
+                                  <bool>true</bool>
                                  </property>
                                  <property name="mdi_command_format_option" stdset="0">
                                   <string>M3 S{value}</string>
@@ -4287,13 +4297,16 @@ LOAD TOOL</string>
                                 <string>TOOL</string>
                                </property>
                                <property name="issue_mdi_on_submit_option" stdset="0">
-                                <bool>false</bool>
+                                <bool>true</bool>
                                </property>
                                <property name="mdi_command_format_option" stdset="0">
                                 <string>M6 T{value} G43 H{value}</string>
                                </property>
                                <property name="dialog_keyboard_option" stdset="0">
                                 <bool>true</bool>
+                               </property>
+                               <property name="dialog_code_option" stdset="0">
+                                <string>TOOLCHOOSER</string>
                                </property>
                               </widget>
                              </item>
@@ -5893,6 +5906,14 @@ LOAD TOOL</string>
     <string>zoomOut</string>
    </property>
   </action>
+  <action name="actionToolChooserDialog">
+   <property name="text">
+    <string>Show Tool Chooser Dialog</string>
+   </property>
+   <property name="toolTip">
+    <string>Show Tool Chooser Dialog</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -6222,8 +6243,8 @@ LOAD TOOL</string>
      <y>719</y>
     </hint>
     <hint type="destinationlabel">
-     <x>869</x>
-     <y>-4</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>

@@ -145,6 +145,7 @@ class HandlerClass:
         TOOLBAR.configure_action(self.w.actionTouchoffFixture, 'touchofffixture')
         TOOLBAR.configure_action(self.w.actionRunFromLine, 'runfromline')
         TOOLBAR.configure_action(self.w.actionToolOffsetDialog, 'tooloffsetdialog')
+        TOOLBAR.configure_action(self.w.actionToolChooserDialog, 'toolchooserdialog')
         TOOLBAR.configure_action(self.w.actionOriginOffsetDialog, 'originoffsetdialog')
         TOOLBAR.configure_action(self.w.actionCalculatorDialog, 'calculatordialog')
         TOOLBAR.configure_action(self.w.actionAlphaMode, 'alpha_mode')
