@@ -1443,6 +1443,22 @@ Delete</string>
                           <widget class="QWidget" name="widget_dro_x" native="true">
                            <layout class="QHBoxLayout" name="horizontalLayout_3">
                             <item>
+                             <widget class="QLabel" name="label_g5x_xx">
+                              <property name="maximumSize">
+                               <size>
+                                <width>100</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="text">
+                               <string>X</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
                              <layout class="QVBoxLayout" name="verticalLayout_20">
                               <property name="spacing">
                                <number>0</number>
@@ -1542,20 +1558,20 @@ Delete</string>
                              </layout>
                             </item>
                             <item>
-                             <widget class="QLabel" name="label_g5x_xx">
-                              <property name="maximumSize">
+                             <spacer name="horizontalSpacer_3">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <property name="sizeType">
+                               <enum>QSizePolicy::Fixed</enum>
+                              </property>
+                              <property name="sizeHint" stdset="0">
                                <size>
-                                <width>100</width>
-                                <height>16777215</height>
+                                <width>40</width>
+                                <height>20</height>
                                </size>
                               </property>
-                              <property name="text">
-                               <string>X</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
+                             </spacer>
                             </item>
                             <item>
                              <widget class="QWidget" name="dro_actions_x" native="true">
@@ -1854,6 +1870,22 @@ Origin</string>
                           <widget class="QWidget" name="widget_dro_y" native="true">
                            <layout class="QHBoxLayout" name="horizontalLayout_9">
                             <item>
+                             <widget class="QLabel" name="label_g5x_yy">
+                              <property name="maximumSize">
+                               <size>
+                                <width>100</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="text">
+                               <string>Y</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
                              <layout class="QVBoxLayout" name="verticalLayout_18">
                               <property name="spacing">
                                <number>0</number>
@@ -1953,20 +1985,20 @@ Origin</string>
                              </layout>
                             </item>
                             <item>
-                             <widget class="QLabel" name="label_g5x_yy">
-                              <property name="maximumSize">
+                             <spacer name="horizontalSpacer_4">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <property name="sizeType">
+                               <enum>QSizePolicy::Fixed</enum>
+                              </property>
+                              <property name="sizeHint" stdset="0">
                                <size>
-                                <width>100</width>
-                                <height>16777215</height>
+                                <width>40</width>
+                                <height>20</height>
                                </size>
                               </property>
-                              <property name="text">
-                               <string>Y</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
+                             </spacer>
                             </item>
                             <item>
                              <widget class="QWidget" name="dro_actions_y" native="true">
@@ -2247,6 +2279,22 @@ Origin</string>
                           <widget class="QWidget" name="widget_dro_z" native="true">
                            <layout class="QHBoxLayout" name="horizontalLayout_10">
                             <item>
+                             <widget class="QLabel" name="label_g5x_zz">
+                              <property name="maximumSize">
+                               <size>
+                                <width>100</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="text">
+                               <string>Z</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
                              <layout class="QVBoxLayout" name="verticalLayout_5">
                               <property name="spacing">
                                <number>0</number>
@@ -2349,20 +2397,20 @@ Origin</string>
                              </layout>
                             </item>
                             <item>
-                             <widget class="QLabel" name="label_g5x_zz">
-                              <property name="maximumSize">
+                             <spacer name="horizontalSpacer_5">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <property name="sizeType">
+                               <enum>QSizePolicy::Fixed</enum>
+                              </property>
+                              <property name="sizeHint" stdset="0">
                                <size>
-                                <width>100</width>
-                                <height>16777215</height>
+                                <width>40</width>
+                                <height>20</height>
                                </size>
                               </property>
-                              <property name="text">
-                               <string>Z</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
+                             </spacer>
                             </item>
                             <item>
                              <widget class="QWidget" name="dro_actions_z" native="true">
@@ -2637,6 +2685,22 @@ Origin</string>
                           <widget class="QWidget" name="widget_dro_w" native="true">
                            <layout class="QHBoxLayout" name="horizontalLayout_11">
                             <item>
+                             <widget class="QLabel" name="label_g5x_ww">
+                              <property name="maximumSize">
+                               <size>
+                                <width>100</width>
+                                <height>16777215</height>
+                               </size>
+                              </property>
+                              <property name="text">
+                               <string>W</string>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
                              <layout class="QVBoxLayout" name="verticalLayout_3">
                               <property name="spacing">
                                <number>0</number>
@@ -2739,20 +2803,20 @@ Origin</string>
                              </layout>
                             </item>
                             <item>
-                             <widget class="QLabel" name="label_g5x_ww">
-                              <property name="maximumSize">
+                             <spacer name="horizontalSpacer_6">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <property name="sizeType">
+                               <enum>QSizePolicy::Fixed</enum>
+                              </property>
+                              <property name="sizeHint" stdset="0">
                                <size>
-                                <width>100</width>
-                                <height>16777215</height>
+                                <width>40</width>
+                                <height>20</height>
                                </size>
                               </property>
-                              <property name="text">
-                               <string>W</string>
-                              </property>
-                              <property name="alignment">
-                               <set>Qt::AlignCenter</set>
-                              </property>
-                             </widget>
+                             </spacer>
                             </item>
                             <item>
                              <widget class="QWidget" name="dro_actions_w" native="true">

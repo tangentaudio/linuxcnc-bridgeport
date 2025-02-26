@@ -292,9 +292,7 @@ QSpinBox::up-arrow {
 }
 
 #frameDRO {
-    background: qlineargradient(x1: 0.5, y1: 0, x2: 0.5, y2: 1, 
-                                stop: 0 rgba(0,0,0,1.0),
-                                stop: 1.0 rgba(32,32,32,1.0));
+    background: black;
 }
 
 DROLabel {
@@ -388,8 +386,9 @@ DROLabel {
 #label_g5x_zz,
 #label_g5x_ww {
     border: none;
-    font: 48pt "Lato Heavy";
-    color: gray;
+    font: 64pt "Lato Heavy";
+    color: #555555;
+
 }
 
 #dro_label_dtg_x,
@@ -411,7 +410,7 @@ DROLabel {
 
 #dro_label_metric_imperial {
     border: none;
-    font: 24pt "Lato Heavy";
+    font: 32pt "Lato Heavy";
     color: cyan;
 }
 
@@ -430,8 +429,8 @@ DROLabel[isHomed=false],
 #widget_dro_y,
 #widget_dro_z,
 #widget_dro_w {
-background: #222222;
-border-bottom: 20px solid black;
+    background: #222222;
+    border: 2px solid black;
 }
 
 JogIncrements QAbstractItemView {
