@@ -415,12 +415,23 @@ DROLabel {
     color: cyan;
 }
 
+
+
 DROLabel[isHomed=false],
 #statuslabel_dro_x[isHomed=false],
 #statuslabel_dro_y[isHomed=false],
 #statuslabel_dro_z[isHomed=false],
 #statuslabel_dro_w[isHomed=false] {
     color: #333333;
+}
+
+
+#widget_dro_x,
+#widget_dro_y,
+#widget_dro_z,
+#widget_dro_w {
+background: #222222;
+border-bottom: 20px solid black;
 }
 
 JogIncrements QAbstractItemView {
