@@ -3,6 +3,13 @@
     font: 10pt "DejaVu Sans Condensed";
 }
 
+QGroupBox {
+    border: none;
+    margin-top: 20px;
+    padding: 4px;
+    background: #e0e0e0;
+}
+
 QTableView {
     font: 12pt "DejaVu Sans Mono"; 
     
@@ -17,19 +24,21 @@ QDialog QPushButton {
 }
 
 QPushButton {
-    background: #e0e0e0;
+    background:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f8f8f8, stop: 1 #f8f8f8);
+    border: 2px solid #d0d0d0;
+    border-radius: 4px;    
 }
 
 QPushButton:disabled {
-    background: rgba(208, 208, 208, 0.5);
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 rgba(208,208,208,0.5), stop: 1 rgba(208,208,208,0.5));
 }
 
 QPushButton:hover {
-    background: #d0d0d0;
+    background:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d0d0d0, stop: 1 #d0d0d0);
 }
 
 QPushButton:pressed {
-    background: #ffffff;
+    background:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 white);
 }
 
 
@@ -184,17 +193,18 @@ QTabWidget::pane {
     margin: 2px;
     border 1px solid black;
 }
-
 QTabBar::tab {
     background: #e7e7e7;
-    min-width: 9ex;
-    min-height: 5ex;
+    min-width: 14ex;
+    min-height: 6ex;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-right: 2px;
     padding-right: 8px;
     padding-left: 4px;
     border-left: 4px solid #e7e7e7;
+    font: 14px "DejaVu Sans Condensed";
+    font-weight: 300;
 }
 
 QTabBar::tab:selected,
@@ -205,6 +215,8 @@ QTabBar::tab:hover {
 QTabBar::tab:selected {
     background: #ffffff;
     border-left: 4px solid blue;
+    color: blue;
+    font-weight: 500;
 }
 
 #machinelog {
@@ -289,6 +301,8 @@ DROLabel {
     border: none;
     font: 48pt "Lato Heavy";
     color: #00CC22;
+    padding: 0px;
+    margin: 0px;
 }
 
 #statuslabel_dro_x,
@@ -308,6 +322,7 @@ DROLabel {
     background: #2277ff;
     color: #ffffff;
     border: none;
+    border-radius: 4px;
 }
 
 #dro_axis_set_x:disabled,
@@ -377,18 +392,21 @@ DROLabel {
     color: gray;
 }
 
-#label_dro_dtg {
-    border: none;
-    font: 48pt "Lato Heavy";
-    color: gray;
-}
-
 #dro_label_dtg_x,
 #dro_label_dtg_y,
 #dro_label_dtg_z,
 #dro_label_dtg_w {
     border: none;
     font: 20pt "Noto Sans Mono Bold";
+    padding-right: 5px;
+    padding-bottom: 20px;
+}
+
+#dro_label_dtg_x[isHomed=true],
+#dro_label_dtg_y[isHomed=true],
+#dro_label_dtg_z[isHomed=true],
+#dro_label_dtg_w[isHomed=true] {
+    color: #008800;
 }
 
 #dro_label_metric_imperial {
@@ -396,7 +414,6 @@ DROLabel {
     font: 24pt "Lato Heavy";
     color: cyan;
 }
-
 
 DROLabel[isHomed=false],
 #statuslabel_dro_x[isHomed=false],

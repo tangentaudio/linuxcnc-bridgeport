@@ -1,7 +1,7 @@
 [DIALOG_GEOMETRY]
 AboutDialog-geometry = half
-LncMessage-geometry = 910 528 300 124
-ToolChangeDialog-geometry = 910 528 300 245
+LncMessage-geometry = 910 528 300 120
+ToolChangeDialog-geometry = 910 528 300 241
 VersaHelpDialog-geometry = default
 statustest-geometry = default
 yndialogtest-geometry = default
@@ -18,7 +18,7 @@ basicProbeHelpDialog-geometry = default
 _KEYBOARD = 910 585 597 357
 _CALCULATOR = 910 585 662 436
 ToolChooserDialog-geometry = 705 521 698 400
-OperatorValue_Keyboard_Dialog_TOOLCHOOSER = 637 588 779 510
+OperatorValue_Keyboard_Dialog_TOOLCHOOSER = 637 540 779 510
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -93,7 +93,7 @@ desktop_notify = False
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 0 0 1920 1200
+MainWindow-geometry = 0 0 1920 1086
 overlay_play_sound = False
 overlay_sound_type = RING
 
