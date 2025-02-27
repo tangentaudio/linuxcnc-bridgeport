@@ -822,24 +822,301 @@ Delete</string>
                      <attribute name="title">
                       <string>Manual</string>
                      </attribute>
-                     <layout class="QGridLayout" name="gridLayout_6">
-                      <item row="0" column="1">
-                       <spacer name="horizontalSpacer">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>454</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
+                     <layout class="QGridLayout" name="gridLayout_3">
+                      <item row="0" column="0" colspan="3">
+                       <layout class="QGridLayout" name="gridLayout_2">
+                        <item row="0" column="1">
+                         <widget class="ActionButton" name="actionButtonJogYPlus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Y+</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>1</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>Y</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="4">
+                         <widget class="ActionButton" name="actionButtonJogZPlus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Z+</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>2</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>Z</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="ActionButton" name="actionButtonJogXMinus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>X-</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_joint_neg_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>0</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>X</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="2">
+                         <widget class="ActionButton" name="actionButtonJogXPlus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>X+</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>0</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>X</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="3">
+                         <spacer name="horizontalSpacer">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeType">
+                           <enum>QSizePolicy::Maximum</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>109</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="ActionButton" name="actionButtonJogYMinus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Y-</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_joint_neg_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>1</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>Y</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="4">
+                         <widget class="ActionButton" name="actionButtonJogZMinus">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>150</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Z-</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_joint_pos_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_joint_neg_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="joint_number" stdset="0">
+                           <number>2</number>
+                          </property>
+                          <property name="axis_letter" stdset="0">
+                           <string>Z</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
-                      <item row="1" column="0">
+                      <item row="1" column="1">
                        <spacer name="verticalSpacer">
                         <property name="orientation">
                          <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Fixed</enum>
                         </property>
                         <property name="sizeHint" stdset="0">
                          <size>
@@ -849,332 +1126,567 @@ Delete</string>
                         </property>
                        </spacer>
                       </item>
-                      <item row="0" column="0">
-                       <layout class="QHBoxLayout" name="horizontalLayout_25">
-                        <property name="spacing">
-                         <number>40</number>
+                      <item row="2" column="0" colspan="2">
+                       <widget class="QWidget" name="widgetJogRate" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_jograte">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="labelJogRate">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Jog Rate</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_6">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="jograte_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderJog">
+                           <property name="minimumSize">
+                            <size>
+                             <width>360</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="2" column="2" rowspan="3">
+                       <layout class="QVBoxLayout" name="verticalLayout_24">
                         <item>
-                         <layout class="QGridLayout" name="gridLayout_3">
-                          <property name="spacing">
-                           <number>0</number>
-                          </property>
-                          <item row="0" column="0">
-                           <widget class="AxisToolButton" name="axisTool_0">
+                         <layout class="QHBoxLayout" name="horizontalLayout_27">
+                          <item>
+                           <widget class="ActionButton" name="actionButtonJogIncr1">
                             <property name="minimumSize">
                              <size>
-                              <width>75</width>
+                              <width>100</width>
                               <height>50</height>
                              </size>
                             </property>
-                            <property name="text">
-                             <string>axis</string>
+                            <property name="maximumSize">
+                             <size>
+                              <width>100</width>
+                              <height>16777215</height>
+                             </size>
                             </property>
-                            <property name="checkable">
+                            <property name="text">
+                             <string>0.001</string>
+                            </property>
+                            <property name="isOnSensitive" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
+                            <property name="isIdleSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="isManSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_incr_action" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_rate_action" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="incr_imperial_number" stdset="0">
+                             <double>0.001000000000000</double>
+                            </property>
+                            <property name="incr_mm_number" stdset="0">
+                             <double>0.025400000000000</double>
+                            </property>
+                            <property name="float_num" stdset="0">
+                             <double>0.000000000000000</double>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="1">
-                           <widget class="AxisToolButton" name="axisTool_1">
+                          <item>
+                           <widget class="ActionButton" name="actionButtonJogIncr2">
                             <property name="minimumSize">
                              <size>
-                              <width>75</width>
+                              <width>100</width>
                               <height>50</height>
                              </size>
                             </property>
-                            <property name="text">
-                             <string>axis</string>
+                            <property name="maximumSize">
+                             <size>
+                              <width>100</width>
+                              <height>16777215</height>
+                             </size>
                             </property>
-                            <property name="checkable">
+                            <property name="text">
+                             <string>0.010</string>
+                            </property>
+                            <property name="isOnSensitive" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
+                            <property name="isIdleSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="isManSensitive" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_incr_action" stdset="0">
+                             <bool>true</bool>
+                            </property>
+                            <property name="jog_rate_action" stdset="0">
+                             <bool>false</bool>
+                            </property>
+                            <property name="incr_mm_number" stdset="0">
+                             <double>0.254000000000000</double>
+                            </property>
+                            <property name="float_num" stdset="0">
+                             <double>1.000000000000000</double>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="2">
-                           <widget class="AxisToolButton" name="axisTool_2">
+                          <item>
+                           <widget class="ActionButton" name="actionButtonJogIncr3">
                             <property name="minimumSize">
                              <size>
-                              <width>75</width>
+                              <width>100</width>
                               <height>50</height>
                              </size>
                             </property>
-                            <property name="text">
-                             <string>axis</string>
-                            </property>
-                            <property name="checkable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0">
-                           <widget class="AxisToolButton" name="axisTool_3">
-                            <property name="minimumSize">
+                            <property name="maximumSize">
                              <size>
-                              <width>75</width>
-                              <height>50</height>
+                              <width>100</width>
+                              <height>16777215</height>
                              </size>
                             </property>
                             <property name="text">
-                             <string>axis</string>
+                             <string>0.100</string>
                             </property>
-                            <property name="checkable">
+                            <property name="isOnSensitive" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="1">
-                           <widget class="AxisToolButton" name="axisTool_4">
-                            <property name="minimumSize">
-                             <size>
-                              <width>75</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>axis</string>
-                            </property>
-                            <property name="checkable">
+                            <property name="isIdleSensitive" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="2">
-                           <widget class="AxisToolButton" name="axisTool_5">
-                            <property name="minimumSize">
-                             <size>
-                              <width>75</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>axis</string>
-                            </property>
-                            <property name="checkable">
+                            <property name="isManSensitive" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="0">
-                           <widget class="AxisToolButton" name="axisTool_6">
-                            <property name="minimumSize">
-                             <size>
-                              <width>75</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>axis</string>
-                            </property>
-                            <property name="checkable">
+                            <property name="jog_incr_action" stdset="0">
                              <bool>true</bool>
                             </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
+                            <property name="jog_rate_action" stdset="0">
+                             <bool>false</bool>
                             </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="1">
-                           <widget class="AxisToolButton" name="axisTool_7">
-                            <property name="minimumSize">
-                             <size>
-                              <width>75</width>
-                              <height>50</height>
-                             </size>
+                            <property name="incr_imperial_number" stdset="0">
+                             <double>0.100000000000000</double>
                             </property>
-                            <property name="text">
-                             <string>axis</string>
+                            <property name="incr_mm_number" stdset="0">
+                             <double>0.254000000000000</double>
                             </property>
-                            <property name="checkable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="2" column="2">
-                           <widget class="AxisToolButton" name="axisTool_8">
-                            <property name="minimumSize">
-                             <size>
-                              <width>75</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>axis</string>
-                            </property>
-                            <property name="checkable">
-                             <bool>true</bool>
-                            </property>
-                            <property name="axis_letter" stdset="0">
-                             <string>X</string>
+                            <property name="float_num" stdset="0">
+                             <double>1.000000000000000</double>
                             </property>
                            </widget>
                           </item>
                          </layout>
                         </item>
                         <item>
-                         <layout class="QGridLayout" name="gridLayout_5">
-                          <item row="0" column="0">
-                           <widget class="ActionButton" name="actionbutton_2">
-                            <property name="minimumSize">
-                             <size>
-                              <width>100</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>200</width>
-                              <height>16777215</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>-</string>
-                            </property>
-                            <property name="isManSensitive" stdset="0">
-                             <bool>true</bool>
-                            </property>
-                            <property name="jog_selected_pos_action" stdset="0">
-                             <bool>false</bool>
-                            </property>
-                            <property name="jog_selected_neg_action" stdset="0">
-                             <bool>true</bool>
-                            </property>
-                            <property name="joint_number" stdset="0">
-                             <number>0</number>
-                            </property>
-                            <property name="incr_imperial_number" stdset="0">
-                             <double>0.010000000000000</double>
-                            </property>
-                            <property name="incr_mm_number" stdset="0">
-                             <double>0.025000000000000</double>
-                            </property>
-                            <property name="incr_angular_number" stdset="0">
-                             <double>-1.000000000000000</double>
-                            </property>
-                            <property name="toggle_float_option" stdset="0">
-                             <bool>false</bool>
-                            </property>
-                            <property name="float_num" stdset="0">
-                             <double>100.000000000000000</double>
-                            </property>
-                            <property name="float_alt_num" stdset="0">
-                             <double>50.000000000000000</double>
-                            </property>
-                            <property name="view_type_string" stdset="0">
-                             <string>P</string>
-                            </property>
-                            <property name="command_text_string" stdset="0">
-                             <string/>
-                            </property>
-                            <property name="ini_mdi_number" stdset="0">
-                             <number>0</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="ActionButton" name="actionbutton">
-                            <property name="minimumSize">
-                             <size>
-                              <width>100</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>200</width>
-                              <height>16777215</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string>+</string>
-                            </property>
-                            <property name="isManSensitive" stdset="0">
-                             <bool>true</bool>
-                            </property>
-                            <property name="jog_selected_pos_action" stdset="0">
-                             <bool>true</bool>
-                            </property>
-                            <property name="joint_number" stdset="0">
-                             <number>0</number>
-                            </property>
-                            <property name="incr_imperial_number" stdset="0">
-                             <double>0.010000000000000</double>
-                            </property>
-                            <property name="incr_mm_number" stdset="0">
-                             <double>0.025000000000000</double>
-                            </property>
-                            <property name="incr_angular_number" stdset="0">
-                             <double>-1.000000000000000</double>
-                            </property>
-                            <property name="toggle_float_option" stdset="0">
-                             <bool>false</bool>
-                            </property>
-                            <property name="float_num" stdset="0">
-                             <double>100.000000000000000</double>
-                            </property>
-                            <property name="float_alt_num" stdset="0">
-                             <double>50.000000000000000</double>
-                            </property>
-                            <property name="view_type_string" stdset="0">
-                             <string>P</string>
-                            </property>
-                            <property name="command_text_string" stdset="0">
-                             <string/>
-                            </property>
-                            <property name="ini_mdi_number" stdset="0">
-                             <number>0</number>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="1" column="0" colspan="2">
-                           <widget class="JogIncrements" name="jogIncrements">
-                            <property name="sizePolicy">
-                             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                              <horstretch>0</horstretch>
-                              <verstretch>40</verstretch>
-                             </sizepolicy>
-                            </property>
-                            <property name="minimumSize">
-                             <size>
-                              <width>200</width>
-                              <height>50</height>
-                             </size>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true"/>
-                            </property>
-                            <property name="frame">
-                             <bool>false</bool>
-                            </property>
-                            <property name="linear_option" stdset="0">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
+                         <widget class="ActionButton" name="actionButtonJogIncr4">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Continuous</string>
+                          </property>
+                          <property name="isOnSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isIdleSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="isManSensitive" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_incr_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="jog_rate_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="incr_imperial_number" stdset="0">
+                           <double>0.000000000000000</double>
+                          </property>
+                          <property name="incr_mm_number" stdset="0">
+                           <double>0.000000000000000</double>
+                          </property>
+                          <property name="float_num" stdset="0">
+                           <double>1.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_7">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="JogIncrements" name="jogIncrements">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>40</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="frame">
+                           <bool>false</bool>
+                          </property>
+                          <property name="linear_option" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
                         </item>
                        </layout>
+                      </item>
+                      <item row="3" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_25">
+                        <item>
+                         <widget class="ActionButton" name="actionButtonJogSlow">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>100</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Slow</string>
+                          </property>
+                          <property name="jog_incr_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_rate_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="float_num" stdset="0">
+                           <double>10.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="ActionButton" name="actionButtonJogMedium">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>100</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Medium</string>
+                          </property>
+                          <property name="jog_incr_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_rate_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="float_num" stdset="0">
+                           <double>20.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="ActionButton" name="actionButtonJogFast">
+                          <property name="minimumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>100</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Fast</string>
+                          </property>
+                          <property name="jog_incr_action" stdset="0">
+                           <bool>false</bool>
+                          </property>
+                          <property name="jog_rate_action" stdset="0">
+                           <bool>true</bool>
+                          </property>
+                          <property name="float_num" stdset="0">
+                           <double>100.000000000000000</double>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="4" column="0" colspan="2">
+                       <widget class="QWidget" name="widgetAngularJogRate" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>54</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_jograte_angular">
+                         <property name="spacing">
+                          <number>12</number>
+                         </property>
+                         <property name="sizeConstraint">
+                          <enum>QLayout::SetDefaultConstraint</enum>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_14">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Angular
+Jog Rate</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>0</number>
+                           </property>
+                           <property name="indent">
+                            <number>0</number>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusLabel" name="statuslabel_9">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>50</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>100.0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                           <property name="margin">
+                            <number>-7</number>
+                           </property>
+                           <property name="textTemplate" stdset="0">
+                            <string>%s</string>
+                           </property>
+                           <property name="jograte_status" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_angular_status" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="StatusSlider" name="statusSliderAngularJog">
+                           <property name="minimumSize">
+                            <size>
+                             <width>360</width>
+                             <height>50</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>400</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="rapid_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_rate" stdset="0">
+                            <bool>false</bool>
+                           </property>
+                           <property name="jograte_angular_rate" stdset="0">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
                       </item>
                      </layout>
                     </widget>
@@ -1346,7 +1858,7 @@ Delete</string>
                      <enum>QTabWidget::South</enum>
                     </property>
                     <property name="currentIndex">
-                     <number>4</number>
+                     <number>0</number>
                     </property>
                     <widget class="QWidget" name="tabDRO">
                      <attribute name="title">
@@ -3202,17 +3714,55 @@ Origin</string>
                              <number>0</number>
                             </property>
                             <property name="leftMargin">
-                             <number>0</number>
+                             <number>6</number>
                             </property>
                             <property name="topMargin">
                              <number>0</number>
                             </property>
                             <property name="rightMargin">
-                             <number>12</number>
+                             <number>6</number>
                             </property>
                             <property name="bottomMargin">
                              <number>0</number>
                             </property>
+                            <item>
+                             <widget class="StateLabel" name="dro_label_metric_imperial">
+                              <property name="minimumSize">
+                               <size>
+                                <width>100</width>
+                                <height>0</height>
+                               </size>
+                              </property>
+                              <property name="alignment">
+                               <set>Qt::AlignCenter</set>
+                              </property>
+                              <property name="machine_is_metric_status" stdset="0">
+                               <bool>false</bool>
+                              </property>
+                              <property name="metric_mode_status" stdset="0">
+                               <bool>true</bool>
+                              </property>
+                              <property name="true_textTemplate" stdset="0">
+                               <string>METRIC</string>
+                              </property>
+                              <property name="false_textTemplate" stdset="0">
+                               <string>INCH</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <spacer name="horizontalSpacer_8">
+                              <property name="orientation">
+                               <enum>Qt::Horizontal</enum>
+                              </property>
+                              <property name="sizeHint" stdset="0">
+                               <size>
+                                <width>40</width>
+                                <height>20</height>
+                               </size>
+                              </property>
+                             </spacer>
+                            </item>
                             <item>
                              <widget class="ActionButton" name="dro_home_all">
                               <property name="minimumSize">
@@ -3228,7 +3778,8 @@ Origin</string>
                                </size>
                               </property>
                               <property name="text">
-                               <string> ALL</string>
+                               <string> HOME
+ALL</string>
                               </property>
                               <property name="indicator_option" stdset="0">
                                <bool>false</bool>
@@ -3240,7 +3791,7 @@ Origin</string>
                                <bool>true</bool>
                               </property>
                               <property name="checked_state_text_option" stdset="0">
-                               <bool>false</bool>
+                               <bool>true</bool>
                               </property>
                               <property name="python_command_option" stdset="0">
                                <bool>true</bool>
@@ -3284,10 +3835,12 @@ Origin</string>
                                <double>0.900000000000000</double>
                               </property>
                               <property name="true_state_string" stdset="0">
-                               <string>True</string>
+                               <string> ALL
+HOMED</string>
                               </property>
                               <property name="false_state_string" stdset="0">
-                               <string>False</string>
+                               <string> HOME
+ALL</string>
                               </property>
                               <property name="true_python_cmd_string" stdset="0">
                                <string>print(&quot;true command&quot;)</string>
@@ -3404,29 +3957,10 @@ Origin</string>
                                <number>0</number>
                               </property>
                               <property name="textTemplate" stdset="0">
-                               <string>%1.3f in</string>
+                               <string/>
                               </property>
                               <property name="alt_textTemplate" stdset="0">
                                <string>%1.2f mm</string>
-                              </property>
-                             </widget>
-                            </item>
-                            <item>
-                             <widget class="StateLabel" name="dro_label_metric_imperial">
-                              <property name="alignment">
-                               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                              </property>
-                              <property name="machine_is_metric_status" stdset="0">
-                               <bool>false</bool>
-                              </property>
-                              <property name="metric_mode_status" stdset="0">
-                               <bool>true</bool>
-                              </property>
-                              <property name="true_textTemplate" stdset="0">
-                               <string>METRIC</string>
-                              </property>
-                              <property name="false_textTemplate" stdset="0">
-                               <string>INCH</string>
                               </property>
                              </widget>
                             </item>
@@ -5645,240 +6179,6 @@ STOP</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QWidget" name="widgetJogRate" native="true">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>54</height>
-                         </size>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_jograte">
-                         <property name="spacing">
-                          <number>12</number>
-                         </property>
-                         <property name="sizeConstraint">
-                          <enum>QLayout::SetDefaultConstraint</enum>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QLabel" name="labelJogRate">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>Jog Rate</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                           </property>
-                           <property name="margin">
-                            <number>0</number>
-                           </property>
-                           <property name="indent">
-                            <number>0</number>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="StatusLabel" name="statuslabel_6">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>50</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>100.0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                           </property>
-                           <property name="margin">
-                            <number>-7</number>
-                           </property>
-                           <property name="textTemplate" stdset="0">
-                            <string>%s</string>
-                           </property>
-                           <property name="jograte_status" stdset="0">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="StatusSlider" name="statusSliderJog">
-                           <property name="minimumSize">
-                            <size>
-                             <width>480</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>400</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                           </property>
-                           <property name="rapid_rate" stdset="0">
-                            <bool>false</bool>
-                           </property>
-                           <property name="jograte_rate" stdset="0">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widgetAngularJogRate" native="true">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>54</height>
-                         </size>
-                        </property>
-                        <layout class="QHBoxLayout" name="horizontalLayout_jograte_angular">
-                         <property name="spacing">
-                          <number>12</number>
-                         </property>
-                         <property name="sizeConstraint">
-                          <enum>QLayout::SetDefaultConstraint</enum>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QLabel" name="label_14">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>Angular Jog Rate</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                           </property>
-                           <property name="margin">
-                            <number>0</number>
-                           </property>
-                           <property name="indent">
-                            <number>0</number>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="StatusLabel" name="statuslabel_9">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>50</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>100.0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                           </property>
-                           <property name="margin">
-                            <number>-7</number>
-                           </property>
-                           <property name="textTemplate" stdset="0">
-                            <string>%s</string>
-                           </property>
-                           <property name="jograte_status" stdset="0">
-                            <bool>false</bool>
-                           </property>
-                           <property name="jograte_angular_status" stdset="0">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="StatusSlider" name="statusSliderAngularJog">
-                           <property name="minimumSize">
-                            <size>
-                             <width>480</width>
-                             <height>50</height>
-                            </size>
-                           </property>
-                           <property name="maximumSize">
-                            <size>
-                             <width>400</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                           </property>
-                           <property name="rapid_rate" stdset="0">
-                            <bool>false</bool>
-                           </property>
-                           <property name="jograte_rate" stdset="0">
-                            <bool>false</bool>
-                           </property>
-                           <property name="jograte_angular_rate" stdset="0">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
                        <widget class="QWidget" name="widgetMaxVelocity" native="true">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -6868,18 +7168,34 @@ Power</string>
    </hints>
   </connection>
   <connection>
-   <sender>buttonOptionalStop</sender>
+   <sender>buttonExit</sender>
    <signal>clicked()</signal>
-   <receiver>actionOptionalStop</receiver>
+   <receiver>actionQuit</receiver>
    <slot>trigger()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>706</x>
-     <y>744</y>
+     <x>1891</x>
+     <y>845</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
      <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonClearLog</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clearLog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1854</x>
+     <y>717</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1735</x>
+     <y>-3</y>
     </hint>
    </hints>
   </connection>
@@ -6916,6 +7232,22 @@ Power</string>
    </hints>
   </connection>
   <connection>
+   <sender>buttonOptionalStop</sender>
+   <signal>clicked()</signal>
+   <receiver>actionOptionalStop</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>706</x>
+     <y>744</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>actionButtonReloadFile</sender>
    <signal>clicked()</signal>
    <receiver>actionReload</receiver>
@@ -6928,38 +7260,6 @@ Power</string>
     <hint type="destinationlabel">
      <x>-1</x>
      <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonExit</sender>
-   <signal>clicked()</signal>
-   <receiver>actionQuit</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1891</x>
-     <y>845</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonClearLog</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>clearLog()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1854</x>
-     <y>717</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1735</x>
-     <y>-3</y>
     </hint>
    </hints>
   </connection>

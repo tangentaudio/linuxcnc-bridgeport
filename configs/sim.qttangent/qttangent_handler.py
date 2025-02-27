@@ -421,26 +421,28 @@ class HandlerClass:
 
     # XYZABCUVW 
     def show_joints(self):
-        for i in range(0,9):
-            j = INFO.GET_NAME_FROM_JOINT.get(i)
-            if i in INFO.AVAILABLE_JOINTS:
-                self.w['axisTool_%s'%i].show()
-                self.w['axisTool_%s'%i].setText('J%d'%i)
-                self.w['axisTool_%s'%i].setProperty('joint_number', i)
-                self.w['axisTool_%s'%i].setProperty('axis_letter', j)
-                continue
-            self.w['axisTool_%s'%i].hide()
+        #for i in range(0,9):
+        #    j = INFO.GET_NAME_FROM_JOINT.get(i)
+        #    if i in INFO.AVAILABLE_JOINTS:
+        #        self.w['axisTool_%s'%i].show()
+        #        self.w['axisTool_%s'%i].setText('J%d'%i)
+        #        self.w['axisTool_%s'%i].setProperty('joint_number', i)
+        #        self.w['axisTool_%s'%i].setProperty('axis_letter', j)
+        #        continue
+        #    self.w['axisTool_%s'%i].hide()
+        pass
 
     def show_axes(self):
-        for i in range(0,9):
-            j = INFO.GET_NAME_FROM_JOINT.get(i)
-            if j and len(j) == 1:
-                self.w['axisTool_%s'%i].show()
-                self.w['axisTool_%s'%i].setText('%s'%j)
-                self.w['axisTool_%s'%i].setProperty('joint_number', i)
-                self.w['axisTool_%s'%i].setProperty('axis_letter', j)
-                continue
-            self.w['axisTool_%s'%i].hide()
+        #for i in range(0,9):
+        #    j = INFO.GET_NAME_FROM_JOINT.get(i)
+        #    if j and len(j) == 1:
+        #        self.w['axisTool_%s'%i].show()
+        #        self.w['axisTool_%s'%i].setText('%s'%j)
+        #        self.w['axisTool_%s'%i].setProperty('joint_number', i)
+        #        self.w['axisTool_%s'%i].setProperty('axis_letter', j)
+        #        continue
+        #    self.w['axisTool_%s'%i].hide()
+        pass
     
     def _set_user_system_text(self, w, data):
         convert = { 1:"G54 ", 2:"G55 ", 3:"G56 ", 4:"G57 ", 5:"G58 ", 6:"G59 ", 7:"G59.1 ", 8:"G59.2 ", 9:"G59.3 "}

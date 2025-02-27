@@ -150,6 +150,16 @@ QSlider::handle:horizontal {
     background: #ddd;
 }
 
+#statusSliderJog::handle:horizontal  {
+    border: 2px solid #0000ff;
+    width: 20px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    border-radius: 4px;
+    background: #ddd;
+}
+
+
 QSlider::handle:horizontal:hover {
     background: #eee;
     border: 1px solid #444;
@@ -449,5 +459,129 @@ JogIncrements::item {
 
 JogIncrements::item:selected {
     background-color: orange;
+}
+
+#actionButtonJogXPlus,
+#actionButtonJogXMinus,
+#actionButtonJogYPlus,
+#actionButtonJogYMinus,
+#actionButtonJogZPlus,
+#actionButtonJogZMinus {
+    font: 24pt "Lato Heavy";
+    color: white;
+    border: 3px solid #2277ff;
+}
+
+#actionButtonJogIncr1,
+#actionButtonJogIncr2,
+#actionButtonJogIncr3,
+#actionButtonJogIncr4,
+#actionButtonJogSlow,
+#actionButtonJogMedium,
+#actionButtonJogFast {
+    color: white;
+    border: 3px solid #2277ff;
+}
+
+
+#actionButtonJogXPlus:disabled,
+#actionButtonJogXMinus:disabled,
+#actionButtonJogYPlus:disabled,
+#actionButtonJogYMinus:disabled,
+#actionButtonJogZPlus:disabled,
+#actionButtonJogZMinus:disabled,
+#actionButtonJogIncr1:disabled,
+#actionButtonJogIncr2:disabled,
+#actionButtonJogIncr3:disabled,
+#actionButtonJogIncr4:disabled,
+#actionButtonJogSlow:disabled,
+#actionButtonJogMedium:disabled,
+#actionButtonJogFast:disabled {
+    border: 3px solid #dddddd;
+    color: #cccccc;
+}
+
+#actionButtonJogXPlus:enabled,
+#actionButtonJogXMinus:enabled,
+#actionButtonJogYPlus:enabled,
+#actionButtonJogYMinus:enabled,
+#actionButtonJogZPlus:enabled,
+#actionButtonJogZMinus:enabled,
+#actionButtonJogIncr1:enabled,
+#actionButtonJogIncr2:enabled,
+#actionButtonJogIncr3:enabled,
+#actionButtonJogIncr4:enabled,
+#actionButtonJogSlow:enabled,
+#actionButtonJogMedium:enabled,
+#actionButtonJogFast:enabled {
+    background: #eeeeee;
+    border: 3px solid #2277ff;
+    color: #2277ff;
+}
+
+
+
+#actionButtonJogXPlus:hover,
+#actionButtonJogXMinus:hover,
+#actionButtonJogYPlus:hover,
+#actionButtonJogYMinus:hover,
+#actionButtonJogZPlus:hover,
+#actionButtonJogZMinus:hover,
+#actionButtonJogIncr1:hover,
+#actionButtonJogIncr2:hover,
+#actionButtonJogIncr3:hover,
+#actionButtonJogIncr4:hover,
+#actionButtonJogSlow:hover,
+#actionButtonJogMedium:hover,
+#actionButtonJogFast:hover {
+    background: #4499ff;
+    color: #eeeeee;
+}
+
+#actionButtonJogXPlus:pressed,
+#actionButtonJogXMinus:pressed,
+#actionButtonJogYPlus:pressed,
+#actionButtonJogYMinus:pressed,
+#actionButtonJogZPlus:pressed,
+#actionButtonJogZMinus:pressed,
+#actionButtonJogIncr1:pressed,
+#actionButtonJogIncr2:pressed,
+#actionButtonJogIncr3:pressed,
+#actionButtonJogIncr4:pressed,
+#actionButtonJogSlow:pressed,
+#actionButtonJogMedium:pressed,
+#actionButtonJogFast:pressed {
+    background: #3388ff;
+    color: white;
+}
+
+
+
+#actionButtonJogYPlus {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#actionButtonJogYMinus {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#actionButtonJogXPlus {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#actionButtonJogXMinus {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#actionButtonJogZPlus {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+#actionButtonJogZMinus {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
