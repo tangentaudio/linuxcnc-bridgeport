@@ -19,6 +19,7 @@ _KEYBOARD = 910 585 597 357
 _CALCULATOR = 910 585 662 436
 ToolChooserDialog-geometry = 705 521 698 400
 OperatorValue_Keyboard_Dialog_TOOLCHOOSER = 637 540 779 510
+FileDialog-geometry = 656 392 682 660
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True

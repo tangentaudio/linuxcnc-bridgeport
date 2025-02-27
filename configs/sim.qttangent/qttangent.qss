@@ -42,7 +42,8 @@ QPushButton:pressed {
 }
 
 
-#buttonShutdown {
+#buttonShutdown,
+#buttonQuit {
     border: 2px solid rgba(128,32,32,0.4);
     color: #7f0000;
 }
@@ -341,11 +342,15 @@ DROLabel {
     border: none;
 }
 
+#dro_home_all {
+    border: none;
+}
 
 #dro_home_x[isHomed=true],
 #dro_home_y[isHomed=true],
 #dro_home_z[isHomed=true],
-#dro_home_w[isHomed=true] {
+#dro_home_w[isHomed=true],
+#dro_home_all[isAllHomed=true] {
     color: #aaaaaa;
     background-color: transparent;
 }
@@ -353,7 +358,8 @@ DROLabel {
 #dro_home_x[isHomed=false],
 #dro_home_y[isHomed=false],
 #dro_home_z[isHomed=false],
-#dro_home_w[isHomed=false] {
+#dro_home_w[isHomed=false],
+#dro_home_all[isAllHomed=false]  {
     background-color: #2277ff;
     color: #cccccc;
 }
@@ -362,15 +368,18 @@ DROLabel {
 #dro_home_x:pressed[isHomed=false],
 #dro_home_y:pressed[isHomed=false],
 #dro_home_z:pressed[isHomed=false],
-#dro_home_w:pressed[isHomed=false] {
+#dro_home_w:pressed[isHomed=false],
+#dro_home_all:pressed[isAllHomed=false] {
     background-color: #3388ff;
     color: #cccccc;
 }
 
+
 #dro_home_x:disabled,
 #dro_home_y:disabled,
 #dro_home_z:disabled,
-#dro_home_w:disabled {
+#dro_home_w:disabled,
+#dro_home_all:disabled[isAllHomed=false] {
     background: transparent;
     color: #777777;
 }

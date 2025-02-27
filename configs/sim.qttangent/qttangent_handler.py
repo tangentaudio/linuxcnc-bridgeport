@@ -176,11 +176,14 @@ class HandlerClass:
         self.w.showFullScreen()
 
         message = "QtTangent Version {} on LinuxCNC {}".format(VERSION, STATUS.get_linuxcnc_version())
-        STATUS.emit('update-machine-log', message, None)
+        STATUS.emit('update-machine-log', message, 'TIME')
 
         horizontalHeader = self.w.tableWidgetLog.horizontalHeader()
         horizontalHeader.resizeSection(0, 100)
         horizontalHeader.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
+        verticalHeader = self.w.tableWidgetLog.verticalHeader()
+        verticalHeader.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
 
     def processed_key_event__(self,receiver,event,is_pressed,key,code,shift,cntrl):
@@ -308,31 +311,53 @@ class HandlerClass:
         if not 'Unexpected realtime delay' in text:
             self.w.rightTab.setCurrentWidget(self.w.tabLog)
         
-        self.w.rightTab.tabBar.setTabTextColor(4, QColor(255,0,0))
+        self.w.rightTab.tabBar().setTabTextColor(4, QColor(255,0,0))
 
     def clear_log_error(self, event):
-        self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,0,0))
+        self.w.rightTab.tabBar().setTabTextColor(4, QColor(0,0,0))
 
     def update_machine_log(self, message, option):
         if message:
-            self.w.tableWidgetLog.insertRow(self.w.tableWidgetLog.rowCount())
-
-            d = self.w.tableWidgetLog.item(self.w.tableWidgetLog.rowCount()-1, 0)
-            m = self.w.tableWidgetLog.item(self.w.tableWidgetLog.rowCount()-1, 1)
-
-            if option == 'DATE':
+            if 'DATE' in option:
                 d = QTableWidgetItem(time.strftime("%a, %b %d %Y %X"))
             else:
                 d = QTableWidgetItem(time.strftime("%H:%M:%S"))
-            m = QTableWidgetItem(message)
+            
+            m = QTableWidgetItem(message.strip())
 
+            if 'SUCCESS' in option:
+                m.setForeground(QColor(0, 128, 0))
+                d.setForeground(QColor(0, 128, 0))
+            if 'DEBUG' in option:
+                m.setForeground(QColor(128, 128, 128))
+                d.setForeground(QColor(128, 128, 128))
+            elif 'WARNING' in option:
+                m.setForeground(QColor(255, 255, 255))
+                m.setBackground(QColor(128, 128, 0))
+                d.setForeground(QColor(255, 255, 255))
+                d.setBackground(QColor(128, 128, 0))
+            elif any(level in option for level in ['ERROR', 'CRITICAL']):
+                m.setForeground(QColor(255, 255, 255))
+                m.setBackground(QColor(255, 0, 0))
+                d.setForeground(QColor(255, 255, 255))
+                d.setBackground(QColor(255, 0, 0))
+                if self.w.rightTab.currentWidget() != self.w.tabLog:
+                    self.w.rightTab.tabBar().setTabTextColor(4, QColor(255,0,0))
+
+                if not 'Unexpected realtime delay' in message:
+                    self.w.rightTab.setCurrentWidget(self.w.tabLog)
+
+            else:
+                if self.w.rightTab.currentWidget() != self.w.tabLog:
+                    self.w.rightTab.tabBar().setTabTextColor(4, QColor(0,128,128))
+
+
+            self.w.tableWidgetLog.insertRow(self.w.tableWidgetLog.rowCount())
             self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 0, d)
             self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 1, m)
+            #self.w.tableWidgetLog.resizeRowToContents(self.w.tableWidgetLog.rowCount()-1)
             self.w.tableWidgetLog.scrollToBottom()
-            self.w.tableWidgetLog.resizeRowsToContents()
 
-            if self.w.rightTab.currentWidget() != self.w.tabLog:
-                self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,128, 128))
 
         
 
@@ -354,6 +379,11 @@ class HandlerClass:
 
     def deleteTools(self, event):
         self.w.toolOffsetView.delete_tools()
+
+    def clearLog(self, event):
+        self.w.tableWidgetLog.clearContents()
+        self.w.tableWidgetLog.setRowCount(0)
+        STATUS.emit('update-machine-log', 'Log cleared.', 'TIME')
 
 
     def leftTabChanged(self, num):
@@ -487,7 +517,7 @@ class HandlerClass:
             STATUS.emit('update-machine-log', 'Loaded: ' + fname, 'TIME')
             
             # jump to preview tab
-            self.w.rightTab.setCurrentWidget(self.w.tabPreview)
+            #self.w.rightTab.setCurrentWidget(self.w.tabPreview)
             # jump to gcode tab
             self.w.leftTab.setCurrentWidget(self.w.tabGCode)
 
