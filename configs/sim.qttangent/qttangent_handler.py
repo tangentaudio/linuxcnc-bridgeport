@@ -176,14 +176,8 @@ class HandlerClass:
         self.w.showFullScreen()
 
         message = "QtTangent Version {} on LinuxCNC {}".format(VERSION, STATUS.get_linuxcnc_version())
-        STATUS.emit('update-machine-log', message, 'TIME')
+        STATUS.emit('update-machine-log', message, 'TIME,INFO')
 
-        horizontalHeader = self.w.tableWidgetLog.horizontalHeader()
-        horizontalHeader.resizeSection(0, 100)
-        horizontalHeader.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
-
-        verticalHeader = self.w.tableWidgetLog.verticalHeader()
-        verticalHeader.setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
 
     def processed_key_event__(self,receiver,event,is_pressed,key,code,shift,cntrl):
@@ -299,7 +293,7 @@ class HandlerClass:
         self.w.statusbar.showMessage(mess)
 
         if log:
-            STATUS.emit('update-machine-log', "{}\n{}".format(title, logtext), 'TIME')
+            STATUS.emit('update-machine-log', "{}\n{}".format(title, logtext), 'TIME,INFO')
 
     def handle_command_stopped(self):
         if self.isManualToolChange:
@@ -318,46 +312,15 @@ class HandlerClass:
 
     def update_machine_log(self, message, option):
         if message:
-            if 'DATE' in option:
-                d = QTableWidgetItem(time.strftime("%a, %b %d %Y %X"))
-            else:
-                d = QTableWidgetItem(time.strftime("%H:%M:%S"))
-            
-            m = QTableWidgetItem(message.strip())
-
-            if 'SUCCESS' in option:
-                m.setForeground(QColor(0, 128, 0))
-                d.setForeground(QColor(0, 128, 0))
-            if 'DEBUG' in option:
-                m.setForeground(QColor(128, 128, 128))
-                d.setForeground(QColor(128, 128, 128))
-            elif 'WARNING' in option:
-                m.setForeground(QColor(255, 255, 255))
-                m.setBackground(QColor(128, 128, 0))
-                d.setForeground(QColor(255, 255, 255))
-                d.setBackground(QColor(128, 128, 0))
-            elif any(level in option for level in ['ERROR', 'CRITICAL']):
-                m.setForeground(QColor(255, 255, 255))
-                m.setBackground(QColor(255, 0, 0))
-                d.setForeground(QColor(255, 255, 255))
-                d.setBackground(QColor(255, 0, 0))
+            if any(level in option for level in ['ERROR', 'CRITICAL']):
                 if self.w.rightTab.currentWidget() != self.w.tabLog:
                     self.w.rightTab.tabBar().setTabTextColor(4, QColor(255,0,0))
 
                 if not 'Unexpected realtime delay' in message:
                     self.w.rightTab.setCurrentWidget(self.w.tabLog)
-
             else:
                 if self.w.rightTab.currentWidget() != self.w.tabLog:
                     self.w.rightTab.tabBar().setTabTextColor(4, QColor(0,128,128))
-
-
-            self.w.tableWidgetLog.insertRow(self.w.tableWidgetLog.rowCount())
-            self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 0, d)
-            self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 1, m)
-            #self.w.tableWidgetLog.resizeRowToContents(self.w.tableWidgetLog.rowCount()-1)
-            self.w.tableWidgetLog.scrollToBottom()
-
 
         
 
@@ -381,9 +344,8 @@ class HandlerClass:
         self.w.toolOffsetView.delete_tools()
 
     def clearLog(self, event):
-        self.w.tableWidgetLog.clearContents()
-        self.w.tableWidgetLog.setRowCount(0)
-        STATUS.emit('update-machine-log', 'Log cleared.', 'TIME')
+        self.w.machineLog.clear()
+        STATUS.emit('update-machine-log', 'Log cleared.', 'TIME,INFO')
 
 
     def leftTabChanged(self, num):
@@ -514,7 +476,7 @@ class HandlerClass:
                 return
             print(fname)
             ACTION.OPEN_PROGRAM(fname)
-            STATUS.emit('update-machine-log', 'Loaded: ' + fname, 'TIME')
+            STATUS.emit('update-machine-log', 'Loaded: ' + fname, 'TIME,SUCCESS')
             
             # jump to preview tab
             #self.w.rightTab.setCurrentWidget(self.w.tabPreview)
