@@ -3626,27 +3626,62 @@ Selected Tool</string>
                      <attribute name="title">
                       <string>Machine Log</string>
                      </attribute>
-                     <layout class="QVBoxLayout" name="verticalLayout_11">
-                      <property name="leftMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>9</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>9</number>
-                      </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_22">
                       <item>
-                       <widget class="MachineLog" name="machinelog">
-                        <property name="machine_log_option" stdset="0">
-                         <bool>true</bool>
+                       <widget class="QTableWidget" name="tableWidgetLog">
+                        <property name="frameShape">
+                         <enum>QFrame::NoFrame</enum>
                         </property>
-                        <property name="integrator_log_option" stdset="0">
+                        <property name="horizontalScrollBarPolicy">
+                         <enum>Qt::ScrollBarAlwaysOff</enum>
+                        </property>
+                        <property name="editTriggers">
+                         <set>QAbstractItemView::NoEditTriggers</set>
+                        </property>
+                        <property name="tabKeyNavigation">
                          <bool>false</bool>
                         </property>
+                        <property name="showDropIndicator" stdset="0">
+                         <bool>false</bool>
+                        </property>
+                        <property name="dragDropOverwriteMode">
+                         <bool>false</bool>
+                        </property>
+                        <property name="alternatingRowColors">
+                         <bool>true</bool>
+                        </property>
+                        <property name="selectionMode">
+                         <enum>QAbstractItemView::NoSelection</enum>
+                        </property>
+                        <property name="selectionBehavior">
+                         <enum>QAbstractItemView::SelectRows</enum>
+                        </property>
+                        <property name="showGrid">
+                         <bool>true</bool>
+                        </property>
+                        <property name="gridStyle">
+                         <enum>Qt::NoPen</enum>
+                        </property>
+                        <property name="cornerButtonEnabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="columnCount">
+                         <number>2</number>
+                        </property>
+                        <attribute name="horizontalHeaderVisible">
+                         <bool>false</bool>
+                        </attribute>
+                        <attribute name="horizontalHeaderHighlightSections">
+                         <bool>false</bool>
+                        </attribute>
+                        <attribute name="verticalHeaderVisible">
+                         <bool>false</bool>
+                        </attribute>
+                        <attribute name="verticalHeaderHighlightSections">
+                         <bool>false</bool>
+                        </attribute>
+                        <column/>
+                        <column/>
                        </widget>
                       </item>
                      </layout>
@@ -3981,8 +4016,7 @@ Selected Tool</string>
                                   </size>
                                  </property>
                                  <property name="text">
-                                  <string>M3 S&lt;#&gt;
-SPINDLE FWD</string>
+                                  <string>SPINDLE FWD</string>
                                  </property>
                                  <property name="flat">
                                   <bool>false</bool>
@@ -4405,8 +4439,7 @@ STOP</string>
                                 </size>
                                </property>
                                <property name="text">
-                                <string>M6 T&lt;#&gt;G43 H&lt;#&gt;
-LOAD TOOL</string>
+                                <string>LOAD TOOL</string>
                                </property>
                               </widget>
                              </item>
@@ -4425,7 +4458,7 @@ LOAD TOOL</string>
                                 </size>
                                </property>
                                <property name="placeholderText">
-                                <string>TOOL</string>
+                                <string>TOOL#</string>
                                </property>
                                <property name="issue_mdi_on_submit_option" stdset="0">
                                 <bool>false</bool>
@@ -4522,7 +4555,7 @@ LOAD TOOL</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLabel" name="label_6">
+                          <widget class="QLabel" name="labelFeedOverrid">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -4639,7 +4672,7 @@ LOAD TOOL</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLabel" name="label_8">
+                          <widget class="QLabel" name="labelRapidOverride">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -4747,7 +4780,7 @@ LOAD TOOL</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLabel" name="label_9">
+                          <widget class="QLabel" name="labelSpindleOverride">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -4861,7 +4894,7 @@ LOAD TOOL</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLabel" name="label_10">
+                          <widget class="QLabel" name="labelJogRate">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -5095,7 +5128,7 @@ LOAD TOOL</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QLabel" name="label_11">
+                          <widget class="QLabel" name="labelMaxVelocity">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -5216,7 +5249,7 @@ LOAD TOOL</string>
                           </size>
                          </property>
                          <property name="text">
-                          <string></string>
+                          <string>E-STOP</string>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5237,7 +5270,7 @@ LOAD TOOL</string>
                           <bool>true</bool>
                          </property>
                          <property name="on_color" stdset="0">
-                          <color alpha="128">
+                          <color>
                            <red>255</red>
                            <green>0</green>
                            <blue>0</blue>
@@ -5247,10 +5280,10 @@ LOAD TOOL</string>
                           <number>2</number>
                          </property>
                          <property name="off_color" stdset="0">
-                          <color alpha="0">
-                           <red>255</red>
-                           <green>255</green>
-                           <blue>255</blue>
+                          <color>
+                           <red>0</red>
+                           <green>0</green>
+                           <blue>0</blue>
                           </color>
                          </property>
                          <property name="flashIndicator" stdset="0">
@@ -5260,19 +5293,19 @@ LOAD TOOL</string>
                           <number>1000</number>
                          </property>
                          <property name="right_edge_offset" stdset="0">
-                          <number>-1</number>
+                          <number>0</number>
                          </property>
                          <property name="top_edge_offset" stdset="0">
-                          <number>-1</number>
+                          <number>0</number>
                          </property>
                          <property name="corner_radius" stdset="0">
                           <double>0.000000000000000</double>
                          </property>
                          <property name="height_fraction" stdset="0">
-                          <double>10.000000000000000</double>
+                          <double>0.100000000000000</double>
                          </property>
                          <property name="width_fraction" stdset="0">
-                          <double>1.000000000000000</double>
+                          <double>0.500000000000000</double>
                          </property>
                          <property name="is_estopped_status" stdset="0">
                           <bool>true</bool>
@@ -5291,7 +5324,8 @@ LOAD TOOL</string>
                           </size>
                          </property>
                          <property name="text">
-                          <string></string>
+                          <string>Servo
+Power</string>
                          </property>
                          <property name="indicator_option" stdset="0">
                           <bool>true</bool>
@@ -5335,7 +5369,7 @@ LOAD TOOL</string>
                           </size>
                          </property>
                          <property name="text">
-                          <string>Exit</string>
+                          <string>Shutdown</string>
                          </property>
                         </widget>
                        </item>
@@ -5348,13 +5382,178 @@ LOAD TOOL</string>
                           </size>
                          </property>
                          <property name="text">
-                          <string> </string>
+                          <string>Home
+All</string>
+                         </property>
+                         <property name="indicator_option" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="indicator_HAL_pin_option" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="indicator_status_option" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="checked_state_text_option" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="python_command_option" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="on_color" stdset="0">
+                          <color>
+                           <red>255</red>
+                           <green>0</green>
+                           <blue>0</blue>
+                          </color>
+                         </property>
+                         <property name="shape_option" stdset="0">
+                          <number>0</number>
+                         </property>
+                         <property name="off_color" stdset="0">
+                          <color>
+                           <red>0</red>
+                           <green>0</green>
+                           <blue>0</blue>
+                          </color>
+                         </property>
+                         <property name="indicator_size" stdset="0">
+                          <double>0.300000000000000</double>
+                         </property>
+                         <property name="circle_diameter" stdset="0">
+                          <number>10</number>
+                         </property>
+                         <property name="right_edge_offset" stdset="0">
+                          <number>0</number>
+                         </property>
+                         <property name="top_edge_offset" stdset="0">
+                          <number>0</number>
+                         </property>
+                         <property name="corner_radius" stdset="0">
+                          <double>5.000000000000000</double>
+                         </property>
+                         <property name="height_fraction" stdset="0">
+                          <double>0.300000000000000</double>
+                         </property>
+                         <property name="width_fraction" stdset="0">
+                          <double>0.900000000000000</double>
+                         </property>
+                         <property name="true_state_string" stdset="0">
+                          <string>True</string>
+                         </property>
+                         <property name="false_state_string" stdset="0">
+                          <string>False</string>
+                         </property>
+                         <property name="true_python_cmd_string" stdset="0">
+                          <string>print(&quot;true command&quot;)</string>
+                         </property>
+                         <property name="false_python_cmd_string" stdset="0">
+                          <string>print(&quot;false command&quot;)</string>
+                         </property>
+                         <property name="invert_the_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_paused_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_estopped_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_on_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_idle_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_homed_status" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="is_flood_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_mist_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_block_delete_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_optional_stop_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_joint_homed_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_limits_overridden_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_manual_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_mdi_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_auto_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_spindle_stopped_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_spindle_fwd_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="is_spindle_rev_status" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="joint_number_status" stdset="0">
+                          <number>0</number>
+                         </property>
+                         <property name="isAllHomedSensitive" stdset="0">
+                          <bool>false</bool>
                          </property>
                          <property name="home_action" stdset="0">
                           <bool>true</bool>
                          </property>
                          <property name="unhome_action" stdset="0">
                           <bool>false</bool>
+                         </property>
+                         <property name="template_label_option" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="joint_number" stdset="0">
+                          <number>-1</number>
+                         </property>
+                         <property name="incr_imperial_number" stdset="0">
+                          <double>0.010000000000000</double>
+                         </property>
+                         <property name="incr_mm_number" stdset="0">
+                          <double>0.025000000000000</double>
+                         </property>
+                         <property name="incr_angular_number" stdset="0">
+                          <double>-1.000000000000000</double>
+                         </property>
+                         <property name="toggle_float_option" stdset="0">
+                          <bool>false</bool>
+                         </property>
+                         <property name="float_num" stdset="0">
+                          <double>0.300000000000000</double>
+                         </property>
+                         <property name="float_alt_num" stdset="0">
+                          <double>50.000000000000000</double>
+                         </property>
+                         <property name="view_type_string" stdset="0">
+                          <string>P</string>
+                         </property>
+                         <property name="command_text_string" stdset="0">
+                          <string/>
+                         </property>
+                         <property name="ini_mdi_number" stdset="0">
+                          <number>0</number>
+                         </property>
+                         <property name="textTemplate" stdset="0">
+                          <string>%1.3f in</string>
+                         </property>
+                         <property name="alt_textTemplate" stdset="0">
+                          <string>%1.2f mm</string>
                          </property>
                         </widget>
                        </item>
@@ -6227,11 +6426,6 @@ LOAD TOOL</string>
    <class>FileManager</class>
    <extends>QWidget</extends>
    <header>qtvcp.widgets.file_manager</header>
-  </customwidget>
-  <customwidget>
-   <class>MachineLog</class>
-   <extends>QTextEdit</extends>
-   <header>qtvcp.widgets.machine_log</header>
   </customwidget>
   <customwidget>
    <class>DetachTabWidget</class>

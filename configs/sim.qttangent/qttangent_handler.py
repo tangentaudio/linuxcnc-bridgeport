@@ -3,10 +3,12 @@
 ############################
 import sys
 import os
+import time
 import linuxcnc
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import QTableWidgetItem
 
 from qtvcp.widgets.mdi_line import MDILine as MDI_WIDGET
 from qtvcp.widgets.mdi_history import MDIHistory as MDI_HISTORY
@@ -78,6 +80,8 @@ class HandlerClass:
         #STATUS.connect('tool-offset-deleted', lambda w, d: self.w.toolOffsetView.delete_tool(d))
         #STATUS.connect('tool-offsets-deleted', lambda w, d: self.w.toolOffsetView.delete_tools())
         #STATUS.connect('tool-offsets-added', lambda w, d: self.w.toolOffsetView.add_tool())
+
+        STATUS.connect('update-machine-log', lambda w, d, o: self.update_machine_log(d, o))
 
     ##########################################      
     # Special Functions called from QTSCREEN
@@ -171,8 +175,13 @@ class HandlerClass:
         self.w.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowStaysOnTopHint | QtCore.Qt.FramelessWindowHint)
         self.w.showFullScreen()
 
-        message = "--- QtTangent Version {} on LinuxCNC {} ---".format(VERSION, STATUS.get_linuxcnc_version())
+        message = "QtTangent Version {} on LinuxCNC {}".format(VERSION, STATUS.get_linuxcnc_version())
         STATUS.emit('update-machine-log', message, None)
+
+        horizontalHeader = self.w.tableWidgetLog.horizontalHeader()
+        horizontalHeader.resizeSection(0, 100)
+        horizontalHeader.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
 
     def processed_key_event__(self,receiver,event,is_pressed,key,code,shift,cntrl):
         # when typing in MDI, we don't want keybinding to call functions
@@ -289,21 +298,43 @@ class HandlerClass:
         if log:
             STATUS.emit('update-machine-log', "{}\n{}".format(title, logtext), 'TIME')
 
-    def handle_error(self, w, kind, text):
-        if not 'Unexpected realtime delay' in text:
-            self.w.rightTab.setCurrentWidget(self.w.tabLog)
-        
-        self.w.rightTab.tabBar.setTabTextColor(4, QColor(255,0,0))
-
     def handle_command_stopped(self):
         if self.isManualToolChange:
             print("MANUAL TOOL HAS BEEN CHANGED")
             self.isManualToolChange = False
             ACTION.SET_MANUAL_MODE()
 
+    def handle_error(self, w, kind, text):
+        if not 'Unexpected realtime delay' in text:
+            self.w.rightTab.setCurrentWidget(self.w.tabLog)
+        
+        self.w.rightTab.tabBar.setTabTextColor(4, QColor(255,0,0))
+
     def clear_log_error(self, event):
         self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,0,0))
 
+    def update_machine_log(self, message, option):
+        if message:
+            self.w.tableWidgetLog.insertRow(self.w.tableWidgetLog.rowCount())
+
+            d = self.w.tableWidgetLog.item(self.w.tableWidgetLog.rowCount()-1, 0)
+            m = self.w.tableWidgetLog.item(self.w.tableWidgetLog.rowCount()-1, 1)
+
+            if option == 'DATE':
+                d = QTableWidgetItem(time.strftime("%a, %b %d %Y %X"))
+            else:
+                d = QTableWidgetItem(time.strftime("%H:%M:%S"))
+            m = QTableWidgetItem(message)
+
+            self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 0, d)
+            self.w.tableWidgetLog.setItem(self.w.tableWidgetLog.rowCount()-1, 1, m)
+            self.w.tableWidgetLog.scrollToBottom()
+            self.w.tableWidgetLog.resizeRowsToContents()
+
+            if self.w.rightTab.currentWidget() != self.w.tabLog:
+                self.w.rightTab.tabBar.setTabTextColor(4, QColor(0,128, 128))
+
+        
 
     #######################
     # callbacks from form #

@@ -42,6 +42,11 @@ QPushButton:pressed {
 }
 
 
+#buttonShutdown {
+    border: 2px solid rgba(128,32,32,0.4);
+    color: #7f0000;
+}
+
 QToolButton QMenu {
     font-size: 24pt;
 }
@@ -104,19 +109,8 @@ QToolButton QMenu:hover {
 }
 
 
-#actionButtonEStop {
-    font: 18pt "FontAwesome";
-    color: red;
-}
-
-#actionButtonMachinePower {
-    font: 18pt "FontAwesome";
-    color: black;
-}
-
 #actionButtonHomeAll {
-    font: 18pt "FontAwesome";
-    color: black;
+    border-color: #2277ff;
 }
 
 #actionButtonSpindleSlower,
