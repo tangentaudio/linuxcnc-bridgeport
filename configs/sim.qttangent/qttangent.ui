@@ -4910,6 +4910,9 @@ Selected Tool</string>
                                  <property name="issue_mdi_on_submit_option" stdset="0">
                                   <bool>false</bool>
                                  </property>
+                                 <property name="issue_mdi_on_return_option" stdset="0">
+                                  <bool>true</bool>
+                                 </property>
                                  <property name="mdi_command_format_option" stdset="0">
                                   <string>M3 S{value}</string>
                                  </property>
@@ -7263,6 +7266,22 @@ Power</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>buttonExit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>handleShutdown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1820</x>
+     <y>815</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1832</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>tool_offset_clicked()</slot>
@@ -7276,5 +7295,6 @@ Power</string>
   <slot>deleteTools()</slot>
   <slot>toggleEditGCode()</slot>
   <slot>clearLog()</slot>
+  <slot>handleShutdown()</slot>
  </slots>
 </ui>
