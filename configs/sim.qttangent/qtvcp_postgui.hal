@@ -14,7 +14,3 @@ net tool-change hal_manualtoolchange.change iocontrol.0.tool-change
 net tool-changed hal_manualtoolchange.changed iocontrol.0.tool-changed
 net tool-prep-number hal_manualtoolchange.number iocontrol.0.tool-prep-number
 
-#loadusr -W /home/steve/devel/pico-cnc-hmi/test/hmi_test.py
-#net mpg-connection qttangent.mpg-in hmi_test.knob.0.value
-#net toolchange-connection hal_manualtoolchange.change_button hmi_test.knob.0.button
-#setp qttangent.mpg-enable 1

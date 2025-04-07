@@ -5,6 +5,7 @@ ToolChangeDialog-geometry = 810 420 300 241
 basicProbeHelpDialog-geometry = default
 OperatorValue_Keyboard_Dialog_CALCULATOR = 712 331 588 419
 OperatorValue_Keyboard_Dialog_TOOLCHOOSER = 460 140 1000 800
+CalculatorDialog-geometry = 910 528 588 409
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = False
